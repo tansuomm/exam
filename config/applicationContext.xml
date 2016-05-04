@@ -84,19 +84,19 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="mappingResources">
         	<list>
-        		<value>org/yohta/vo/Clerk.hbm.xml</value>
-        		<value>org/yohta/vo/ClerkCl.hbm.xml</value>
-        		<value>org/yohta/vo/ClerkGdksTm.hbm.xml</value>
-        		<value>org/yohta/vo/ClerkKscj.hbm.xml</value>
-        		<value>org/yohta/vo/Tk.hbm.xml</value>
-        		<value>org/yohta/vo/Tkj.hbm.xml</value>
-        		<value>org/yohta/vo/Tm.hbm.xml</value>
-        		<value>org/yohta/vo/Organ.hbm.xml</value>
-        		<value>org/yohta/vo/TkCl.hbm.xml</value>
-        		<value>org/yohta/vo/TkClNdzsd.hbm.xml</value>
-        		<value>org/yohta/vo/TkClSort.hbm.xml</value>
-        		<value>org/yohta/vo/TkClTx.hbm.xml</value>
-        		<value>org/yohta/vo/Gdsj.hbm.xml</value>
+        		<value>hbm/Clerk.hbm.xml</value>
+        		<value>hbm/ClerkCl.hbm.xml</value>
+        		<value>hbm/ClerkGdksTm.hbm.xml</value>
+        		<value>hbm/ClerkKscj.hbm.xml</value>
+        		<value>hbm/Tk.hbm.xml</value>
+        		<value>hbm/Tkj.hbm.xml</value>
+        		<value>hbm/Tm.hbm.xml</value>
+        		<value>hbm/Organ.hbm.xml</value>
+        		<value>hbm/TkCl.hbm.xml</value>
+        		<value>hbm/TkClNdzsd.hbm.xml</value>
+        		<value>hbm/TkClSort.hbm.xml</value>
+        		<value>hbm/TkClTx.hbm.xml</value>
+        		<value>hbm/Gdsj.hbm.xml</value>
         	</list>
         </property>
         <property name="hibernateProperties">
