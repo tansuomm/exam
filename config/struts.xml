@@ -5,42 +5,43 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<constant name="struts.objectFactory.spring.autoWire" value="name"></constant>
-    <package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="struts-default">
 
-       <default-action-ref name="index" />
+		<default-action-ref name="index" />
 
-       <global-results>
-            <result name="error">/WEB-INF/jsp/error.jsp</result>
-        </global-results>
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
 
-        <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception" result="error"/>
-        </global-exception-mappings>
-        <action name="index">
-        	<result>/WEB-INF/jsp/index.jsp</result>
-        </action>
-         
-     	 <action name="*_*" class="{1}Action" method="{2}">
-            <result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
-            <result name="add" type="redirect">/{1}_list</result>
-            <result name="updatePre">/WEB-INF/jsp/{1}/update.jsp</result>
-            <result name="update" type="redirect">/{1}_list</result>
-            <result name="delete" type="redirect">/{1}_list</result>
-            <result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
-        </action>
-   
-    </package>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		<action name="index">
+			<result>/WEB-INF/jsp/index.jsp</result>
+		</action>
+
+		<action name="*_*" class="{1}Action" method="{2}">
+			<result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
+			<result name="add" type="redirect">/{1}_list</result>
+			<result name="updatePre">/WEB-INF/jsp/{1}/update.jsp</result>
+			<result name="update" type="redirect">/{1}_list</result>
+			<result name="delete" type="redirect">/{1}_list</result>
+			<result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
+		</action>
+
+	</package>
 	<package name="login" extends="struts-default" namespace="/">
 		<action name="loginPre" method="loginPre" class="clerkAction">
 			<result name="loginPre">/WEB-INF/jsp/clerk/login.jsp</result>
 		</action>
-		<action name ="login" method="login" class="clerkAction">
+		<action name="login" method="login" class="clerkAction">
 		</action>
 	</package>
-    
+
 
 </struts>
