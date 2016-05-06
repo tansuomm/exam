@@ -36,10 +36,12 @@
 
 	</package>
     <package name="login" extends="struts-default" namespace="/">
-		<action name="loginPre" method="loginPre" class="clerkAction">
+		<action name="loginPre" method="loginPre" class="userAction">
 			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
 		</action>
-		<action name="login" method="login" class="clerkAction">
+		<action name="login" method="login" class="userAction">
+			<result name="login">/WEB-INF/jsp/index.jsp</result>
+			<result name="input" type="redirect">/loginPre</result>
 		</action>
 	</package> 
 

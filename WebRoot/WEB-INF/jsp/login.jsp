@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body class="loginbody">
-	<form name="form1" method="post" action="login.aspx" id="form1">
+	<form name="form1" method="post" action="login" id="form1">
 		<div>
 			<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
 				value="/wEPDwUKLTkwMDUzNjM2N2QYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFDGNiUmVtZW1iZXJJZD2SF5g1hwquguGQda2iMgPcg5fD" />
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dl>
 						<dt>登录账号：</dt>
 						<dd>
-							<input name="txtUserName" type="text" value="admin"
+							<input name="userName" type="text" value="admin"
 								id="txtUserName" class="login_input required"
 								style="width: 130px;" />
 						</dd>
@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dl>
 						<dt>登录密码：</dt>
 						<dd>
-							<input name="txtUserPwd" type="password" id="txtUserPwd"
+							<input name="userPwd" type="password" id="txtUserPwd"
 								class="login_input required" style="width: 130px;" />
 						</dd>
 					</dl>

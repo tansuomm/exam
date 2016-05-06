@@ -8,6 +8,13 @@
         http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+    <!-- 管理员 -->
+    <bean id="userAction" class="org.yohta.action.UserAction" scope="prototype">
+    	<property name="userDao" ref="userDao"></property>
+    </bean>
+    <bean id="userDao" class="org.yohta.dao.impl.UserDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 	<!-- 考生 -->
 	<bean id="clerkAction" class="org.yohta.action.ClerkAction" scope="prototype">
 		<property name="clerkDao" ref="clerkDao"></property>
@@ -31,7 +38,7 @@
 	<bean id="clerkClDao" class="org.yohta.dao.impl.ClerkClDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	
 	<!-- 题目 -->
 	<bean id="tmAction" class="org.yohta.action.TmAction" scope="prototype">
 		<property name="tmService" ref="tmService"></property>
@@ -98,6 +105,9 @@
 				<value>hbm/TkClSort.hbm.xml</value>
 				<value>hbm/TkClTx.hbm.xml</value>
 				<value>hbm/Gdsj.hbm.xml</value>
+				<value>hbm/Right.hbm.xml</value>
+				<value>hbm/User.hbm.xml</value>
+				<value>hbm/UserRight.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
