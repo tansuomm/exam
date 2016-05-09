@@ -44,7 +44,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		HttpSession session = ServletActionContext.getRequest().getSession(true);
 		session.setAttribute("img", verifyCode);
 		// 生成图片
-		int w = 88, h = 38;
+		int w = 88, h = 22;
 		VerifyCodeUtils.outputImage(w, h, ServletActionContext.getResponse().getOutputStream(), verifyCode);
 		return null;
 	}

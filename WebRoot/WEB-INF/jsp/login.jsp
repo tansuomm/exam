@@ -10,26 +10,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>管理员登录</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 
-<script type="text/javascript"
-	src="<%=path%>/html/scripts/jquery/jquery-1.3.2.min.js"></script>
-
+<link href="<%=path %>/html/css/loginstyle.css" rel="stylesheet" type="text/css" />
+<script src="<%=path %>/html/scripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 </head>
 <body>
-<form action="login" method="post" onsubmit="return valid()">
-	<input  type="text" name="userName" id="txtUserName"/>
-	<input  type="password" name="userPwd" id="txtUserPwd"/>
-           
-    <input type="text" class="yzm" value="" name="imgCode" id="imgCode"/>
-    <img id="img1"  alt="换一张" src="user_imgCode"/>
-	<input id ="isImg" type="hidden" value="fail"/>
-                       
-                   
-	<input  type="submit"	id="btn" value="登录"/><span id="uspan"></span>
-</form>
-
+<div id="login">
+  <div class="login">
+  <form id="login-form" action="login" method="post" onsubmit="return valid()">
+    <div class="login-left">
+    <table>
+      <tbody>
+        <tr>
+          <td>账号：</td>
+          <td><input type="text" id="txtUserName" name="userName" /></td>
+        </tr>
+        <tr>
+          <td>密码：</td>
+          <td><input  type="password" name="userPwd" id="txtUserPwd"/></td>
+        </tr>
+        <tr>
+          <td>验证：</td>
+          <td><input type="text" class="yzm" value="" name="imgCode" id="imgCode"/> <img id="img1"  alt="换一张" src="user_imgCode"/></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="login-right">
+    <input id="login-btn" type="submit" value="" />
+    </div>
+    <input id ="isImg" type="hidden" value="fail" /> 
+    </form>
+  </div>
+</div>
 </body>
-
-<script type="text/javascript"> 
+<script type="text/javascript">
+// JavaScript Document
 	$.noConflict();
     //更换验证码
 	jQuery("#img1").click(function(){
@@ -52,12 +67,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 	/* 提交判断 */	
  	function valid(){
-		if(jQuery("#txtUserName")==""){
+		
+		if(jQuery("#txtUserName").val()==""){
 			/* jQuery("#span2").html("用户名不能为空"); */
 			alert("用户名不能为空");
 			return false;
 		}
-		if(jQuery("#txtUserPwd")==""){
+		if(jQuery("#txtUserPwd").val()==""){
 			/* jQuery("#span3").html("密码不能为空"); */
 			alert("密码不能为空");
 			return false;

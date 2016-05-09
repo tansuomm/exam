@@ -50,9 +50,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div title="题目管理" iconcss="menu-icon-plugins">
 					<ul id="global_plugins" class="nlist">
 						<li><a class="l-link"
-							href="javascript:f_addTab('tkj','题库集管理','####')">题库集管理</a></li>
+							href="javascript:f_addTab('tkj','题库集管理','tkj_list')">题库集管理</a></li>
 						<li><a class="l-link"
-							href="javascript:f_addTab('tk','题库管理','####')">题库管理</a></li>
+							href="javascript:f_addTab('tk','题库管理','tk_list')">题库管理</a></li>
 						<li><a class="l-link"
 							href="javascript:f_addTab('tm','题目管理','tm_list')">题目管理</a></li>
 					</ul>
@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div position="center" id="framecenter" toolsid="tab-tools-nav">
 				<div tabid="home" title="管理中心" iconcss="tab-icon-home"
 					style="height: 300px">
-					<iframe frameborder="0" name="sysMain" src="center.html"></iframe>
+					<iframe frameborder="0" name="sysMain" src="html/Admin/center.html"></iframe>
 				</div>
 			</div>
 			<div position="bottom" class="footer">

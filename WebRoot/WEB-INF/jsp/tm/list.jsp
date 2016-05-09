@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</table>
 
 		<div class="line10"></div>
-		<%@include file="/WEB-INF/jsp/pageTab.jsp" %>
+		<%@include file="/WEB-INF/jsp/include/pageTab.jsp" %>
 	</form>
 </body>
 </html>
