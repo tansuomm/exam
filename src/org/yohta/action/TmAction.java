@@ -3,10 +3,8 @@ package org.yohta.action;
 import org.yohta.service.IExamTmService;
 import org.yohta.vo.Tm;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 @SuppressWarnings("serial")
-public class TmAction extends ActionSupport {
+public class TmAction extends PageResultAction {
 	private Tm tm;
 	private IExamTmService tmService;
 	public void setTmService(IExamTmService tmService) {
@@ -58,10 +56,17 @@ public class TmAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String list() throws Exception{
+/*	public String list() throws Exception{
 		return tmService.list();
+	}*/
+	/**
+	 * 分页列表，pageResult优化为父action并继承可省略此类中的setter和getter。
+	 * @return
+	 * @throws Exception
+	 */
+	public String list() throws Exception{
+		return tmService.queryByPage(pageResult);
 	}
-	
 	
 	public Tm getTm() {
 		return tm;

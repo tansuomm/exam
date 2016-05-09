@@ -12,21 +12,21 @@ request.setAttribute("currentTime", currentTime);
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1"><link href="<%=path%>/App_Themes/Default_Admin/public.css" type="text/css" rel="stylesheet" /><title>
+<head id="Head1"><link href="<%=path%>/html/App_Themes/Default_Admin/public.css" type="text/css" rel="stylesheet" /><title>
 	网上考试试卷
 </title>	
-	<script language="javascript" type="text/javascript" src="<%=path%>/App_JavaScript/jquery-1.3.2.min.js"></script>
-    <script language="javascript" type="text/javascript" src="<%=path%>/App_JavaScript/Admin/main.js"></script>
+	<script language="javascript" type="text/javascript" src="<%=path%>/html/App_JavaScript/jquery-1.3.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="<%=path%>/html/App_JavaScript/Admin/main.js"></script>
 
-    <link href="<%=path%>/App_Css/Admin/ExamManage/openWindow.css" rel="stylesheet" type="text/css" />
-	<link href="<%=path%>/App_Css/Admin/ExamManage/window/window_TestPaper_add.css" rel="stylesheet" type="text/css" />
+    <link href="<%=path%>/html/App_Css/Admin/ExamManage/openWindow.css" rel="stylesheet" type="text/css" />
+	<link href="<%=path%>/html/App_Css/Admin/ExamManage/window/window_TestPaper_add.css" rel="stylesheet" type="text/css" />
 
-    <script language="javascript" src="<%=path%>/App_JavaScript/Admin/ucStudentManage/openWindow.js"
+    <script language="javascript" src="<%=path%>/html/App_JavaScript/Admin/ucStudentManage/openWindow.js"
         type="text/javascript"></script>
 
-    <script type="text/javascript" src="<%=path%>/App_JavaScript/Admin/chkData.js"></script>
+    <script type="text/javascript" src="<%=path%>/html/App_JavaScript/Admin/chkData.js"></script>
 
-    <script language="javascript" type="text/javascript" src="<%=path%>/App_JavaScript/My97DatePicker/WdatePicker.js"></script>
+    <script language="javascript" type="text/javascript" src="<%=path%>/html/App_JavaScript/My97DatePicker/WdatePicker.js"></script>
 
     <style type="text/css">
         <!--
@@ -38,7 +38,7 @@ request.setAttribute("currentTime", currentTime);
         #showPage_1,#showPage_2,#showPage_3{vertical-align:top ;height:520px;padding-top:10px;border-bottom:1px solid #cacaca;border-left:1px solid #cacaca; border-right:1px solid #cacaca;}
         .this_height{height:94%;}/*按钮与页底的距离*/
         .ButtonWhite{
-            background-image:url(<%=path%>/App_Image/Admin/two_button_w.gif);
+            background-image:url(<%=path%>/html/App_Image/Admin/two_button_w.gif);
 	        height: 20px;
 	        width: 47px;
 	        border: 0px outset;
@@ -1007,7 +1007,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
                                             <div class="help" style="margin-top: 10px;">
                                                 友情提醒:</div>
                                             <div class="helpListLast">
-                                                <img src="<%=path%>/App_Image/Admin/aw_ico.gif" />&nbsp;移出考试页面次数限制不宜过低，建议在三次以上，试卷内容包含flash格式附件的，建议不进行移出页面控制。</div>
+                                                <img src="<%=path%>/html/App_Image/Admin/aw_ico.gif" />&nbsp;移出考试页面次数限制不宜过低，建议在三次以上，试卷内容包含flash格式附件的，建议不进行移出页面控制。</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1215,7 +1215,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
                                     <div class="help" style="margin-top: 25px;">
                                         友情提醒:</div>
                                     <div class="helpListLast">
-                                        <img src="<%=path%>/App_Image/Admin/aw_ico.gif" />&nbsp;选择“在考试控制台中安排考生考试”的试卷，需要在“考试管理”中指定参加考试的学员。</div>
+                                        <img src="<%=path%>/html/App_Image/Admin/aw_ico.gif" />&nbsp;选择“在考试控制台中安排考生考试”的试卷，需要在“考试管理”中指定参加考试的学员。</div>
                                 </div>
                                 <div id="block3" style="display: none; width: 680px;" class="block">
                                     <div class="this_height" style="padding-top: 5px;">
@@ -1331,9 +1331,9 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
                                     <div class="help" style="margin-top: 2px;">
                                         友情提醒:</div>
                                     <div class="helpList">
-                                        <img src="<%=path%>/App_Image/Admin/aw_ico.gif" />&nbsp;试卷所需的试题需要先在题库管理中建立。允许从不同题库中抽取试题。</div>
+                                        <img src="<%=path%>/html/App_Image/Admin/aw_ico.gif" />&nbsp;试卷所需的试题需要先在题库管理中建立。允许从不同题库中抽取试题。</div>
                                     <div class="helpListLast">
-                                        <img src="<%=path%>/App_Image/Admin/aw_ico.gif" />&nbsp;题库集、题库、知识点、难度限制的越细，抽取的试题越准确。</div>
+                                        <img src="<%=path%>/html/App_Image/Admin/aw_ico.gif" />&nbsp;题库集、题库、知识点、难度限制的越细，抽取的试题越准确。</div>
                                 </div>
                             </div>
                         </td>

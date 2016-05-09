@@ -1,5 +1,6 @@
 package org.yohta.service;
 
+import org.yohta.utils.PageResult;
 import org.yohta.vo.Tm;
 
 public interface IExamTmService {
@@ -35,5 +36,11 @@ public interface IExamTmService {
 	 * 所有题目列表
 	 * @return
 	 */
-	public String list();
+	//public String list();
+	/**
+	 * 分页
+	 * @param pageResult
+	 * @return
+	 */
+	public String queryByPage(PageResult pageResult);
 }

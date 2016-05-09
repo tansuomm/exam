@@ -7,6 +7,7 @@ import org.yohta.dao.IExamTkDao;
 import org.yohta.dao.IExamTkjDao;
 import org.yohta.dao.IExamTmDao;
 import org.yohta.service.IExamTmService;
+import org.yohta.utils.PageResult;
 import org.yohta.vo.Tk;
 import org.yohta.vo.Tkj;
 import org.yohta.vo.Tm;
@@ -87,13 +88,22 @@ public class ExamTmServiceImpl implements IExamTmService {
 	/**
 	 * 查出所有题目列表
 	 */
-	@Override
+/*	@Override
 	public String list() {
 		List<Tm> list = tmDao.list();
 		ServletActionContext.getRequest().setAttribute("list", list);
 		return "list";
+	}*/
+	/**
+	 * 分页查询
+	 */
+	@Override
+	public String queryByPage(PageResult pageResult) {
+		String hql = "From Tm";
+		tmDao.queryByPage(pageResult, hql);
+		//ServletActionContext.getRequest().setAttribute("list", list);
+		return "list";
 	}
-
 	private IExamTkjDao tkjDao;
 	private IExamTkDao tkDao;
 	private IExamTmDao tmDao;
@@ -109,5 +119,6 @@ public class ExamTmServiceImpl implements IExamTmService {
 	public void setTkDao(IExamTkDao tkDao) {
 		this.tkDao = tkDao;
 	}
+
 
 }

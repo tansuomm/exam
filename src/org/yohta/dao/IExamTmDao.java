@@ -1,7 +1,6 @@
 package org.yohta.dao;
 
-import java.util.List;
-
+import org.yohta.utils.PageResult;
 import org.yohta.vo.Tm;
 
 public interface IExamTmDao {
@@ -14,5 +13,7 @@ public interface IExamTmDao {
 	//查找单个byid
 	public Tm findByTmId(int tmId);
 	//查找所有题目
-	public List<Tm> list();
+	//public List<Tm> list();
+	//分页查找
+	public void queryByPage(PageResult pageResult,String hql);
 }

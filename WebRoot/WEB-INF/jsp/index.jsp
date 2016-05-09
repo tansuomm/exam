@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="header_box">
 					<div class="header_right">
 						<span><b>${user.userName}</b>您好，欢迎光临</span> <br /> <a
-							href="javascript:f_addTab('home','管理中心','center.html')">管理中心</a>
+							href="javascript:f_addTab('home','管理中心','/html/Admin/center.html')">管理中心</a>
 						| <a href="####">预览网站</a> | <a id="lbtnExit" href="####">安全退出</a>
 					</div>
 					<a class="logo">KHcms Logo</a>
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							href="javascript:f_addTab('sys_config','统计分析','Intro/IntroList.html')">内容页</a></li>
 					</ul>
 				</div>
-				<div title="考生管理" iconcss="menu-icon-setting">
+				<div title="考生管理" iconcss="menu-icon-member">
 					<ul class="nlist">
 						<li><a class="l-link"
 							href="javascript:f_addTab('sys_model','考生录入','Intro/ClassList.html')">内容类别</a></li>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<div position="bottom" class="footer">
-				<div class="copyright">Copyright &copy; 2001 - 2013.
+				<div class="copyright">Copyright &copy; 2015 - 2016.
 					KHcms.net. All Rights Reserved.</div>
 			</div>
 		</div>

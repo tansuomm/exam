@@ -56,8 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th width="15%">题目分数</th>
 				<th width="20%">操作</th>
 			</tr>
-			<s:if test="#request.list != null">
-				<s:iterator value="#request.list" var="tm">
+			<s:if test="#request.pageResult.list != null">
+				<s:iterator value="#request.pageResult.list" var="tm">
 					<tr>
 						<td align="center"><span class="checkall"><input
 								id="rptList_ctl01_chkId" type="checkbox"
@@ -69,13 +69,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td align="center">${tm.tmScore}</td>
 						<td align="center"><a href="tm_updatePre?tm.tmId=${tm.tmId}">修改
 						</a>&nbsp;&nbsp;<a href="javascript:void(0)"
-							onclick="deleteTm(${tm.tmId})">删除</a></td>
+		 					onclick="deleteTm(${tm.tmId})">删除</a></td>
 					</tr>
 				</s:iterator>
 			</s:if>
 		</table>
 
 		<div class="line10"></div>
+		<%@include file="/WEB-INF/jsp/pageTab.jsp" %>
 	</form>
 </body>
 </html>

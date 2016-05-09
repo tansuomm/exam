@@ -1,9 +1,9 @@
 package org.yohta.dao.impl;
 
-import java.util.List;
-
+import org.hibernate.Query;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.yohta.dao.IExamTmDao;
+import org.yohta.utils.PageResult;
 import org.yohta.vo.Tm;
 
 public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
@@ -45,11 +45,26 @@ public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
 	/**
 	 * 查找所有题目
 	 */
-	@Override
+/*	@Override
 	public List<Tm> list() {
 		@SuppressWarnings("unchecked")
 		List<Tm> list = (List<Tm>) this.getHibernateTemplate().find("From Tm");
 		return list;
+	}*/
+	/**
+	 * 分页查找
+	 */
+	@Override
+	public void queryByPage(PageResult pageResult, String hql) {
+		Query query = this.getSessionFactory().getCurrentSession().createQuery(hql);
+		//共多少条
+		pageResult.setTotalNum(query.list().size());
+		//每页多少条1
+		query.setMaxResults(pageResult.getPageSize());
+		//从多少条开始2
+		query.setFirstResult((pageResult.getCurrentPage()-1)*pageResult.getPageSize());
+		//需要显示的数据
+		pageResult.setList(query.list());
 	}
 
 }
