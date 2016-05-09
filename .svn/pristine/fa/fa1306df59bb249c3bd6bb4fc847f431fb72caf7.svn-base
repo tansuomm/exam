@@ -1,0 +1,19 @@
+package org.zshwd.dao;
+
+import org.zshwd.vo.Gdsj;
+
+public interface IGdsjDAO {
+	/**
+	 * 添加固定试卷
+	 * @param gdsj
+	 * @return
+	 */
+	public int addGdsj(Gdsj gdsj);
+	
+	/**
+	 * 添加固定试卷
+	 * @param gdsj
+	 * @return
+	 */
+	public int addGdsjSelective(Gdsj gdsj);
+}

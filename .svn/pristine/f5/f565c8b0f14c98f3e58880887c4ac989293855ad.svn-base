@@ -1,0 +1,9 @@
+package org.zshwd.service;
+
+public interface ITkjService {
+	/**
+	 * ≤È’“Ã‚ø‚ºØ
+	 * @return
+	 */
+	public String findAllTkj();
+}

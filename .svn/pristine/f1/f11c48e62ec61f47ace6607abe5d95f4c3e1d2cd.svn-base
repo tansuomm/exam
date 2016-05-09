@@ -1,0 +1,16 @@
+#required_Admin {
+	padding-left:15px;
+	text-align:left;
+}
+#required_Admin .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:737px;
+	margin:0;
+}
+#required_Admin .fieldsetClass .inputTitle {
+	height:30px;
+}
+#required_Admin .help {
+	margin-top:20px;
+}

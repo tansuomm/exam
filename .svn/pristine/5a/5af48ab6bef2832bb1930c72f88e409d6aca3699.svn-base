@@ -1,0 +1,56 @@
+﻿body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+	font-family:Arial;
+}
+.clear{height:20px;}
+
+.Tip{color:red}
+
+A.Del{color:#757500;}
+
+A.Del:link{color:#757500;}
+
+A.Del:hover{color:#757500;}
+
+A.Del:visited{color:#757500;}
+
+
+/* Table */
+.ReplyInfoList{margin-left:5px;background-color:#BBBBBB;border-bottom:0px}
+.ReplyInfoList .HeaderTopic{height:25px;background-color :#DBDBDB;}
+
+.ReplyInfoList .HeaderTopic .TopicTitle{font-weight:bold;padding-left:10px}
+
+.ReplyInfoList .HeaderTopic .Delete{}
+
+.ReplyInfoList .BodyList{height:70px;}
+
+.ReplyInfoList .TopicCreator{height:70px;background-color:#F1EFED;}
+
+.ReplyInfoList .TopicCreator .Creator{width:80px;text-align:center;}
+
+.ReplyInfoList .TopicCreator .Subject{word-break:break-all; padding-left:10px;padding-top:5px;vertical-align:top;}
+
+/*.ReplyInfoList .TopicCreator .Delete {padding-top:5px;vertical-align:middle;background-color:white;text-align:center;}*/
+
+.ReplyInfoList .TopicCreator .Delete {height:15px;width:95%;text-align:right;}
+
+.ReplyInfoList .BodyList .Creator{background-color:#FFFFFF;width:80px;text-align:center;}
+
+.ReplyInfoList .BodyList .Subject{word-break:break-all;background-color:#FFFFFF;padding-left:10px;padding-top:5px;vertical-align:top;}
+
+.ReplyInfoList .BodyList .Delete {height:15px;width:95%;text-align:right;}
+
+.BBS_ReadReply{height:300px;width:500px;padding-left:80px;}
+
+.BBS_ReadReply .Row{width:96%;}
+
+.BBS_ReadReply .Row .HeaderCell{float:left;width:80px; vertical-align:middle;}
+
+.BBS_ReadReply .Row .InputCell{float:left;width:355px;}
+
+.BBS_ReadReply .Row .TipCell{float:left;width:80px;}
+
+.ButtonGroup{width:96%;margin-left:70px;}

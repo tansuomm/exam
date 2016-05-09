@@ -1,0 +1,26 @@
+package org.zshwd.dao;
+
+import java.util.List;
+
+import org.zshwd.vo.TkClNdzsd;
+
+/**
+ * 出题策略
+ *
+ */
+public interface ITkClNdzsd {
+	
+	/**
+	 * 插入出题策略
+	 * @param tkClNdzsd
+	 * @return
+	 */
+	public int addTkClNdzsd(TkClNdzsd tkClNdzsd);
+	
+	/**
+	 * 根据试卷Id得到出题策略的集合
+	 * @param tkclId  试卷Id
+	 * @return
+	 */
+	public List<TkClNdzsd> findTkClNdzsdsByTkclId(int tkclId);
+}

@@ -1,0 +1,19 @@
+package org.zshwd.vo;
+
+public class Tkj {
+	private int tkjId;
+	private String tkjName;
+	
+	public int getTkjId() {
+		return tkjId;
+	}
+	public void setTkjId(int tkjId) {
+		this.tkjId = tkjId;
+	}
+	public String getTkjName() {
+		return tkjName;
+	}
+	public void setTkjName(String tkjName) {
+		this.tkjName = tkjName;
+	}	
+}

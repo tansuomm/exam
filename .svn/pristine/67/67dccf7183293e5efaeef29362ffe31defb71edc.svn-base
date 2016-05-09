@@ -1,0 +1,82 @@
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+	color:#fff;
+	margin-bottom:5px;
+	font-weight:bold;
+	background:url(../../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+	height:24px;
+	line-height:22px;
+	text-indent:1em;
+	width:100%;
+	text-align:left;
+}
+#window_add {
+	text-align:left;
+	padding-left:20px;
+}
+#window_add .normal{
+	padding:3px 0px;
+}
+#window_add .normal span.name{
+	width:65px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:right;
+}
+#window_add .fieldsetMargin {
+	margin-top:15px;
+}
+#window_add .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:520px;
+	margin:0;
+}
+#window_add .fieldsetClass .downloadInfo {
+	margin-left:20px;
+	width:450px;
+	border-bottom:#CACACA dotted 1px;
+}
+#window_add .fieldsetClass .downloadInfo span.name {
+	width:100px;
+	display:block;
+	float:left;
+	text-align:left;
+	line-height:25px;
+}
+#window_add .fieldsetClass .downloadInfo span.inputSelect {
+	width:120px;
+	display:block;
+	float:left;
+	text-align:left;
+}
+#window_add .fieldsetClass .downloadInfo span.inputSelect2 {
+	display:block;
+	float:left;
+	text-align:left;
+}
+#window_add .foot {
+	margin-top:30px;
+}
+#window_add .help,.helpList,.helpListLast {
+	width:540px;
+}
+#window_add .btnsubmit {
+	text-align:center;
+	padding-left:170px;
+	height:40px;
+	margin-top:15px;
+}
+#window_add .btnsubmit input {
+	float:left;
+	margin-left:10px;
+}
+#tip{padding:5px;padding-top:10px;position:relative;color:#999;}
+#tip span{width:30px;float:left;display:block;height:22px;vertical-align:top;}
+#tip .grayFont{color:#999;width:90%;float:left;}

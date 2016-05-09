@@ -1,0 +1,26 @@
+package org.zshwd.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
+import org.zshwd.dao.ITkjDAO;
+import org.zshwd.service.ITkjService;
+import org.zshwd.vo.Tkj;
+
+public class TkjServiceImpl implements ITkjService {
+
+	@Override
+	public String findAllTkj() {
+		List<Tkj> list = new ArrayList<Tkj>();
+		list = tkjDao.findAllTkj();
+		ServletActionContext.getRequest().setAttribute("tkjList", list);
+		return "findAllTkj";
+	}
+	
+	private ITkjDAO tkjDao;
+
+	public void setTkjDao(ITkjDAO tkjDao) {
+		this.tkjDao = tkjDao;
+	}	
+}

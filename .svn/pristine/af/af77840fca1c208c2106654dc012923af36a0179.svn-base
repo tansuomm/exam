@@ -1,0 +1,32 @@
+package org.zshwd.dao;
+
+import java.util.List;
+
+import org.zshwd.vo.Tkcl;
+
+/**
+ * 试卷
+ *
+ */
+public interface ITkclDAO {
+	
+	/**
+	 * 添加试卷
+	 * @param tkcl
+	 * @return
+	 */
+	public int addTkcl(Tkcl tkcl);
+	
+	/**
+	 * 查询所有试卷
+	 * @return
+	 */
+	public List<Tkcl> findAllTkcl();
+	
+	/**
+	 * 根据登录人(考生Id) 查出该考生的应该考试试卷
+	 * @param clerkId
+	 * @return
+	 */
+	public List<Tkcl> findTkclsByClerkId(int clerkId);
+}

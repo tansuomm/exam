@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<!-- dao层的接口 -->
+<mapper namespace="org.zshwd.dao.ITkClNdzsd">	
+    
+    <resultMap type="org.zshwd.vo.TkClNdzsd" id="tkclNdzsdResultMap">
+        <result column="Cl_ID" property="clId" javaType="java.lang.Integer" />
+        <result column="tk_cl_id" property="tkClId" javaType="java.lang.Integer"/>
+        <result column="Tk_tkj_Id" property="tkTkjId" javaType="java.lang.Integer"/>
+        <result column="tk_lx_id" property="tkLxId" javaType="java.lang.Integer"/>
+        <result column="tm_tx_id" property="tmTxId" javaType="java.lang.Integer"/>
+        <result column="tm_num" property="tmNum" javaType="java.lang.Integer"/>
+    </resultMap>
+    
+    <insert id="addTkClNdzsd" parameterType="org.zshwd.vo.TkClNdzsd">
+        insert into tk_cl_ndzsd (tk_cl_id,Tk_tkj_Id,tk_lx_id,tm_tx_id,tm_num) values 
+        						(#{tkClId},#{tkTkjId},#{tkLxId},#{tmTxId},#{tmNum})
+    </insert>
+    
+	<!-- id和接口里面的方法名准确对应 -->
+	<!-- parameterType 参数类型 int 传递过来的是试卷Id -->
+	<!-- resultMap 返回类型-->
+	<select id="findTkClNdzsdsByTkclId" parameterType="int" resultMap="tkclNdzsdResultMap">
+	    <!-- sql语句 -->
+	    <![CDATA[
+	    Select * From tk_cl_ndzsd where tk_cl_id = #{tkclId}
+	    ]]>
+	</select>
+</mapper>

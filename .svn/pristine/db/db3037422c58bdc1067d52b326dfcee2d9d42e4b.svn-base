@@ -1,0 +1,77 @@
+#main{margin-top:10px;margin-left:10px;}
+.row1{border-bottom:1px solid #cacaca;position:relative;width:98%;height:25px;line-height:25px;}
+.row2{}
+.headerText{font-weight:bold;width:130px;float:left;display:block;}
+.contentText{color:gray;width:100px;float:left;text-align:left;display:block;}
+#main1 {margin-top:5px;margin-left:10px;}
+.ClassItem{width:97%;border-bottom:1px solid #cacaca;margin-top:10px;}
+.LearningClassBaseInfo,.LearningClassSummary,.LearningClassDetail{padding-bottom:10px;font-size:12px;}
+.LearningClassBaseInfo,.LearningClassSummary{padding-left:10px;}
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+	color:#fff;
+	margin-bottom:5px;
+	font-weight:bold;
+	background:url(../../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+	height:24px;
+	line-height:22px;
+	text-indent:1em;
+	width:100%;
+	text-align:left;
+}
+.content {
+	text-align:left;
+	margin-left:5px;
+}
+#tab {
+	width:100%;
+}
+#Financing .tabline {
+	width:250px;
+}
+.content .tabCont {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:563px;
+	padding-top:15px;
+}
+.closewindow {
+	text-align:center;
+	padding-bottom:15px;
+}
+#block3 .tishi{
+	background-image:url(../../../App_Image/Admin/tishi.gif);
+	background-position:14 top;
+	background-repeat:no-repeat;
+	padding-left:134px;
+	height:51px;
+	border-color:#E2C3B1;
+	border-width:1px;
+	border-style:solid;
+	background-color:#FFFCF3;
+	color:#F5610B;
+	margin-top:4px;
+	width:411px;
+	text-align:center;
+	margin-left:5px;
+}
+#block2 .tishi{
+	background-image:url(../../../App_Image/Admin/tishi.gif);
+	background-position:14 top;
+	background-repeat:no-repeat;
+	padding-left:134px;
+	height:51px;
+	border-color:#E2C3B1;
+	border-width:1px;
+	border-style:solid;
+	background-color:#FFFCF3;
+	color:#F5610B;
+	margin-top:4px;
+	width:411px;
+	text-align:center;
+	margin-left:0px;
+}

@@ -1,0 +1,48 @@
+package org.zshwd.service.impl;
+
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
+import org.zshwd.dao.ITkDAO;
+import org.zshwd.service.ITkService;
+import org.zshwd.vo.Tk;
+
+public class TkServiceImpl implements ITkService {
+
+	@Override
+	public String findTkByTkjId(int tkjId) {
+		//调用dao查找题库
+		List<Tk> list = new ArrayList<Tk>();
+		list = tkDao.findTkByTkjId(tkjId);
+		
+		StringBuffer sBuffer = new StringBuffer();
+		sBuffer.append("<option value='0'>所有</option>");		
+		for(Tk tk : list){
+			sBuffer.append("<option value='" + tk.getTkId() + "'>" + tk.getTkName() + "</option>");
+		}	
+		
+		ServletActionContext.getResponse().setContentType("text/html");
+		ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
+		try {
+			PrintWriter out = ServletActionContext.getResponse().getWriter();
+			out.println(sBuffer.toString());
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return null;
+	}
+
+	private ITkDAO tkDao;
+
+	public void setTkDao(ITkDAO tkDao) {
+		this.tkDao = tkDao;
+	}
+	
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<!-- dao层的接口 -->
+<mapper namespace="org.zshwd.dao.ITkjDAO">	
+    
+    <resultMap type="org.zshwd.vo.Tkj" id="tkjResultMap">
+        <!-- 主键 -->
+        <id column="tkj_id" property="tkjId" jdbcType="INTEGER" />
+        <result column="tkj_name" property="tkjName" javaType="java.lang.String"/>
+    </resultMap>
+
+	<select id="findAllTkj" resultMap="tkjResultMap">
+	  <![CDATA[
+		Select * From tkj
+ 	  ]]>  
+	</select>
+	
+	<select id="findTkjByTkjId" parameterType="int" resultMap="tkjResultMap">
+	    select * from tkj where tkj_id = #{tkjId}
+	</select>
+</mapper>

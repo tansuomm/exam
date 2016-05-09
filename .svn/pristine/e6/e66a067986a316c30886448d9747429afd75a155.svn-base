@@ -1,0 +1,32 @@
+#window_class_query {
+	text-align:left;
+	padding-left:10px;
+}
+#window_class_query .foot {
+	margin-top:20px;
+}
+#window_class_query .help {
+	width:98%;
+}
+#window_class_query .info {
+	margin-top:15px;
+	height:30px;
+	width:98%;
+	border-bottom:#999 solid 1px;
+}
+#window_class_query .info span{
+	display:block;
+	float:left;
+	line-height:20px;
+}
+#window_class_query .info input{
+	margin-right:20px;
+}
+#window_class_query .info select{
+	margin-right:20px;
+	width:100px;
+}
+#window_class_query .btnsubmit {
+	text-align:center;
+	margin-top:20px;
+}

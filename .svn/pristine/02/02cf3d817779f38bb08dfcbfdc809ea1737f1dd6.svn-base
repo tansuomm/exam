@@ -1,0 +1,12 @@
+package org.zshwd.dao;
+
+import org.zshwd.vo.Clerk;
+
+public interface IClerkDAO {
+	/**
+	 * µÇÂ¼
+	 * @param clerk
+	 * @return
+	 */
+	public Clerk login(Clerk clerk);
+}

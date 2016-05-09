@@ -1,0 +1,39 @@
+#trainBook_Main {
+
+}
+#trainBook_Main .learnTitle {/*课件学习标题*/
+	letter-spacing: 10px;
+	line-height:51px;
+	font-weight:bold;
+	color:#fff;
+	width:700px;
+	height:51px;
+	text-align:left;
+	background-image:url(../../../App_Image/Learning/kecheng_logo.gif);
+}
+.learnTitleBack{/*课件学习标题背景*/
+	background-image:url(../../../App_Image/Learning/kecheng_back.gif);
+}
+.frame {
+	width:1120px;
+	margin:0 auto;
+}
+.treeview {
+	width:220px;
+	float:left;
+}
+.cont {
+	float:left;
+	width:900px;
+}
+.bottom {
+	height:21px;
+	background-image:url(../../../App_Image/Learning/main_bottom_line.gif);
+}
+.line {
+	border-bottom:#cacaca solid 1px;
+	font-size:0px;
+	height:4px;
+	width:99%;
+	margin-bottom:4px;
+}

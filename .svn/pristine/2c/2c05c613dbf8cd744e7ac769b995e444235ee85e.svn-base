@@ -1,0 +1,125 @@
+package org.zshwd.vo;
+
+import java.util.Date;
+
+public class Tm {
+    private Integer tmId;
+
+    private String tmName;
+
+    private Integer tmType;
+
+    private Integer tmScore;
+
+    private Integer tmNd;
+
+    private String tmZsd;
+
+    private String tmXuanxiang;
+
+    private Integer tmXuanxiangNum;
+
+    private String tmDa;
+
+    private Date tmCreateTime;
+
+    private String tmCreateName;
+
+    private Integer tkId;
+
+    public Integer getTmId() {
+        return tmId;
+    }
+
+    public void setTmId(Integer tmId) {
+        this.tmId = tmId;
+    }
+
+    public String getTmName() {
+        return tmName;
+    }
+
+    public void setTmName(String tmName) {
+        this.tmName = tmName == null ? null : tmName.trim();
+    }
+
+    public Integer getTmType() {
+        return tmType;
+    }
+
+    public void setTmType(Integer tmType) {
+        this.tmType = tmType;
+    }
+
+    public Integer getTmScore() {
+        return tmScore;
+    }
+
+    public void setTmScore(Integer tmScore) {
+        this.tmScore = tmScore;
+    }
+
+    public Integer getTmNd() {
+        return tmNd;
+    }
+
+    public void setTmNd(Integer tmNd) {
+        this.tmNd = tmNd;
+    }
+
+    public String getTmZsd() {
+        return tmZsd;
+    }
+
+    public void setTmZsd(String tmZsd) {
+        this.tmZsd = tmZsd == null ? null : tmZsd.trim();
+    }
+
+    public String getTmXuanxiang() {
+        return tmXuanxiang;
+    }
+
+    public void setTmXuanxiang(String tmXuanxiang) {
+        this.tmXuanxiang = tmXuanxiang == null ? null : tmXuanxiang.trim();
+    }
+
+    public Integer getTmXuanxiangNum() {
+        return tmXuanxiangNum;
+    }
+
+    public void setTmXuanxiangNum(Integer tmXuanxiangNum) {
+        this.tmXuanxiangNum = tmXuanxiangNum;
+    }
+
+    public String getTmDa() {
+        return tmDa;
+    }
+
+    public void setTmDa(String tmDa) {
+        this.tmDa = tmDa == null ? null : tmDa.trim();
+    }
+
+    public Date getTmCreateTime() {
+        return tmCreateTime;
+    }
+
+    public void setTmCreateTime(Date tmCreateTime) {
+        this.tmCreateTime = tmCreateTime;
+    }
+
+    public String getTmCreateName() {
+        return tmCreateName;
+    }
+
+    public void setTmCreateName(String tmCreateName) {
+        this.tmCreateName = tmCreateName == null ? null : tmCreateName.trim();
+    }
+
+    public Integer getTkId() {
+        return tkId;
+    }
+
+    public void setTkId(Integer tkId) {
+        this.tkId = tkId;
+    }
+}

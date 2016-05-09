@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.zshwd.dao.IGdsjDAO" >
+  <resultMap id="BaseResultMap" type="org.zshwd.vo.Gdsj" >
+    <id column="gdsj_id" property="gdsjId" jdbcType="INTEGER" />
+    <result column="TK_cl_id" property="tkClId" jdbcType="INTEGER" />
+    <result column="Tk_tkj_Id" property="tkTkjId" jdbcType="INTEGER" />
+    <result column="Tk_lx_id" property="tkLxId" jdbcType="INTEGER" />
+    <result column="Tm_Id" property="tmId" jdbcType="INTEGER" />
+    <result column="Tm_tx_ID" property="tmTxId" jdbcType="INTEGER" />
+    <result column="Tm_nr" property="tmNr" jdbcType="VARCHAR" />
+    <result column="Tm_fs" property="tmFs" jdbcType="INTEGER" />
+    <result column="Tm_nd" property="tmNd" jdbcType="INTEGER" />
+    <result column="Tm_zsd" property="tmZsd" jdbcType="VARCHAR" />
+    <result column="Tm_xuanxiang" property="tmXuanxiang" jdbcType="VARCHAR" />
+    <result column="Tm_xuanxiang_num" property="tmXuanxiangNum" jdbcType="INTEGER" />
+    <result column="Tm_da" property="tmDa" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <insert id="addGdsj" parameterType="org.zshwd.vo.Gdsj" >
+    insert into gdsj (gdsj_id, TK_cl_id, Tk_tkj_Id, 
+      Tk_lx_id, Tm_Id, Tm_tx_ID, 
+      Tm_nr, Tm_fs, Tm_nd, Tm_zsd, 
+      Tm_xuanxiang, Tm_xuanxiang_num, Tm_da
+      )
+    values (#{gdsjId,jdbcType=INTEGER}, #{tkClId,jdbcType=INTEGER}, #{tkTkjId,jdbcType=INTEGER}, 
+      #{tkLxId,jdbcType=INTEGER}, #{tmId,jdbcType=INTEGER}, #{tmTxId,jdbcType=INTEGER}, 
+      #{tmNr,jdbcType=VARCHAR}, #{tmFs,jdbcType=INTEGER}, #{tmNd,jdbcType=INTEGER}, #{tmZsd,jdbcType=VARCHAR}, 
+      #{tmXuanxiang,jdbcType=VARCHAR}, #{tmXuanxiangNum,jdbcType=INTEGER}, #{tmDa,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="addGdsjSelective" parameterType="org.zshwd.vo.Gdsj" >
+    insert into gdsj
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gdsjId != null" >
+        gdsj_id,
+      </if>
+      <if test="tkClId != null" >
+        TK_cl_id,
+      </if>
+      <if test="tkTkjId != null" >
+        Tk_tkj_Id,
+      </if>
+      <if test="tkLxId != null" >
+        Tk_lx_id,
+      </if>
+      <if test="tmId != null" >
+        Tm_Id,
+      </if>
+      <if test="tmTxId != null" >
+        Tm_tx_ID,
+      </if>
+      <if test="tmNr != null" >
+        Tm_nr,
+      </if>
+      <if test="tmFs != null" >
+        Tm_fs,
+      </if>
+      <if test="tmNd != null" >
+        Tm_nd,
+      </if>
+      <if test="tmZsd != null" >
+        Tm_zsd,
+      </if>
+      <if test="tmXuanxiang != null" >
+        Tm_xuanxiang,
+      </if>
+      <if test="tmXuanxiangNum != null" >
+        Tm_xuanxiang_num,
+      </if>
+      <if test="tmDa != null" >
+        Tm_da,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gdsjId != null" >
+        #{gdsjId,jdbcType=INTEGER},
+      </if>
+      <if test="tkClId != null" >
+        #{tkClId,jdbcType=INTEGER},
+      </if>
+      <if test="tkTkjId != null" >
+        #{tkTkjId,jdbcType=INTEGER},
+      </if>
+      <if test="tkLxId != null" >
+        #{tkLxId,jdbcType=INTEGER},
+      </if>
+      <if test="tmId != null" >
+        #{tmId,jdbcType=INTEGER},
+      </if>
+      <if test="tmTxId != null" >
+        #{tmTxId,jdbcType=INTEGER},
+      </if>
+      <if test="tmNr != null" >
+        #{tmNr,jdbcType=VARCHAR},
+      </if>
+      <if test="tmFs != null" >
+        #{tmFs,jdbcType=INTEGER},
+      </if>
+      <if test="tmNd != null" >
+        #{tmNd,jdbcType=INTEGER},
+      </if>
+      <if test="tmZsd != null" >
+        #{tmZsd,jdbcType=VARCHAR},
+      </if>
+      <if test="tmXuanxiang != null" >
+        #{tmXuanxiang,jdbcType=VARCHAR},
+      </if>
+      <if test="tmXuanxiangNum != null" >
+        #{tmXuanxiangNum,jdbcType=INTEGER},
+      </if>
+      <if test="tmDa != null" >
+        #{tmDa,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>  
+</mapper>

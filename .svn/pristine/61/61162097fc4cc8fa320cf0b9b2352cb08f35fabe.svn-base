@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="org.zshwd.vo.TkClNdzsd" alias="tkclNdzsd"/>
+    </typeAliases>
+	<!-- 映射 -->
+	<mappers>
+		<mapper resource="org/zshwd/vo/Users.xml" />
+		<mapper resource="org/zshwd/vo/Tkcl.xml" />
+		<mapper resource="org/zshwd/vo/Clerk.xml" />
+		<mapper resource="org/zshwd/vo/TkClNdzsd.xml" />
+		<mapper resource="org/zshwd/vo/Tm.xml" />
+		<mapper resource="org/zshwd/vo/Gdsj.xml" />
+		<mapper resource="org/zshwd/vo/Tkj.xml" />
+		<mapper resource="org/zshwd/vo/Tk.xml" />
+	</mappers>
+</configuration>

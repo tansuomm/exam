@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.zshwd.dao.ITmDAO" >
+  <resultMap id="tmResultMap" type="org.zshwd.vo.Tm" >
+    <id column="tm_id" property="tmId" jdbcType="INTEGER" />
+    <result column="tm_name" property="tmName" jdbcType="VARCHAR" />
+    <result column="tm_type" property="tmType" jdbcType="INTEGER" />
+    <result column="tm_score" property="tmScore" jdbcType="INTEGER" />
+    <result column="tm_nd" property="tmNd" jdbcType="INTEGER" />
+    <result column="tm_zsd" property="tmZsd" jdbcType="VARCHAR" />
+    <result column="tm_xuanxiang" property="tmXuanxiang" jdbcType="VARCHAR" />
+    <result column="tm_xuanxiang_num" property="tmXuanxiangNum" jdbcType="INTEGER" />
+    <result column="tm_da" property="tmDa" jdbcType="VARCHAR" />
+    <result column="tm_create_time" property="tmCreateTime" jdbcType="DATE" />
+    <result column="tm_create_name" property="tmCreateName" jdbcType="VARCHAR" />
+    <result column="tk_id" property="tkId" jdbcType="INTEGER" />
+  </resultMap>  
+  
+  <select id="findTmsByTkclNdzsd" parameterType="org.zshwd.vo.TkClNdzsd" resultMap="tmResultMap">
+      SELECT * FROM tm left join tk
+      	on tm.tk_id = tk.tk_id left join tkj
+      	on tk.tkj_id = tkj.tkj_id
+      	where 1=1
+      <if test="tkTkjId!=0">
+          and tkj.tkj_id = #{tkTkjId}
+      </if>	
+      <if test="tkLxId!=0">
+          and tk.tk_id = #{tkLxId}
+      </if>
+      and tm_type = #{tmTxId} order by RAND() LIMIT 0,#{tmNum}
+  </select>	
+  
+  <!-- 返回的是集合 集合里面的泛型是 String类型的 -->
+  <select id="findZsdByTkId" parameterType="int" resultType="java.lang.String">
+
+      select DISTINCT(tm.tm_zsd) as tmZsd FROM tm left join tk
+      	on tm.tk_id = tk.tk_id left join tkj
+      	on tk.tkj_id = tkj.tkj_id
+      where tk.tkj_id = #{tkjId}   
+      
+	  <if test="tkId!=0">
+		and tm.tk_id = #{tkId}
+	  </if>
+  </select>
+  
+  <resultMap type="org.zshwd.select.vo.TMTX" id="tmtxResultMap">
+      <result column="tm_tx_id" property="tmTxId" jdbcType="INTEGER" />
+      <result column="tm_tx_num" property="tmTxNum" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <!-- tm_type 题目题型 -->
+  <select id="findTmByTkjIdTkIdZsd" parameterType="map" resultMap="tmtxResultMap">
+      select tm.tm_type as tm_tx_id, count(tm_type) as tm_tx_num from tm left join tk
+      	on tm.tk_id = tk.tk_id left join tkj
+      	on tk.tkj_id = tkj.tkj_id
+      	where 1=1 
+      <if test="tkjid!=0">
+          and tkj.tkj_id = #{tkjid}
+      </if>	
+      <if test="tkid!=0">
+          and tk.tk_id = #{tkid}
+      </if>
+      <if test="zsd!=null and zsd!='' and zsd!='所有'">
+          and tm.tm_zsd = #{zsd}
+      </if>
+      <if test="nd!=0">
+          and tm.tm_nd = #{nd}
+      </if>  
+      <if test="tx!=null and tx!=''">
+          and tm.tm_type in (${tx})
+      </if>  
+      group by tm_tx_id
+  </select>
+</mapper>

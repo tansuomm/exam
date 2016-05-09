@@ -1,0 +1,61 @@
+#train_test {
+	text-align:center;
+	margin:0 auto;
+}
+#train_test .title {
+	font-size:14px; 
+	font-weight:bold; 
+	letter-spacing:3px;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+}
+.tb_content {
+	margin:0 auto;
+}
+.tb_content .titlenum {
+	border:#9d9d9d solid 1px;
+	height:27px;
+	line-height:27px;
+	width:795px;
+	text-align:left;
+	padding-left:3px;
+	background-color:#eaedf2;
+	padding-top:3px;
+	font-size:13px;
+}
+.tb_content .titlename {
+	border:#9d9d9d solid 1px;
+	border-top-style:none;
+	height:auto!important;
+	min-height:27px!important;
+	height:27px;
+	line-height:27px;
+	width:795px;
+	text-align:left;
+	padding-left:3px;
+	margin:auto;
+	font-size:12px;
+}
+.tb_content .selecttitle {
+	border:#9d9d9d solid 1px;
+	border-top-style:none;
+	height:27px;
+	line-height:27px;
+	width:795px;
+	text-align:left;
+	padding-left:3px;
+	background-color:#eaedf2;
+	margin:auto;
+}
+.tb_content .selectlist {
+	border:#9d9d9d solid 1px;
+	border-top-style:none;
+	padding-left:3px;
+	width:795px;
+	text-align:left;
+	margin:auto;
+}
+.tb_content .selectlist .list {
+	height:22px;
+}

@@ -1,0 +1,126 @@
+body {
+	margin:0 auto;
+	text-align:left;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+color:#fff;
+margin-bottom:5px;
+font-weight:bold;
+background:url(../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+height:24px;
+line-height:22px;
+text-indent:1em;
+width:100%;
+text-align:left;
+}
+.title {
+	height:14px;
+	padding-top:8px;
+	text-align:center;
+	font-weight:bold;
+}
+.content {
+	text-align:left;
+	padding:0 30px;
+}
+.four_button_y{ /*黄色按钮,4字*/
+	background-image:url(../../App_Image/Admin/four_button_b.gif);
+	height: 24px;
+	width: 80px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.iconTitle {/*大icon的标题*/
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+}
+.boldTitle {
+	font-weight:bold;
+}
+.newsContTitle {/*有icon的新闻news*/
+	height:20px;
+	padding-left:50px;
+}
+.newsList {
+	padding-left:20px;
+}
+.newsList .newsContTitle {
+	height:26px;
+}
+.newsCont {/*无icon的新闻news*/
+	padding-left:60px;
+}
+/*.pagebar {
+	margin-top:10px;
+}
+.pagebar .pageInfo {
+	float:left;
+	width:35%;
+	height:25px;
+	padding-top:15px;
+	text-align:right;
+}
+.pagebar .selectPage {
+	float:left;
+	width:50%;
+	height:30px;
+	padding-top:10px;
+	text-align:right;
+}*/
+#selectStudent {
+	padding-left:20px;
+}
+#selectStudent .fieldsetClass{
+	width:490px;
+	margin:0;
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+}
+#selectStudent .selectInfo {
+	width:490px;
+	height:30px;
+}
+#selectStudent .selectArea {
+	width:510px;
+}
+#selectStudent .selectArea .readySelect{
+	width:220px;
+	float:left;
+}
+#selectStudent .selectArea .selectLabel {
+	height:40px;
+	line-height:40px;
+	border:#999 solid 1px;
+}
+#selectStudent .selectArea .selectCont {
+	height:295px;
+	border:#999 solid 1px;
+	border-top-style:none;
+}
+#selectStudent .selectArea .btnSelect{
+	width:66px;
+	float:left;
+	text-align:center;
+	border-left-style:none;
+	border-right-style:none;
+}
+#selectStudent .selectArea .btnSelect .setright{
+	margin-top:60px;
+}
+#selectStudent .selectArea .btnSelect .setleft{
+	margin-top:80px;
+}
+#selectStudent .selectArea .alreadySelect{
+	width:220px;
+	float:left;
+}
+#selectStudent .btnsubmit {
+	width:500px;
+	margin-top:10px;
+	text-align:center;
+}

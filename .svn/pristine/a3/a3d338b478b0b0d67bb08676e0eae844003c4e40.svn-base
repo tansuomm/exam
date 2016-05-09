@@ -1,0 +1,93 @@
+#financing {
+	text-align:left;
+}
+#financing #tab {
+}
+#financing #tab .tab_on {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../../../App_Image/Admin/tab_select.jpg) no-repeat;
+	text-align:center;
+	font-weight:bold;
+	cursor:pointer;
+}
+#financing #tab .tab_off {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../../../App_Image/Admin/tab_Unselect.jpg) no-repeat;
+	text-align:center;
+	cursor:pointer;
+}
+#financing #tab .tabline {
+	float:left;
+	height:27px;
+	width:500px;
+	background:url(../../../App_Image/Admin/tab_line.jpg) repeat-x;
+}
+#AddAccounts {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:813px;
+	height:420px;
+}
+#AddAccounts .bankinfo {
+	width:813px;
+	height:250px;
+}
+#AddAccounts .bankinfo .money_img {
+	float:left;
+	width:235px;
+	height:246px;
+}
+#AddAccounts .info {
+	float:left;
+	font-size:14px;
+	padding-top:50px;
+	width:570px;
+	height:196px;
+}
+#AddAccounts .changeline {
+	width:813px;
+	height:100px;
+	margin-top:10px;
+	background:url(../../../App_Image/Admin/changeline.gif) no-repeat;
+}
+#AddAccountsLog {
+	display:none;
+	padding-top:10px;
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:813px;
+}
+#ConsumptionLog {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:813px;
+	display:none;
+	padding-top:10px;
+}
+.fieldsetClass {
+	margin-left:10px;
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:760px;
+}
+.fieldsetClass legend{
+	color:#30598C;
+}
+#financing .tab_table {
+	width:782px;
+	margin-left:10px!important;
+	margin-left:10px;
+	display:inline;
+}
+#financing .help {
+	width:792px;
+}
+#financing .helpList {
+	width:792px;
+}

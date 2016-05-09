@@ -1,0 +1,9 @@
+#content_chargeModel {
+	width:455px;
+	padding-top:10px;
+}
+#content_chargeModel .fieldsetClass {
+	width:425px;
+	height:290px;
+	border:#cacaca solid 1px;
+}

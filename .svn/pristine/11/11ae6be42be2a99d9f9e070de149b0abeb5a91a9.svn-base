@@ -1,0 +1,25 @@
+package org.zshwd.action;
+
+import org.zshwd.service.ITkService;
+
+public class TkAction {
+	
+	public String findTkByTkjId() throws Exception{
+		return tkService.findTkByTkjId(tkjId);
+	}
+	
+	private int tkjId;
+	private ITkService tkService;
+
+	public int getTkjId() {
+		return tkjId;
+	}
+
+	public void setTkjId(int tkjId) {
+		this.tkjId = tkjId;
+	}
+
+	public void setTkService(ITkService tkService) {
+		this.tkService = tkService;
+	}		
+}

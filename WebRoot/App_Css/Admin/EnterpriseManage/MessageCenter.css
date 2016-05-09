@@ -1,0 +1,24 @@
+.MessageCont {
+	text-align:left;
+	width:100%;
+	padding-top:10px;
+}
+.MessageCont .name {
+	float:left;
+	width:80px;
+	height:20px;
+	line-height:20px;
+	text-align:right;
+}
+.MessageCont .input_text {
+	float:left;
+	width:390px;
+}
+.input_textarea {
+	width:389px;
+	height:128px;
+	border:#999999 solid 1px;
+}
+.inputlist {
+	height:26px;
+}

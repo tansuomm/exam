@@ -1,0 +1,33 @@
+package org.zshwd.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+import org.zshwd.select.vo.TMTX;
+import org.zshwd.vo.TkClNdzsd;
+import org.zshwd.vo.Tm;
+
+public interface ITmDAO {
+	/**
+	 * 根据出题策略抽取题目
+	 * @param cl 出题策略的实体类 
+	 * @return
+	 */
+	public List<Tm> findTmsByTkclNdzsd(TkClNdzsd cl);
+	
+	/**
+	 * 根据题库Id在题目表里找到知识点
+	 * @param tkId
+	 * @return
+	 */
+	//@Param("tkjid")int tkjId, @Param("tkId")int tkId   这种写法  就是xml 参数名
+	public List<String> findZsdByTkId(@Param("tkjId")int tkjId, @Param("tkId")int tkId);
+	
+	/**
+	 * 根据题库集Id题库Id知识点题目题型抽题
+	 * @return
+	 * @throws Exception
+	 */
+	public List<TMTX> findTmByTkjIdTkIdZsd(Map<String, Object> map);
+}

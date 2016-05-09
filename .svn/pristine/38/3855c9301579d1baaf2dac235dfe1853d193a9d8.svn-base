@@ -1,0 +1,55 @@
+#analyseManage_InteQuery {
+	font-size:12px;
+	text-align:left;
+	padding-left:10px;
+}
+#analyseManage_InteQuery .fieldsetClass {
+	padding:0 10px;
+	width:750px;
+	margin:0;
+	border:1px solid #C6BEC6;
+}
+#analyseManage_InteQuery .fieldset_btn {
+	margin-left:1px!important;
+	margin-left:3px;
+	margin-bottom:5px;
+	padding-top:4px;
+	height:30px;
+}
+#analyseManage_InteQuery .fieldset_btn span {
+	float:left;
+	height:20px;
+	line-height:20px;
+	display:block;
+}
+#analyseManage_InteQuery .fieldset_btn span.name{
+	width:40px;
+	text-align:left;
+}
+#analyseManage_InteQuery .fieldset_btn span.inputtext1{
+	width:150px;
+}
+#analyseManage_InteQuery .fieldset_btn span.inputtext2{
+	width:170px;
+}
+#analyseManage_InteQuery .fieldset_btn span.inputbtn{
+	width:270px;
+	text-align:right;
+}
+#analyseManage_InteQuery .tab_table {
+	width:772px;
+}
+#analyseManage_InteQuery .tishi{
+	background-image:url(../../../App_Image/Admin/tishi.gif);
+	background-position:14 top;
+	background-repeat:no-repeat;
+	padding-left:134px;
+	height:51px;
+	border-color:#E2C3B1;
+	border-width:1px;
+	border-style:solid;
+	background-color:#FFFCF3;
+	color:#F5610B;
+	margin-top:4px;
+	width:636px;
+}

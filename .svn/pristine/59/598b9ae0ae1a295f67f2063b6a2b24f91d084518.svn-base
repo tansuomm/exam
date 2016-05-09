@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/aop  
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+    <!-- 扫描 -->
+    <context:component-scan base-package="org.zshwd.action,org.zshwd.service.impl,org.zshwd.dao.impl"></context:component-scan>
+    
+	<!-- 试卷 -->
+    <bean id="tkclAction" class="org.zshwd.action.TkclAction" scope="prototype">
+        <property name="tkclDao" ref="tkclDao"></property>
+        <property name="tkclService" ref="tkclService"></property>
+        <property name="tkjService" ref="tkjService"></property>
+    </bean>
+    
+    <bean id="tkclService" class="org.zshwd.service.impl.TkclServiceImpl">
+        <property name="tkClNdzsdDao" ref="tkclNdzsdDao"></property>
+        <property name="tmDao" ref="tmDao"></property>
+        <property name="gdsjDao" ref="gdsjDao"></property>
+        <property name="tkclDao" ref="tkclDao"></property>
+    </bean>
+    
+    <bean id="tkclDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.zshwd.dao.ITkclDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+    <!-- 本系统用户 -->
+    <bean id="clerkAction" class="org.zshwd.action.ClerkAction" scope="prototype">
+        <property name="clerkDao" ref="clerkDao"></property>
+    </bean>
+    
+    <bean id="clerkDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.zshwd.dao.IClerkDAO"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    
+    <!-- 出题策略 -->
+    <bean id="tkclNdzsdDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.zshwd.dao.ITkClNdzsd"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    
+    <!-- 题目 -->
+    <bean id="tmDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.zshwd.dao.ITmDAO"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    
+    <!-- 固定试卷 -->
+    <bean id="gdsjDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="org.zshwd.dao.IGdsjDAO"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+    
+    <!-- 用户 -->
+    <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.zshwd.dao.IUserDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+    <!-- 题库集 -->
+    <bean id="tkjService" class="org.zshwd.service.impl.TkjServiceImpl">
+        <property name="tkjDao" ref="tkjDao"></property>
+    </bean>
+    
+    <bean id="tkjDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.zshwd.dao.ITkjDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+    <!-- 题库 -->
+    <bean id="tkAction" class="org.zshwd.action.TkAction" scope="prototype">
+        <property name="tkService" ref="tkService"></property>
+    </bean>
+    
+    <bean id="tkService" class="org.zshwd.service.impl.TkServiceImpl">
+        <property name="tkDao" ref="tkDao"></property>
+    </bean>
+    
+    <bean id="tkDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="org.zshwd.dao.ITkDAO"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/exam?useUnicode=true&amp;characterEncoding=UTF-8
+			</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+	</bean>
+</beans>

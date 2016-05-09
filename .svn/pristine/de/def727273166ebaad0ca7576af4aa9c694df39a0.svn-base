@@ -1,0 +1,24 @@
+#EnterpriseInfo {
+	margin-left:100px;
+	width:580px;
+}
+#EnterpriseInfo .divline {
+	width:580px;
+	height:40px;
+	line-height:40px;
+	vertical-align:middle;
+	border-bottom:#DDDDDD solid 1px;
+}
+#EnterpriseInfo .divline .leftInfo {
+	width:360px;
+	display:block;
+	float:left;
+}
+#EnterpriseInfo .divline .rightInfo {
+	width:220px;
+	display:block;
+	float:left;
+}
+.help {
+	width:765px;
+}

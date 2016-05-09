@@ -1,0 +1,25 @@
+#Elective {
+	text-align:left;
+}
+#Elective #tab {
+	width:812px;
+}
+#Elective .tabline {
+	width:497px;
+}
+#Elective .tabCont {
+	padding-left:8px;
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:802px;
+	height:436px;
+	padding-top:20px;
+}
+#Elective .help {
+	width:794px;
+}
+#Elective .inputInfo {
+	line-height:30px;
+	height:30px;
+	padding-left:20px;
+}

@@ -1,0 +1,69 @@
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+	background:url(../../App_Image/Admin/login_bg.jpg) repeat-x;
+}
+.clears {
+	clear:both;
+	margin:0;
+	padding:0;
+}
+#login {
+	width:979px;
+	height:520px;
+	background:url(../../App_Image/Admin/login_bg.jpg) repeat-x;
+	text-align:center;
+	margin:auto;
+}
+#login .loginareas {
+	width:457px;
+	padding-left:85px;
+	padding-top:100px;
+	height:265px;
+	margin:121px auto;
+	text-align:left;
+	background:url(../../App_Image/Admin/Loginarea_bg.gif) no-repeat;
+}
+#login .loginareas .inputareas{
+	float:left;
+	width:240px;
+}
+#login .loginareas .inputareas a{
+	color:#FFF;
+	text-decoration:none;
+}
+#login .loginareas .inputareas .regUrls {
+	width:215px;
+	text-align:right;
+}
+#login .loginareas .btnareas{
+	float:left;
+	margin-top:5px;
+}
+#login .loginareas .inputInfos {
+	color:#FFF;
+	padding:10px 0;
+}
+#login .loginareas .inputInfos span.names{
+	display:block;
+	float:left;
+	width:45px;
+	height:25px;
+	line-height:22px;
+}
+#login .loginareas .inputInfos span.inputs{
+	display:block;
+	float:left;
+	width:167px;
+	border-left:#667981 solid 1px;
+}
+#login .loginareas .inputInfos .input_texts {
+	width:165px;
+	height:17px;
+	border-top:#D8E1E8 solid 1px;
+	border-left:#CDCFCE solid 1px;
+	border-right:#D5E0E4 solid 1px;
+	border-bottom:#687988 solid 1px;
+	font-size:12px;
+}

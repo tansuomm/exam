@@ -1,0 +1,75 @@
+﻿body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+	font-family:Arial;
+}
+A{text-decoration:none;}
+A:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+}
+A:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+}
+A:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+}
+
+A.BoardNameLink {font-weight:bold}
+A.BoardNameLink:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	font-weight:bold
+}
+A.BoardNameLink:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	font-weight:bold
+}
+A.BoardNameLink:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	font-weight:bold
+}
+
+
+
+.clear{height:10px}
+
+.BBS_Default{height:480px;}
+
+.BoardList{border:1px solid #C4C4C4;border-bottom:0px ;}
+
+/* The HeadStyle of Table */
+.BoardList .TableHead{background-color:#DBDBDB;height:25px;font-weight:bold;text-align:center}
+
+.BoardList .TableHead .BoardName{width:300px;border-bottom:1px solid #C4C4C4;}
+
+.BoardList .TableHead .BoardSubjectAmount{width:50px;border-bottom:1px solid #C4C4C4;}
+
+.BoardList .TableHead .LastPostTime{width:120px;border-bottom:1px solid #C4C4C4;}
+
+.BoardList .TableHead .ManagerNameList{width:150px;border-bottom:1px solid #C4C4C4;}
+/* The BodyStyle of Table */
+.BoardList .TableContent{background-color:#F0F4F6;height:55px;}
+
+.BoardList .TableContent .BoardName { font-size:13px;border-bottom:1px solid #C4C4C4;width:300px;font-weight:bold;text-indent:2em}
+
+.BoardList .TableContent .BoardName .TitleImage{}
+
+.BoardList .TableContent .BoardNotes {font-weight:normal;font-size:12px;text-indent:4em;color:gray;}
+
+.BoardList .TableContent .BoardSubjectAmount{border-bottom:1px solid #C4C4C4;width:50px;text-align:center}
+
+.BoardList .TableContent .LastPostTime{border-bottom:1px solid #C4C4C4;width:120px;text-align:center}
+
+.BoardList .TableContent .ManagerNameList{border-bottom:1px solid #C4C4C4;width:150px;text-align:center}

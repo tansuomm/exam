@@ -1,0 +1,298 @@
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+td
+{
+	white-space:normal;
+	word-break:break-all;
+}
+.mainPage {
+	width:990px;
+	margin:0 auto;
+	border:#C2C2C2 solid 1px;
+}
+.fleft {
+	float:left;
+}
+.fright {
+	float:right;
+}
+.clear {
+	clear:both;
+}
+.go_button
+{
+	font-size: 12px;
+	border:#999999 solid 1px;
+	background-color:#ffffff;
+	height: 20px;
+	width: 47px;
+	margin-top:2px;
+	line-height:18px;
+}
+.logoCenter {
+	height:79px;
+	width:256px;
+	background:url(../App_Image/Admin/back.gif) repeat-x;
+}
+.logoRight {
+	height:74px;
+	width:450px;
+	color:#CFE5F2;
+	padding-top:5px;
+	text-align:right;
+	background:url(../App_Image/Admin/logo_right.gif);
+}
+.banner {
+	width:990px;
+	height:40px;
+}
+#tdTitle {
+	width:840px;
+	height:22px;
+	text-align:left;
+	padding-top:7px;
+	text-indent:15px;
+	color:#fff;
+	background:url(../App_Image/Admin/zhuangtaitiao.gif) repeat-x;
+}
+#divTree {/*左侧树形菜单*/
+	width:150px;
+	height:500px;
+	text-align:left;
+	float:left;
+}
+.menuName{
+float:left;
+display:block;
+width:124px;
+text-indent:5px;
+}
+.menuUnselct{
+padding-top:4px;
+height:17px;
+line-height:14px;
+font-size:12px;
+cursor:pointer;
+width:120px;
+padding-left:20px;
+position:relative;
+}
+.menuSelect{
+padding-top:4px;
+background-image:url(../App_Image/Admin/main_back.gif);
+height:17px;
+color:#fff;
+line-height:14px;
+font-size:12px;
+cursor:pointer;
+width:120px;
+padding-left:20px;
+position:relative;
+}
+.subicon {
+	position:absolute;
+	top:4px;
+	left:5px;
+	width:11px;
+	height:11px;
+	float:left;
+}
+.footer {
+	width:990px;
+	height:21px;
+	background:url(../App_Image/Admin/main_bottom_line.gif) repeat-x;
+}
+
+.pagebar .pageInfo {/*分页*/
+	float:left;
+	padding-left:60px;
+	height:25px;
+	padding-top:15px;
+	text-align:left;
+	width:35%;
+}
+.pagebar .selectPage {/*分页*/
+	float:left;
+	width:52%;
+	height:30px;
+	padding-right:3%;
+	padding-top:10px;
+	text-align:right;
+}
+A {
+	COLOR: black;
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+	/*TEXT-DECORATION: none*/
+}
+A:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	/*text-decoration: none;*/
+	color:#D36700;
+}
+A:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	/*text-decoration: none;*/
+	color:#D36700;
+}
+A:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	/*text-decoration:none;*/
+	color:#D36700;
+}
+A.myLink:link {
+/*分页文字链接色*/
+	font-family: "Verdana, Arial, sans-serif";
+	font-size:12px;
+	font-weight:bold;
+	text-decoration: none;
+	color:#D36700;
+	font-weight:bold;
+}
+A.myLink:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size:12px;
+	font-weight:bold;
+	text-decoration: none;
+	color:#D36700;
+}
+A.myLink:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	color: #D36700;
+}
+.tab_table
+{
+/*列表型*/
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size:12px;
+	text-decoration: none;
+	background-color:#949494;
+	COLOR:#000000;
+	margin-top:10px;
+}
+.tab_label
+{
+/*列表型tr*/
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #DBDBDB;
+	COLOR:#000000;
+	height:20px;
+	line-height:25px;
+}
+.tab_tr1
+{
+/*列表型tr*/
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #ffffff;
+	COLOR:#000000;
+	line-height:20px;
+	height:25px;
+}
+.tr_al{
+	background-color:#F1ECEC;
+	height:25px;
+}
+.input {
+	font-size: 12px;
+	border:#999999 solid 1px;
+	background-color:#ffffff;
+}
+.four_button{
+	background:url(../../App_Image/Admin/four_button_w.gif);
+	width:72px;
+	height:20px;
+	border-style:none;
+	line-height:20px;
+	cursor:pointer;
+}
+.two_button{
+	background:url(../../App_Image/Admin/two_button_b_.gif);
+	width:47px;
+	height:24px;
+	border-style:none;
+	line-height:20px;
+	cursor:pointer;
+}
+.two_button_y{ 
+	background-image:url(../../App_Image/Admin/two_button_b.gif);
+	height: 24px;
+	width: 47px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.many_button_y{
+	background-image:url(../../App_Image/Admin/many_button_b.gif);
+	height: 24px;
+	width: 97px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.many_button{
+	background-image:url(../../App_Image/Admin/many_button_w.gif);
+	width:116px;
+	height:20px;
+	border: 0px outset;
+	line-height:20px;
+	cursor:pointer;
+}
+.four_button_y{ 
+	background-image:url(../../App_Image/Admin/four_button_b.gif);
+	height: 24px;
+	width: 80px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.pdleft20 {
+	padding-left:20px;
+}
+.pdleft10 {
+	padding-left:10px;
+}
+.tab_on {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../App_Image/Admin/tab_select.jpg) no-repeat;
+	text-align:center;
+	font-weight:bold;
+	cursor:pointer;
+}
+.tab_off {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../App_Image/Admin/tab_Unselect.jpg) no-repeat;
+	text-align:center;
+	cursor:pointer;
+}
+.tabline {
+	float:left;
+	height:27px;
+	background:url(../App_Image/Admin/tab_line.jpg) repeat-x;
+}

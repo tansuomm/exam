@@ -1,0 +1,21 @@
+﻿body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+	font-family:Arial;
+}
+.clear{height:20px;}
+
+.Tip{color:red}
+
+.BBS_PostTopic{margin-left:10px}
+
+.BBS_PostTopic .Row{width:96%;}
+
+.BBS_PostTopic .Row .HeaderCell{float:left;width:80px; vertical-align:middle;}
+
+.BBS_PostTopic .Row .InputCell{float:left;width:355px;}
+
+.BBS_PostTopic .Row .TipCell{float:left;width:80px;}
+
+.BBS_PostTopic .ButtonGroup{width:96%;text-align:center}

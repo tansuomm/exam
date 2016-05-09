@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<!-- dao层的接口 -->
+<mapper namespace="org.zshwd.dao.ITkclDAO">	
+    
+    <resultMap type="org.zshwd.vo.Tkcl" id="tkclResultMap">
+        <!-- 主键 -->
+        <id column="tk_cl_id" property="tkClId" jdbcType="INTEGER" />
+        <result column="tk_cl_name" property="tkClName" javaType="java.lang.String"/>
+    </resultMap>
+    
+    <!-- useGeneratedKeys  insert后获取主键 -->
+    <!-- keyProperty 实体类主键的属性 -->
+    <insert id="addTkcl" parameterType="org.zshwd.vo.Tkcl" useGeneratedKeys="true" keyProperty="tkClId">
+        insert into tk_cl (Tk_cl_name) values (#{tkClName})        
+    </insert>
+    
+	<!-- id和接口里面的方法名准确对应 -->
+	<!-- resultType 返回类型   实体类的包+名称-->
+	<select id="findAllTkcl" resultMap="tkclResultMap">
+	    <!-- sql语句 -->
+	    Select * From tk_cl
+	</select>
+	
+	<!-- id 接口里面的方法名
+	parameterType 参数  考生Id int
+	resultMap 返回类型 -->
+	<!-- #查什么 考试
+	#时间段  当前时间大于考试开始时间 并且 当前时间小于 考试结束时间
+	#tk_cl.IsAllow = 0 允许所有人考
+	#左连接考生策略表 用考试Id做连接
+	#左连接考生表 用的考生的id
+	#第一个括号 时间段问题
+	#第三个括号 要求 部分人可以考试 并且 要求 考试策略表中的考生id等于当前登录考生Id
+	#第二个括号和第一个括号之间是 and 关系 满足时间段前提下 满足  允许所有人参加 或者 (部分人参加) -->
+	<select id="findTkclsByClerkId" parameterType="int" resultMap="tkclResultMap">
+	  <![CDATA[
+		SELECT tk_cl.* FROM tk_cl LEFT JOIN clerk_cl ON tk_cl.Tk_cl_id = clerk_cl.Tk_cl_id
+		LEFT JOIN clerk ON clerk_cl.Clerk_ID = clerk.Clerk_ID
+	 	WHERE (NOW() > tk_cl.Valid_btime AND NOW() < tk_cl.Valid_etime) 
+	 	and (tk_cl.IsAllow = 0 or (tk_cl.IsAllow = 1 AND clerk_cl.Clerk_ID = #{clerkId}))
+ 	  ]]>  
+	</select>
+</mapper>

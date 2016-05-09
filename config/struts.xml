@@ -14,16 +14,13 @@
 		<default-action-ref name="index" />
 
 		<global-results>
-			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="input">/WEB-INF/jsp/input.jsp</result>
 		</global-results>
 
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
-				result="error" />
+				result="input" />
 		</global-exception-mappings>
-		<action name="index">
-			<result>/WEB-INF/jsp/index.jsp</result>
-		</action>
 
 		<action name="*_*" class="{1}Action" method="{2}">
 			<result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
@@ -33,17 +30,26 @@
 			<result name="delete" type="redirect">/{1}_list</result>
 			<result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
 		</action>
-
-	</package>
-    <package name="login" extends="struts-default" namespace="/">
 		<action name="loginPre" method="loginPre" class="userAction">
 			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		<action name="login" method="login" class="userAction">
 			<result name="login">/WEB-INF/jsp/index.jsp</result>
-			<result name="input" type="redirect">/loginPre</result>
+			<result name="pwdOrUserError">/WEB-INF/jsp/uerror.jsp</result>
+			
 		</action>
-	</package> 
+		
+	</package>
+  <!--   <package name="login" extends="struts-default" namespace="/">
+		<action name="loginPre" method="loginPre" class="userAction">
+			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		<action name="login" method="login" class="userAction">
+			<result name="login">/WEB-INF/jsp/index.jsp</result>
+			<result name="input">/WEB-INF/jsp/input.jsp</result>
+			
+		</action>
+	</package>  -->
 
 
 </struts>

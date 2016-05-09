@@ -1,0 +1,20 @@
+package org.zshwd.dao;
+
+import java.util.List;
+
+import org.zshwd.vo.Tkj;
+
+public interface ITkjDAO {
+	/**
+	 * 查找所有题库集
+	 * @return
+	 */
+	public List<Tkj> findAllTkj();
+	
+	/**
+	 * 根据题库集Id得到题库集实体类
+	 * @param tkjId
+	 * @return
+	 */
+	public Tkj findTkjByTkjId(int tkjId);
+}

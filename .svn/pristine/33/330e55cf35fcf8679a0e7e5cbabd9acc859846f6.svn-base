@@ -1,0 +1,11 @@
+package org.zshwd.service;
+
+public interface ITkService {
+
+	/**
+	 * 根据题库集得到题库
+	 * @param tkjId
+	 * @return
+	 */
+	public String findTkByTkjId(int tkjId);
+}

@@ -1,0 +1,22 @@
+#message {
+	text-align:left;
+}
+#message .fieldsetbutton {
+	padding-left:3px;
+	margin-bottom:3px;
+}
+#message .fieldsetClass {
+	border:1px solid #C6BEC6;
+	width:740px;
+	margin:0;
+	padding:0 10px;
+}
+#message .fieldsetClass legend {
+	color:#30598C;
+}
+#message .tab_table {
+	width:762px;
+}
+#message .help {
+	margin-top:20px;
+}

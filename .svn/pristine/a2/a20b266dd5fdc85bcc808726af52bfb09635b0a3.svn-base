@@ -1,0 +1,66 @@
+﻿body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+	font-family:Arial;
+}
+A.TopLink{font-weight:bold}
+A.TopLink:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;/*#D36700;*/
+	text-decoration:none;
+}
+A.TopLink:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	text-decoration:none;
+}
+A.TopLink:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	text-decoration:underline;
+}
+
+A{}
+A:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;/*#D36700;*/
+	text-decoration:none;
+}
+A:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	text-decoration:none;
+}
+A:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	color:black;
+	text-decoration:underline;
+}
+
+.BBS_ReadTopic{height:480px;}
+
+/* Top Lab */
+.BBS_ReadTopic .ControlForm {width:98%;}
+
+.BBS_ReadTopic .ControlForm .PageTitle{float:left;width:200px;}
+
+.BBS_ReadTopic .ControlForm .Query{float:left;width:300px;}
+
+.BBS_ReadTopic .ControlForm .CreateNewTopic{float:left;width:250px;text-align:left}
+
+/* Table */
+.BBS_ReadTopic .TopicList{}
+
+.BBS_ReadTopic .TopicList .DefaultHeight{height:350px;}
+
+#gv_TopicList TD {color:#605D5D}
+
+
+

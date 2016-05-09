@@ -1,0 +1,17 @@
+package org.zshwd.dao;
+
+import org.zshwd.vo.Users;
+
+/**
+ * dao接口
+ * @author Administrator
+ *
+ */
+public interface IUserDAO {
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+	public int addUser(Users user);
+}

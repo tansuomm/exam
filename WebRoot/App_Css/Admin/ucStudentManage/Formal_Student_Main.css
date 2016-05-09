@@ -1,0 +1,61 @@
+#formalStudent {
+	text-align:left;
+}
+#formalStudent .fieldsetClass {
+	border:1px solid #C6BEC6;
+
+	margin:0;
+	padding:0 10px;
+	text-align:left;
+}
+#formalStudent #infoSearch {
+
+	height:30px;
+	border-bottom:#999 solid 1px;
+	margin-left:5px;
+	text-align:left;
+}
+#formalStudent #infoSearch span.name {
+	display:block;
+	float:left;
+	height:20px;
+	padding-top:5px;
+	text-align:right;
+}
+#formalStudent #infoSearch span.nameinput {
+	display:block;
+	float:left;
+	width:135px;
+	text-align:left;
+}
+#formalStudent #infoSearch span.selectDepartment {
+	display:block;
+	float:left;
+	width:110px;
+	text-align:left;
+}
+#formalStudent #infoSearch span.selectChar {
+	display:block;
+	float:left;
+	width:90px;
+	text-align:left;
+}
+#formalStudent #infoSearch span.selectState {
+	display:block;
+	float:left;
+	width:75px;
+	text-align:left;
+}
+#formalStudent #infoSearch span.btn {
+	display:block;
+	float:left;
+	width:70px;
+	text-align:left;
+}
+#formalStudent #infoButton {
+	margin-top:10px;
+	height:30px;
+}
+#formalStudent .tab_table {
+	
+}

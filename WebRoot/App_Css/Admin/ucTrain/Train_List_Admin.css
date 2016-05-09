@@ -1,0 +1,14 @@
+#Train_List_Admin {
+	padding-left:15px;
+}
+#Train_List_Admin .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:590px;
+}
+#Train_List_Admin .fieldsetClass .btndiv{
+	height:30px;
+}
+#Train_List_Admin .tab_table {
+	width:612px;
+}

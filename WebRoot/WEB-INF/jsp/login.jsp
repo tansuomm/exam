@@ -9,98 +9,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <title>管理员登录</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<link href="<%=path%>/html/scripts/ui/skins/Aqua/css/ligerui-all.css"
-	rel="stylesheet" type="text/css" />
-<link href="<%=path%>/html/images/style.css" rel="stylesheet"
-	type="text/css" />
+
 <script type="text/javascript"
 	src="<%=path%>/html/scripts/jquery/jquery-1.3.2.min.js"></script>
-<script type="text/javascript"
-	src="<%=path%>/html/scripts/jquery/jquery.validate.min.js"></script>
-<script type="text/javascript"
-	src="<%=path%>/html/scripts/jquery/messages_cn.js"></script>
-<script type="text/javascript"
-	src="<%=path%>/html/scripts/ui/js/ligerBuild.min.js"></script>
-<script type="text/javascript" src="<%=path%>/html/js/function.js"></script>
-<script type="text/javascript"> 
-    //表单验证
-    $(function () {
-        //检测IE
-        if ($.browser.msie && $.browser.version == "6.0") {
-            window.location.href = 'ie6update.html';
-        }
-        $('#txtUserName').focus();
-        $("#form1").validate({
-            errorPlacement: function (lable, element) {
-                element.ligerTip({ content: lable.html(), appendIdTo: lable });
-            },
-            success: function(lable){
-                lable.ligerHideTip();
-            }
-        });
-    });
-</script>
-</head>
-<body class="loginbody">
-	<form name="form1" method="post" action="login" id="form1">
-		<div>
-			<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
-				value="/wEPDwUKLTkwMDUzNjM2N2QYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFDGNiUmVtZW1iZXJJZD2SF5g1hwquguGQda2iMgPcg5fD" />
-		</div>
-		<div>
-			<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
-				value="/wEWBgKSlaiJCgKl1bKzCQLG8eCkDwLChPzDDQLCi9reAwLDndTvCWfMdF0mpKBp3AFMne4czrMX/LzW" />
-		</div>
-		<div class="login_div">
-			<div class="login_box">
-				<div class="login_logo">LOGO</div>
-				<div class="login_content">
-					<dl>
-						<dt>登录账号：</dt>
-						<dd>
-							<input name="userName" type="text" value="admin"
-								id="txtUserName" class="login_input required"
-								style="width: 130px;" />
-						</dd>
-					</dl>
-					<dl>
-						<dt>登录密码：</dt>
-						<dd>
-							<input name="userPwd" type="password" id="txtUserPwd"
-								class="login_input required" style="width: 130px;" />
-						</dd>
-					</dl>
-					<dl>
-						<dt>验证码：</dt>
-						<dd>
-							<input name="txtCode" type="text" maxlength="6" id="txtCode"
-								class="login_input required"
-								style="width: 55px; text-transform: uppercase;" /> <img
-								src="../tools/verify_code.ashx" width="70" height="22"
-								alt="点击切换验证码" title="点击切换验证码"
-								style="margin-top: 2px; vertical-align: top; cursor: pointer;"
-								onclick="ToggleCode(this, '../tools/verify_code.ashx');return false;" />
-						</dd>
-					</dl>
-				</div>
-				<div class="login_foot">
-					<div class="right">
-						<input type="submit" name="btnSubmit" value="登 录" id="btnSubmit"
-							class="login_btn" />
-					</div>
-					<span> <input id="cbRememberId" type="checkbox"
-						name="cbRememberId" checked="checked" /> <label
-						for="cbRememberId">记住用户名</label>
-					</span>
-				</div>
-				<div class="login_tip"></div>
-			</div>
-			<div class="login_copyright">
-				Copyright ? 2001 - 2013 Feedtech.com.cn Inc. All Rights Reserved.<br />
-				康华远景 版权所有
-			</div>
-		</div>
-	</form>
-</body>
-</html>
 
+</head>
+<body>
+<form action="login" method="post" onsubmit="return valid()">
+	<input  type="text" name="userName" id="txtUserName"/>
+	<input  type="password" name="userPwd" id="txtUserPwd"/>
+           
+    <input type="text" class="yzm" value="" name="imgCode" id="imgCode"/>
+    <img id="img1"  alt="换一张" src="user_imgCode"/>
+	<input id ="isImg" type="hidden" value="fail"/>
+                       
+                   
+	<input  type="submit"	id="btn" value="登录"/><span id="uspan"></span>
+</form>
+
+</body>
+
+<script type="text/javascript"> 
+	$.noConflict();
+    //更换验证码
+	jQuery("#img1").click(function(){
+		jQuery("#img1").attr("src","user_imgCode?"+new Date().getTime());
+	});
+	//验证码输入判断
+	jQuery("#imgCode").bind('input propertychange',function(){
+		jQuery.ajax({
+			  url: 'user _isImgCode',
+			  type: 'POST',
+			  data:"imgCode="+jQuery("#imgCode").val(),
+			  /* data:"{'useremail':'jQuery(\"#mobileOremail\").val()','usermobile':'jQuery(\"#mobileOremail\").val()'}", */
+			  success: function(msg){
+			   	if (jQuery.trim(msg)!="") {
+			   		jQuery("#isImg").val(msg);
+			   	}
+			  }
+			});	
+		
+	});
+	/* 提交判断 */	
+ 	function valid(){
+		if(jQuery("#txtUserName")==""){
+			/* jQuery("#span2").html("用户名不能为空"); */
+			alert("用户名不能为空");
+			return false;
+		}
+		if(jQuery("#txtUserPwd")==""){
+			/* jQuery("#span3").html("密码不能为空"); */
+			alert("密码不能为空");
+			return false;
+		}
+		if(jQuery("#imgCode").val()==""){
+			alert("验证码不能为空");
+			return false;
+		}
+		//alert(!(jQuery("#isImg").val().trim()=="success"));
+		if(!(jQuery("#isImg").val().trim()=="success")){
+			alert("验证码输入错误");
+			return false;
+		}
+		return true;
+	}
+
+</script>
+</html>

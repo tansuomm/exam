@@ -1,0 +1,30 @@
+#parameter {
+	padding-left:10px;
+}
+#parameter .fieldsetClass{
+	border:1px solid #C6BEC6;
+	margin-top:0px;
+	width:740px;
+	padding-bottom:10px;
+	text-align:center;
+}
+#parameter .fieldsetClass legend {
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+}
+#parameter .fieldsetClass table{
+	margin:0 auto;
+}
+#parameter .fieldsetClass .checkedList {
+	text-align:left;
+	margin:0 auto;
+	height:25px;
+	padding-left:40px;
+}
+#parameter .fieldsetClass .pageset {
+	text-align:left;
+	margin:0 auto;
+	height:25px;
+	padding-left:55px;
+}

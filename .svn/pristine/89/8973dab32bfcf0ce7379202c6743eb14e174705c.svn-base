@@ -1,0 +1,64 @@
+package org.zshwd.action;
+
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
+
+import org.apache.struts2.ServletActionContext;
+import org.zshwd.dao.IClerkDAO;
+import org.zshwd.vo.Clerk;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class ClerkAction extends ActionSupport {
+	
+	public String loginPre() throws Exception{
+		return "loginPre";
+	}
+	
+	public String login() throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		clerk = clerkDao.login(clerk);
+		if(clerk != null){
+			if(clerk.getClerkId() > 0){
+				map.put("resultCode", "0000");
+				map.put("resultMsg", "µÇÂ¼³É¹¦");
+				map.put("clerkId", clerk.getClerkId());
+			}
+			else{
+				map.put("resultCode", "0001");
+				map.put("resultMsg", "µÇÂ¼Ê§°Ü");
+			}
+		}
+		else{
+			map.put("resultCode", "0001");
+			map.put("resultMsg", "µÇÂ¼Ê§°Ü");
+		}
+		JSONObject json = JSONObject.fromObject(map);
+		ServletActionContext.getResponse().setContentType("text/html");
+		ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
+		PrintWriter out = ServletActionContext.getResponse().getWriter();
+		out.println(json.toString());
+		out.flush();
+		out.close();
+		return null;
+	}
+	
+	private Clerk clerk;
+	private IClerkDAO clerkDao;
+
+	public Clerk getClerk() {
+		return clerk;
+	}
+
+	public void setClerk(Clerk clerk) {
+		this.clerk = clerk;
+	}
+
+	public void setClerkDao(IClerkDAO clerkDao) {
+		this.clerkDao = clerkDao;
+	}
+	
+}

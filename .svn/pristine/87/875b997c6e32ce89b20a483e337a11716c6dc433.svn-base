@@ -1,0 +1,46 @@
+#Train_List_Admin {
+	padding-left:15px;
+}
+#Train_List_Admin .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:590px;
+}
+#Train_List_Admin .fieldsetClass .btndiv{
+	height:30px;
+}
+#Train_List_Admin .tab_table {
+	width:612px;
+}
+#list .tishi{
+	background-image:url(../../../App_Image/Admin/tishi.gif);
+	background-position:14 top;
+	background-repeat:no-repeat;
+	padding-left:134px;
+	height:51px;
+	border-color:#E2C3B1;
+	border-width:1px;
+	border-style:solid;
+	background-color:#FFFCF3;
+	color:#F5610B;
+	margin-top:4px;
+	width:462px;
+	text-align:center;
+	margin-left:5px;
+}
+#list .tishi2{
+	background-image:url(../../../App_Image/Admin/tishi.gif);
+	background-position:14 top;
+	background-repeat:no-repeat;
+	padding-left:134px;
+	height:51px;
+	border-color:#E2C3B1;
+	border-width:1px;
+	border-style:solid;
+	background-color:#FFFCF3;
+	color:#F5610B;
+	margin-top:4px;
+	width:475px;
+	text-align:center;
+	margin-left:0px;
+}

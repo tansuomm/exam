@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<!-- dao层的接口 -->
+<mapper namespace="org.zshwd.dao.IClerkDAO">	
+    
+    <resultMap type="org.zshwd.vo.Clerk" id="clerkResultMap">
+        <result column="clerk_Id" property="clerkId" javaType="java.lang.Integer" />
+        <result column="clerk_Name" property="clerkName" javaType="java.lang.String"/>
+        <result column="clerk_Pwd" property="clerkPwd" javaType="java.lang.String"/>
+    </resultMap>
+    
+	<!-- id和接口里面的方法名准确对应 -->
+	
+	<select id="login" parameterType="org.zshwd.vo.Clerk" resultMap="clerkResultMap">
+	    <!-- sql语句 -->
+	    Select * From clerk Where clerk_Name = #{clerkName} And clerk_Pwd = #{clerkPwd}
+	</select>
+</mapper>

@@ -1,0 +1,15 @@
+﻿.titleFileset
+{
+	margin-bottom:4px; 
+	text-align:left; 
+	padding-bottom:4px; 
+	padding-top:4px;
+}
+.left15
+{
+	margin-left:15px;
+}
+.left30
+{
+	margin-left:30px;
+}

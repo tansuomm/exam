@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div position="top" class="header">
 				<div class="header_box">
 					<div class="header_right">
-						<span><b>admin（超级管理员）</b>您好，欢迎光临</span> <br /> <a
+						<span><b>${user.userName}</b>您好，欢迎光临</span> <br /> <a
 							href="javascript:f_addTab('home','管理中心','center.html')">管理中心</a>
 						| <a href="####">预览网站</a> | <a id="lbtnExit" href="####">安全退出</a>
 					</div>
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<!--左边-->
 			<div position="left" title="管理菜单" id="global_left_nav">
-				<div title="频道管理" iconcss="menu-icon-model" class="l-scroll">
+				<div title="权限管理" iconcss="menu-icon-model" class="l-scroll">
 					<ul id="global_channel_tree" style="margin-top: 3px;">
 						<li isexpand="false"><span>资讯动态</span>
 							<ul>
@@ -57,12 +57,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							href="javascript:f_addTab('tm','题目管理','tm_list')">题目管理</a></li>
 					</ul>
 				</div>
-				<div title="控制面板" iconcss="menu-icon-setting">
+				<div title="考试管理" iconcss="menu-icon-setting">
 					<ul class="nlist">
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_model','内容类别','Intro/ClassList.html')">内容类别</a></li>
+							href="javascript:f_addTab('sys_model','考试管理','Intro/ClassList.html')">考试管理</a></li>
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_config','内容页','Intro/IntroList.html')">内容页</a></li>
+							href="javascript:f_addTab('sys_model','试卷管理','Intro/ClassList.html')">内容类别</a></li>
+						<li><a class="l-link"
+							href="javascript:f_addTab('sys_config','统计分析','Intro/IntroList.html')">内容页</a></li>
+					</ul>
+				</div>
+				<div title="考生管理" iconcss="menu-icon-setting">
+					<ul class="nlist">
+						<li><a class="l-link"
+							href="javascript:f_addTab('sys_model','考生录入','Intro/ClassList.html')">内容类别</a></li>
+						<li><a class="l-link"
+							href="javascript:f_addTab('sys_config','考生信息维护','Intro/IntroList.html')">内容页</a></li>
 					</ul>
 				</div>
 			</div>

@@ -1,0 +1,98 @@
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+	color:#fff;
+	margin-bottom:5px;
+	font-weight:bold;
+	background:url(../../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+	height:24px;
+	line-height:22px;
+	text-indent:1em;
+	width:100%;
+	text-align:left;
+}
+#Investigate_Edit {
+	text-align:left;
+	padding-left:5px;
+}
+#Investigate_Edit .tabline {
+	width:530px;
+}
+#Investigate_Edit #tab {
+	width:100%;
+}
+#Investigate_Edit .tabCont {
+	border:#999 solid 1px;
+	width:730px;
+	border-top-style:none;
+	padding-left:8px;
+	padding-top:15px;
+}
+#Investigate_Edit .normal{
+	padding:5px 5px;
+	margin-left:5px;
+}
+#Investigate_Edit .normalinput{
+	padding:5px 5px;
+	margin-left:25px;
+}
+#Investigate_Edit .normal span.name{
+	width:65px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:right;
+}
+#Investigate_Edit .fieldsetMargin {
+	margin-top:15px;
+}
+#Investigate_Edit .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:690px;
+	margin:0;
+}
+#Investigate_Edit .downloadInfo {
+	width:680px;
+}
+#Investigate_Edit .downloadInfo span.name {
+	width:100px;
+	display:block;
+	float:left;
+	text-align:right;
+	padding-right:30px;
+	line-height:25px;
+}
+#Investigate_Edit .downloadInfo span.textinput {
+	display:block;
+	float:left;
+	text-align:left;
+}
+.input_textarea {
+	width:375px;
+	height:120px;
+}
+.marginr {
+	margin-right:33px!important;
+	margin-right:35px;
+}
+#Investigate_Edit .foot {
+	margin-top:30px;
+}
+#Investigate_Edit .help,.helpList,.helpListLast {
+	width:710px;
+}
+#Investigate_Edit .btnsubmit {
+	text-align:center;
+	padding-left:220px;
+	height:40px;
+	margin-top:15px;
+}
+#Investigate_Edit .btnsubmit input {
+	float:left;
+	margin-left:10px;
+}

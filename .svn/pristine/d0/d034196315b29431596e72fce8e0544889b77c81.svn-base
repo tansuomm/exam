@@ -1,0 +1,20 @@
+﻿#window_Analyse {
+	text-align:center;
+}
+#window_Analyse .title{
+	height:35px;
+	line-height:35px;
+}
+#window_Analyse .normal{
+	text-align:left;
+	padding:5px;
+	cursor:pointer;
+}
+#window_Analyse .normaltitle {
+	margin-top:10px;
+	padding:5px;
+	text-align:left;
+}
+#window_Analyse .inputInfo {
+	height:30px;
+}

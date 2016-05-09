@@ -1,0 +1,37 @@
+#window_class_add .tabline {
+	width:404px;
+}
+#window_class_add .help {
+	width:670px;
+	margin-top:5px;
+}
+#window_class_add .helpList {
+	width:670px;
+}
+#window_class_add .helpListLast {
+	width:670px;
+}
+#window_class_add .tabCont {
+	width:697px;
+}
+#window_class_add .tabCont .userInfo{
+	width:690px;
+	height:28px;
+}
+#window_class_add .tabCont .userInfo span.name{
+	width:80px;
+	padding-right:5px;
+	display:block;
+	float:left;
+}
+#window_class_add .tabCont .userInfo span.inputOrInfo{
+	display:block;
+	float:left;
+}
+#window_class_add .tabCont .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:655px;
+	margin:0;
+	height:80px;
+}

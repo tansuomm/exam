@@ -1,0 +1,96 @@
+package org.zshwd.service.impl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.zshwd.dao.ITkjDAO;
+import org.zshwd.dao.ITmDAO;
+import org.zshwd.select.vo.TMTX;
+import org.zshwd.service.ITmService;
+import org.zshwd.util.StringTool;
+import org.zshwd.vo.Tkj;
+import org.zshwd.vo.Tm;
+
+@Service
+//注册成bean
+public class TmServiceImpl implements ITmService {
+
+	@Override
+	/**
+	 * 根据题库Id在题目表里找到知识点
+	 * @param tkId
+	 * @return
+	 */
+	public String findZsdByTkId(int tkjid, int tkId) {
+		List<String> list = new ArrayList<String>();
+		list = tmDao.findZsdByTkId(tkjid, tkId);
+		
+		StringBuffer sBuffer = new StringBuffer();
+		sBuffer.append("<option value='所有'>所有</option>");
+		for(String zsd : list){
+			sBuffer.append("<option value='" + zsd + "'>" + zsd + "</option>");
+		}		
+		StringTool.PrintStrToPage(sBuffer.toString());			
+		return null;
+	}
+	
+	/**
+	 * 根据题库集Id题库Id知识点题目题型抽题
+	 * @return
+	 * @throws Exception
+	 */
+	public String findTmByTkjIdTkIdZsd(int tkjid,int tkid,String zsd, String nd,String tx){				
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tkjid", tkjid);
+		map.put("tkid", tkid);
+		map.put("zsd", zsd);
+		map.put("nd", nd);
+		map.put("tx", tx);
+		List<TMTX> list = new ArrayList<TMTX>();
+		list = tmDao.findTmByTkjIdTkIdZsd(map);
+//		for(TMTX tmtx : list){
+//			System.out.println(tmtx.getTmTxId());
+//			System.out.println(tmtx.getTmTxNum());
+//			System.out.println("--------------");
+//		}
+		
+		//通过题库集Id 题库Id 得到 题库集名称 和 题库的名称
+		Tkj tkj = new Tkj();
+		tkj = tkjDao.findTkjByTkjId(tkjid);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		//题库集名称
+		resultMap.put("tkjName", tkj.getTkjName());
+		//题目题型的集合
+		resultMap.put("list", list);
+		
+		//把集合变成json串
+		JSONObject json = JSONObject.fromObject(resultMap);
+		StringTool.PrintStrToPage(json.toString());
+		
+		return null;
+	}
+	
+	private ITmDAO tmDao;
+	private ITkjDAO tkjDao;
+
+	@Resource
+	public void setTmDao(ITmDAO tmDao) {
+		this.tmDao = tmDao;
+	}
+	@Resource
+	public void setTkjDao(ITkjDAO tkjDao) {
+		this.tkjDao = tkjDao;
+	}	
+}

@@ -1,0 +1,84 @@
+package org.zshwd.action;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.zshwd.service.ITmService;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+@Controller
+//把当前类注册成bean了
+//名称就是类 首字母小写   bean   tmAction
+public class TmAction extends ActionSupport {
+
+	public String findZsdByTkId() throws Exception{
+		return tmService.findZsdByTkId(tkjid,tkid);
+	}
+	
+	/**
+	 * //根据题库集Id题库Id知识点题目题型抽题
+	 * @return
+	 * @throws Exception
+	 */
+	public String findTmByTkjIdTkIdZsd() throws Exception{
+		System.out.println(tkjid + "||" +tkid + "||" +zsd + "||" + nd + "||" + tx);
+		return tmService.findTmByTkjIdTkIdZsd(tkjid,tkid,zsd,nd,tx);
+	}
+	
+	private int tkjid;
+	private int tkid;
+	//知识点
+	private String zsd;
+	//难度
+	private String nd;
+	//题型
+	private String tx;
+	 
+	private ITmService tmService;	
+	
+	public int getTkjid() {
+		return tkjid;
+	}
+
+	public void setTkjid(int tkjid) {
+		this.tkjid = tkjid;
+	}
+
+	public int getTkid() {
+		return tkid;
+	}
+
+	public void setTkid(int tkid) {
+		this.tkid = tkid;
+	}	
+
+	public String getZsd() {
+		return zsd;
+	}
+
+	public void setZsd(String zsd) {
+		this.zsd = zsd;
+	}
+
+	public String getNd() {
+		return nd;
+	}
+
+	public void setNd(String nd) {
+		this.nd = nd;
+	}
+
+	public String getTx() {
+		return tx;
+	}
+
+	public void setTx(String tx) {
+		this.tx = tx;
+	}
+
+	@Resource
+	public void setTmService(ITmService tmService) {
+		this.tmService = tmService;
+	}	
+}

@@ -1,0 +1,41 @@
+#window_class_course_list {
+	color:#666;
+	margin:0 auto;
+}
+#window_class_course_list .listSelect a {
+	color:#CC9900;
+	font-weight:bold;
+	text-decoration:underline;
+}
+#window_class_course_list .listSelect {
+	text-align:left;
+	padding-top:15px;
+	height:20px;
+	margin:0 auto;
+	border-bottom:#CACACA solid 1px;
+	width:673px;
+}
+#window_class_course_list #listreal {
+	margin:0 auto;
+	width:673px;
+}
+#window_class_course_list #listreal .infoList{
+	text-align:left;
+	padding:0 10px 0 15px;
+	border-bottom:#CACACA solid 1px;
+}
+#window_class_course_list #listreal .infoList .title{
+	height:40px;
+	padding-top:5px;
+}
+#window_class_course_list #listreal .infoList .infoall {
+	height:25px;
+}
+#window_class_course_list #listreal .infoList .infodesc {
+	padding-bottom:10px;
+}
+#window_class_course_list #listreal .infoList .infodesc span.descTitle {
+	display:block;
+	float:left;
+	height:30px;
+}

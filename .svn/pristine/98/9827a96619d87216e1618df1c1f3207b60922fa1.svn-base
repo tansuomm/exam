@@ -1,0 +1,21 @@
+#Exam {
+	text-align:left;
+}
+#Exam #tab {
+	width:812px;
+}
+#Exam .tabline {
+	width:390px;
+}
+#Exam .tabCont {
+	padding-left:8px;
+	padding-right:8px;
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:794px;
+	height:436px;
+	padding-top:20px;
+}
+#Exam .help {
+	width:794px;
+}

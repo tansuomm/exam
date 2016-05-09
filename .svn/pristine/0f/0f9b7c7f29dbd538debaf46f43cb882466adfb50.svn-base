@@ -1,0 +1,25 @@
+package org.zshwd.main;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.zshwd.dao.IUserDAO;
+import org.zshwd.vo.Users;
+
+public class TestMain {
+
+	public static void main(String[] args) throws Exception {
+		Users user = new Users();
+		user.setUserName("卢跃跃");
+		
+		BeanFactory factory = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO dao = (IUserDAO) factory.getBean("userDao");
+		
+		if(dao.addUser(user) > 0){
+			System.out.println("添加成功");
+		}
+		else{
+			System.out.println("添加失败");
+		}
+	}
+
+}

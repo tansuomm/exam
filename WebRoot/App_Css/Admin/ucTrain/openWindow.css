@@ -1,0 +1,180 @@
+#showPage_1{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_1 div{margin-top:10px;text-align:left}
+#showPage_2{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_2 div{margin-top:5px;}
+#showPage_3{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_3 div{margin-top:5px;}
+.Summary{margin-top:10px;}
+#btn_Group{padding-left:200px;}
+.row{width:98%;position:relative;padding-left:10px;height:25px;line-height:25px}
+
+.STYLE1 {color: #FF0000}
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+	color:#fff;
+	margin-bottom:5px;
+	font-weight:bold;
+	background:url(../../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+	height:24px;
+	line-height:22px;
+	text-indent:1em;
+	width:100%;
+	text-align:left;
+}
+.content {
+	text-align:left;
+	margin-left:5px;
+}
+#tab {
+	width:100%;
+}
+#window_course_add .tabline {
+	width:554px;
+}
+#window_course_image_add .tabline {
+	width:554px;
+}
+#window_course_add .help {
+	width:720px;
+}
+#window_course_select .help {
+	width:840px;
+}
+#window_course_select #left {
+	border:#cacaca solid 1px;
+	float:left;
+	width:134px;
+	height:521px;
+}
+#window_course_select #right {
+	border:#cacaca solid 1px;
+	float:left;
+	width:700px;
+	height:521px;
+}
+.content .tabCont {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:742px;
+	padding-top:15px;
+	padding-left:20px;
+}
+
+#window_course_image_add .tabCont {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:754px;
+	padding-top:15px;
+	padding-left:8px;
+}
+#window_course_image_add .help {
+	width:730px;
+}
+#window_course_image_add .tabCont .fieldsetClass {
+	padding:0 10px;
+	border:1px solid #C6BEC6;
+	width:710px;
+	margin:0;
+}
+#window_course_image_add .tabCont .fieldsetClass .downloadInfo {
+	margin-left:20px;
+	width:450px;
+	border-bottom:#CACACA dotted 1px;
+}
+#window_course_image_add .tabCont .fieldsetClass .downloadInfo span.name {
+	width:100px;
+	display:block;
+	float:left;
+	text-align:left;
+	line-height:25px;
+}
+#window_course_image_add .tabCont .fieldsetClass .downloadInfo span.inputSelect {
+	width:120px;
+	display:block;
+	float:left;
+	text-align:left;
+}
+#window_course_image_add .tabCont .fieldsetClass .downloadInfo span.inputSelect2 {
+	display:block;
+	float:left;
+	text-align:left;
+}
+#window_course_image .textcont {
+	width:530px;
+	margin-left:10px;
+	text-align:left;
+}
+#window_course_image .textcont .normal{
+	padding:4px;
+	text-align:left;
+}
+#window_course_image .help {
+	width:510px;
+}
+.content .tabCont .topurl {
+	padding:8px;
+	text-align:left;
+}
+.content .tabCont .normal {
+	padding:3px;
+	text-align:left;
+}
+.content .fieldsetClass .normal_indent {
+	padding:3px;
+	margin-left:20px;
+}
+.content .tabCont .userInfo {
+	width:742px;
+}
+.content .tabCont .text_normal {
+	height:25px;
+	padding:5px 30px;
+}
+.content .tabCont .userInfo span.name{
+	width:65px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:right;
+}
+.inputr {
+	margin-right:12px;
+}
+.content .tabCont .userInfo span.inputOrInfo{
+	display:block;
+	padding-top:3px;
+	float:left;
+	line-height:20px;
+}
+.content .tabCont .userInfo span.desc{
+	width:280px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:left;
+}
+#window_course_select .foot {
+	margin-top:10px;
+}
+#window_course_add .foot {
+	margin-top:120px;
+}
+.content .btnsubmit {
+	text-align:center;
+	padding-left:240px;
+	height:40px;
+	margin-top:15px;
+}
+#window_course_select .btnsubmit {
+	padding-left:0;
+}
+.content .btnsubmit input {
+	float:left;
+	margin-left:10px;
+}

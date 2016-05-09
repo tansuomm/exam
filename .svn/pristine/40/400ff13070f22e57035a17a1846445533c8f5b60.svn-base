@@ -1,0 +1,57 @@
+package org.zshwd.vo;
+
+/**
+ * 出题策略实体类
+ *
+ */
+public class TkClNdzsd {
+	private int clId;
+	//试卷Id
+	private int tkClId;
+	//题库集Id
+	private int tkTkjId;
+	//题库Id
+	private int tkLxId;
+	//题目题型Id
+	private int tmTxId;
+	//题目的数量
+	private int tmNum;
+	public int getClId() {
+		return clId;
+	}
+	public void setClId(int clId) {
+		this.clId = clId;
+	}
+	public int getTkClId() {
+		return tkClId;
+	}
+	public void setTkClId(int tkClId) {
+		this.tkClId = tkClId;
+	}
+	public int getTkTkjId() {
+		return tkTkjId;
+	}
+	public void setTkTkjId(int tkTkjId) {
+		this.tkTkjId = tkTkjId;
+	}
+	public int getTkLxId() {
+		return tkLxId;
+	}
+	public void setTkLxId(int tkLxId) {
+		this.tkLxId = tkLxId;
+	}
+	public int getTmTxId() {
+		return tmTxId;
+	}
+	public void setTmTxId(int tmTxId) {
+		this.tmTxId = tmTxId;
+	}
+	public int getTmNum() {
+		return tmNum;
+	}
+	public void setTmNum(int tmNum) {
+		this.tmNum = tmNum;
+	}
+	
+	
+}

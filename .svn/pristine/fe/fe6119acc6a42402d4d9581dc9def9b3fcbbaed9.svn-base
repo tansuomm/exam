@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<!-- dao层的接口 -->
+<mapper namespace="org.zshwd.dao.IUserDAO">
+    <!-- 插入 -->
+    <!-- id和接口里面的方法名准确对应 -->
+    <!-- parameterType 参数类型  现在配置的是 用户实体类-->
+    <!-- 添加操作 insert 默认返回类型 int -->
+	<insert id="addUser" parameterType="org.zshwd.vo.Users">
+	    <!-- sql语句 -->
+	    <!-- #{userName} userName 和 实体类中的 属性 保持一致 -->
+	    insert into user (userName) values (#{userName})
+	</insert>
+</mapper>

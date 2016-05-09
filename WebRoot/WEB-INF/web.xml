@@ -31,10 +31,10 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<!-- 登录过滤器 -->
- 	<filter>
+<!--  	<filter>
 		<filter-name>sessionFilter</filter-name>
 		<filter-class>org.yohta.filter.SessionFilter</filter-class>
-		<!-- 初始化参数 -->
+		初始化参数
 		<init-param>
 			<description>不过滤登录的页面</description>
 			<param-name>noLoginPaths</param-name>
@@ -49,13 +49,8 @@
 	<filter-mapping>
 		<filter-name>sessionFilter</filter-name>
 		<url-pattern>/index</url-pattern>
-	</filter-mapping> 
-	
-	<!-- 错误页 -->
- 	<error-page>
-		<error-code>404</error-code>
-		<location>/error404.jsp</location>
-	</error-page> 
+	</filter-mapping>  -->
+ 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

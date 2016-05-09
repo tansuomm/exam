@@ -1,0 +1,127 @@
+#showPage_1{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_1 div{margin-top:10px;text-align:left}
+#showPage_2{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_2 div{margin-top:5px;}
+#showPage_3{vertical-align:top ;padding-top:3px;padding-left:10px;}
+#showPage_3 div{margin-top:5px;}
+.Summary{margin-top:10px;}
+#btn_Group{padding-left:200px;}
+.row{width:98%;position:relative;padding-left:10px;height:25px;line-height:25px}
+
+.STYLE1 {color: #FF0000}
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+.popTitle{/*弹出窗体的标题*/
+	color:#fff;
+	margin-bottom:5px;
+	font-weight:bold;
+	background:url(../../../App_Image/Admin/xiao_title_back.gif) repeat-x;
+	height:24px;
+	line-height:22px;
+	text-indent:1em;
+	width:100%;
+	text-align:left;
+}
+.content {
+	text-align:left;
+	margin-left:5px;
+}
+#tab {
+	width:100%;
+}
+#content_ApproveStudent .tabline {
+	width:468px;
+}
+#content_Student_Add .tabline,#content_InputStudents .tabline {
+	width:363px;
+}
+#content_chargeModel {
+	width:455px;
+	padding-top:10px;
+}
+.content .tabCont {
+	border:#CACACA solid 1px;
+	border-top-style:none;
+	width:673px;
+	padding-top:15px;
+}
+.content .fieldsetClass {
+	width:630px;
+	height:290px;
+	margin-left:20px;
+}
+#content_chargeModel .fieldsetClass {
+	width:425px;
+	height:290px;
+}
+.content .fieldsetClass .topurl {
+	padding:8px;
+	text-align:left;
+}
+.content .fieldsetClass .normal {
+	padding:3px;
+	text-align:left;
+}
+.content .fieldsetClass .normal_indent {
+	padding:3px;
+	margin-left:20px;
+}
+.content .checkbox {
+	padding:15px 0 10px 25px;
+	height:25px;
+}
+.content .foot {
+	padding:20px;
+}
+.content .btnsubmit {
+	text-align:center;
+	padding-left:200px;
+	height:40px;
+}
+.content .btnsubmit input {
+	float:left;
+	margin-left:10px;
+}
+.content .table_left {
+	float:left;
+	padding-left:25px;
+	padding-right:15px;
+	text-align:center;
+}
+.content .table_right {
+	float:left;
+}
+.content .tabCont .userInfo {
+	width:100%;
+}
+.content .tabCont .text_normal {
+	height:25px;
+	padding:5px 30px;
+}
+.content .tabCont .userInfo span.name{
+	width:95px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:right;
+}
+.content .tabCont .userInfo span.input_info{
+	width:265px;
+	display:block;
+	height:24px;
+	padding-left:5px;
+	padding-top:2px;
+	float:left;
+}
+.content .tabCont .userInfo span.desc{
+	width:280px;
+	display:block;
+	float:left;
+	height:26px;
+	line-height:26px;
+	text-align:left;
+}

@@ -1,0 +1,40 @@
+package org.zshwd.vo;
+
+import java.util.Date;
+
+/**
+ * 试卷实体类
+ *
+ */
+public class Tkcl {
+	private int tkClId;
+	private String tkClName;
+	//开始时间
+	private Date validBtime;
+	
+	public int getTkClId() {
+		return tkClId;
+	}
+	public void setTkClId(int tkClId) {
+		this.tkClId = tkClId;
+	}
+	public String getTkClName() {
+		return tkClName;
+	}
+	public void setTkClName(String tkClName) {
+		this.tkClName = tkClName;
+	}	
+	
+	public Date getValidBtime() {
+		return validBtime;
+	}
+	public void setValidBtime(Date validBtime) {
+		this.validBtime = validBtime;
+	}
+	
+	@Override
+	public String toString() {
+		return "Tkcl [tkClId=" + tkClId + ", tkClName=" + tkClName
+				+ ", validBtime=" + validBtime + "]";
+	}		
+}

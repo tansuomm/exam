@@ -1,0 +1,11 @@
+package org.zshwd.service;
+
+import org.zshwd.vo.Tkcl;
+
+public interface ITkclService {
+	/**
+	 * 添加试卷
+	 * 有参数 试卷信息、出题策略信息
+	 */
+	public void addTkcl(Tkcl tkcl,int[] tm_num_1,int[] tm_num_2,int[] tm_num_3,int[] tm_num_4,int[] tm_num_5,int[] clTkjId,int[] clTkId,String[] clZsd,int[]nd);
+}

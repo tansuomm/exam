@@ -1,0 +1,410 @@
+body {
+	margin:0 auto;
+	text-align:center;
+	font-size:12px;
+}
+td
+{
+	white-space:normal;
+	word-break:break-all;
+}
+.mainPage {
+	width:990px;
+	margin:0 auto;
+	border:#C2C2C2 solid 1px;
+}
+.fleft {
+	float:left;
+}
+.fright {
+	float:right;
+}
+.clear {
+	clear:both;
+	margin:0;
+	padding:0;
+}
+.boldTitle {
+	font-weight:bold;
+}
+.logoCenter {
+	height:79px;
+	width:256px;
+	background:url(../App_Image/Admin/back.gif) repeat-x;
+}
+.td_bottom_line{
+border-bottom-style:solid;
+border-bottom-width:1px;
+}
+.redFont{
+font-size:12px;
+color:#F80B59;
+}
+.orangeFont{
+font-size:12px;
+color:#FA7703;
+}
+.txorangeFont{
+font-weight:bold;
+color:#D39200;
+}
+.grayFont{
+color:#6D6F70;
+}
+.blodFont{
+font-weight:bold;
+}
+.blueFont{
+color:#154573;
+}
+.cutFont{
+text-indent:1.5em;
+}
+.big_font {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size:11px;
+	font-weight:bold;
+	text-decoration: none;
+	color:#14375F}
+.logoRight {
+	height:74px;
+	width:450px;
+	color:#CFE5F2;
+	padding-top:5px;
+	text-align:right;
+	background:url(../App_Image/Admin/logo_right.gif);
+}
+.banner {
+	width:990px;
+	height:40px;
+}
+.font_red{color:red;}
+.prossBack{
+	background-color:#5597B1;
+	height:100%;
+}
+.prossBorder{
+	border-style:solid;
+	border-color:#cacaca;
+	border-width:1px;
+	height:10px;
+	width:98%;
+}
+#tdTitle {
+	width:827px;
+	height:22px;
+	text-align:left;
+	padding-top:7px;
+	text-indent:15px;
+	color:#fff;
+	background:url(../App_Image/Admin/zhuangtaitiao.gif) repeat-x;
+}
+#divTree {
+	width:163px;
+	height:500px;
+	text-align:left;
+	float:left;
+}
+.menuName{
+float:left;
+display:block;
+width:124px;
+text-indent:5px;
+}
+.menuUnselct{
+padding-top:4px;
+height:17px;
+line-height:14px;
+font-size:12px;
+cursor:pointer;
+width:130px;
+padding-left:20px;
+position:relative;
+}
+.menuSelect{
+padding-top:4px;
+background-image:url(../App_Image/Admin/main_back.gif);
+height:17px;
+color:#fff;
+line-height:14px;
+font-size:12px;
+cursor:pointer;
+width:130px;
+padding-left:20px;
+position:relative;
+}
+.subicon {
+	position:absolute;
+	top:4px;
+	left:5px;
+	width:11px;
+	height:11px;
+	float:left;
+}
+.footer {
+	width:990px;
+	height:21px;
+	background:url(../App_Image/Admin/main_bottom_line.gif) repeat-x;
+}
+
+.pagebar .pageInfo {
+	float:left;
+	text-align:left;
+	padding-top:7px;
+}
+.pagebar .selectPage {
+	float:right;
+	padding-right:3%;
+	text-align:right;
+}
+.redFont {
+	color:#F80B59;
+}
+.help {
+	font-weight:bold;
+	color:#D39200;
+	height:22px;
+	margin-bottom:3px;
+	border-bottom:#999 solid 1px;
+}
+.helpList {
+	padding-left:3px;
+	padding-top:4px;
+	line-height:20px;
+}
+.helpListLast {
+	line-height:20px;
+	padding-left:3px;
+	padding-top:4px;
+	margin-bottom:8px;
+}
+.tab_table
+{
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size:12px;
+	text-decoration: none;
+	background-color:#949494;
+	COLOR:#000000;
+	margin-top:10px;
+}
+.tab_label
+{
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #DBDBDB;
+	COLOR:#000000;
+	height:20px;
+	line-height:25px;
+}
+.listtable_line{
+	background-image:url(../App_Image/Learning/table_line.gif);
+	background-repeat:repeat-x;
+	height:10px;
+}
+.tab_tr1
+{
+   	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #ffffff;
+	COLOR:#000000;
+	line-height:20px;
+	height:25px;
+}
+.tr_al{
+	background-color:#F1ECEC;
+	height:25px;
+}
+.tr_row{
+height:25px;
+}
+.train_ks_back{
+background-color:#eaedf2;
+height:25px;
+text-indent:3px;
+}
+.train_ks{
+text-indent:3px;
+height:25px;
+line-height:25px;
+}
+.prossBack{
+height:15px;
+background-color:#5597B1;
+}
+.input {
+	font-size: 12px;
+	border:#999999 solid 1px;
+	background-color:#ffffff;
+}
+.textarea {
+	border: 1px solid #999999;
+	font-size: 12px;
+	width:680px
+} 
+.input_Exam
+{
+	font-size: 12px;
+	border-style:none;
+	border-bottom:#999999 solid 1px;
+	background-color:#ffffff;
+}
+.four_button{
+	background:url(../App_Image/Admin/four_button_w.gif);
+	width:72px;
+	height:20px;
+	border-style:none;
+	line-height:20px;
+	cursor:pointer;
+}
+.two_button{
+	background-image:url(../App_Image/Learning/two_button_w.gif);
+	width:47px;
+	height:20px;
+	border-style:none;
+	line-height:20px;
+}
+.two_button_y{
+	background-image:url(../App_Image/Admin/two_button_b.gif);
+	height: 24px;
+	width: 47px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.two_button_w{ 
+	background-image:url(../App_Image/Admin/two_button_w.gif);
+	height: 20px;
+	width: 47px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:20px;
+}
+.many_button_y{
+	background-image:url(../App_Image/Admin/many_button_b.gif);
+	height: 24px;
+	width: 97px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.many_button{
+	background-image:url(../App_Image/Admin/many_button_w.gif);
+	width:116px;
+	height:20px;
+	border: 0px outset;
+	line-height:20px;
+	cursor:pointer;
+}
+.four_button_y{
+	background-image:url(../App_Image/Admin/four_button_b.gif);
+	height: 24px;
+	width: 80px;
+	border: 0px outset;
+    font-family: "Verdana, Arial, sans-serif";
+    cursor:hand;
+	color:#000;
+	line-height:29px;
+}
+.pdleft20 {
+	padding-left:20px;
+}
+.pdleft10 {
+	padding-left:10px;
+}
+.tab_on {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../App_Image/Admin/tab_select.jpg) no-repeat;
+	text-align:center;
+	font-weight:bold;
+	cursor:pointer;
+}
+.tab_off {
+	float:left;
+	width:105px;
+	height:20px;
+	padding-top:7px;
+	background:url(../App_Image/Admin/tab_Unselect.jpg) no-repeat;
+	text-align:center;
+	cursor:pointer;
+}
+.tabline {
+	float:left;
+	height:27px;
+	background:url(../App_Image/Admin/tab_line.jpg) repeat-x;
+}
+A {
+	COLOR: black;
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	FONT-STYLE: normal;
+	FONT-WEIGHT: normal;
+}
+A:link {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	color:#000000}
+A:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration: none;
+	color:#000000}
+A:hover {
+	font-family: "Verdana, Arial, sans-serif";
+	font-size: 12px;
+	text-decoration:none;
+	color: #000000}
+.tishiFont{
+background-image:url(../App_Image/Learning/tishi.gif);
+background-repeat:no-repeat;
+padding-left:134px;
+padding-top:15px;
+height:36px;
+padding-right:5px;
+border:#E2C3B1 solid 1px;
+background-color:#FFFCF3;
+color:#F5610B;
+width:647px;
+}
+A.myLink:link 
+{
+	font-family:"Verdana, Arial, sans-serif";
+	font-weight:bold;
+	font-size:12px;
+	text-decoration: none;
+	color:#FA7703;
+	font-weight:bold;
+}
+A.myLink:visited {
+	font-family: "Verdana, Arial, sans-serif";
+	font-weight:bold;
+	font-size:12px;
+	text-decoration: none;
+	color:#FA7703;
+}
+span.tdicon{
+	display:block;
+	float:left;
+	margin-left:5px;
+	display:inline;
+	background:url(../App_Image/Learning/ico_4.gif) no-repeat;
+	background-position:0px 0px;
+	width:9px;
+	height:20px;
+	line-height:20px;
+	margin-top:5px;
+}
+.td_bottom_line{
+border-bottom:#E6E7E2 solid 1px;
+}

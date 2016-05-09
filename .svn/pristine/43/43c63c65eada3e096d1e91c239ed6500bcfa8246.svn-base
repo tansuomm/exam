@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+     <constant name="struts.objectFactory" value="spring"/>
+	<constant name="struts.objectFactory.spring.autoWire" value="name"/>
+	<!-- struts2生成的表单标签使用默认的主题，即不附加格式化标签 -->
+	<constant name="struts.ui.theme" value="simple"/>
+	
+	<package name="login" namespace="/" extends="struts-default">
+	    <action name="loginPre" class="clerkAction" method="loginPre">
+	        <result name="loginPre">/WEB-INF/jsp/clerk/login.jsp</result>
+	    </action>
+	    <action name="login" class="clerkAction" method="login">
+	    </action>
+	</package>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="*_*" class="{1}Action" method="{2}">
+            <result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
+            <result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
+        </action>
+    </package>
+</struts>

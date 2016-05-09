@@ -1,0 +1,133 @@
+package org.zshwd.vo;
+
+public class Gdsj {
+    private Integer gdsjId;
+    //试卷Id
+    private Integer tkClId;
+    //题库集Id
+    private Integer tkTkjId;
+    //题库Id
+    private Integer tkLxId;
+    //题目Id
+    private Integer tmId;
+    //题型
+    private Integer tmTxId;
+    private String tmNr;
+    private Integer tmFs;
+    private Integer tmNd;
+    private String tmZsd;
+    private String tmXuanxiang;
+    private Integer tmXuanxiangNum;
+    private String tmDa;
+
+    public Integer getGdsjId() {
+        return gdsjId;
+    }
+
+    public void setGdsjId(Integer gdsjId) {
+        this.gdsjId = gdsjId;
+    }
+
+    /**
+     * 试卷Id
+     * @return
+     */
+    public Integer getTkClId() {
+        return tkClId;
+    }
+    /**
+     * 试卷Id
+     * @param tkClId
+     */
+    public void setTkClId(Integer tkClId) {
+        this.tkClId = tkClId;
+    }
+
+    public Integer getTkTkjId() {
+        return tkTkjId;
+    }
+
+    public void setTkTkjId(Integer tkTkjId) {
+        this.tkTkjId = tkTkjId;
+    }
+
+    public Integer getTkLxId() {
+        return tkLxId;
+    }
+
+    public void setTkLxId(Integer tkLxId) {
+        this.tkLxId = tkLxId;
+    }
+
+    public Integer getTmId() {
+        return tmId;
+    }
+
+    public void setTmId(Integer tmId) {
+        this.tmId = tmId;
+    }
+
+    public Integer getTmTxId() {
+        return tmTxId;
+    }
+
+    public void setTmTxId(Integer tmTxId) {
+        this.tmTxId = tmTxId;
+    }
+
+    public String getTmNr() {
+        return tmNr;
+    }
+
+    public void setTmNr(String tmNr) {
+        this.tmNr = tmNr == null ? null : tmNr.trim();
+    }
+
+    public Integer getTmFs() {
+        return tmFs;
+    }
+
+    public void setTmFs(Integer tmFs) {
+        this.tmFs = tmFs;
+    }
+
+    public Integer getTmNd() {
+        return tmNd;
+    }
+
+    public void setTmNd(Integer tmNd) {
+        this.tmNd = tmNd;
+    }
+
+    public String getTmZsd() {
+        return tmZsd;
+    }
+
+    public void setTmZsd(String tmZsd) {
+        this.tmZsd = tmZsd == null ? null : tmZsd.trim();
+    }
+
+    public String getTmXuanxiang() {
+        return tmXuanxiang;
+    }
+
+    public void setTmXuanxiang(String tmXuanxiang) {
+        this.tmXuanxiang = tmXuanxiang == null ? null : tmXuanxiang.trim();
+    }
+
+    public Integer getTmXuanxiangNum() {
+        return tmXuanxiangNum;
+    }
+
+    public void setTmXuanxiangNum(Integer tmXuanxiangNum) {
+        this.tmXuanxiangNum = tmXuanxiangNum;
+    }
+
+    public String getTmDa() {
+        return tmDa;
+    }
+
+    public void setTmDa(String tmDa) {
+        this.tmDa = tmDa == null ? null : tmDa.trim();
+    }
+}

@@ -1,0 +1,26 @@
+package org.zshwd.vo;
+
+public class Clerk {
+	private int clerkId;
+	private String clerkName;
+	private String clerkPwd;
+	
+	public int getClerkId() {
+		return clerkId;
+	}
+	public void setClerkId(int clerkId) {
+		this.clerkId = clerkId;
+	}
+	public String getClerkName() {
+		return clerkName;
+	}
+	public void setClerkName(String clerkName) {
+		this.clerkName = clerkName;
+	}
+	public String getClerkPwd() {
+		return clerkPwd;
+	}
+	public void setClerkPwd(String clerkPwd) {
+		this.clerkPwd = clerkPwd;
+	}	
+}

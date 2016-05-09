@@ -1,0 +1,19 @@
+#Resource {
+	width:100%;
+}
+#Resource .inputInfo {
+	height:30px;
+}
+#Resource #treeview {
+	float:left;
+	border:#999 solid 1px;
+	width:150px;
+	height:370px;
+}
+#Resource #frm {
+	float:left;
+	width:625px;
+}
+#Resource .help {
+	margin-top:10px;
+}

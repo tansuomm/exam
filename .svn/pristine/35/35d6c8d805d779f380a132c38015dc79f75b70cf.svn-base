@@ -1,0 +1,28 @@
+package org.zshwd.dao;
+
+import java.util.List;
+
+import org.zshwd.vo.Gdsj;
+
+public interface IGdsjDAO {
+	/**
+	 * 添加固定试卷
+	 * @param gdsj
+	 * @return
+	 */
+	public int addGdsj(Gdsj gdsj);
+	
+	/**
+	 * 添加固定试卷
+	 * @param gdsj
+	 * @return
+	 */
+	public int addGdsjSelective(Gdsj gdsj);
+	
+	/**
+	 * 根据试卷Id得到题目
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Gdsj> getTmByTkclId(int tkclId);
+}
