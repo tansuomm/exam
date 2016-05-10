@@ -1,7 +1,12 @@
 package org.yohta.action;
 
+
+
+
+import org.apache.struts2.ServletActionContext;
 import org.yohta.service.IExamTmService;
 import org.yohta.vo.Tm;
+import org.yohta.vo.User;
 
 @SuppressWarnings("serial")
 public class TmAction extends PageResultAction {
@@ -25,6 +30,16 @@ public class TmAction extends PageResultAction {
 	 * @throws Exception
 	 */
 	public String add() throws Exception{
+		String xuanxiang = tm.getTmXuanxiang();
+		int xuanLength = 0;
+		if(xuanxiang.contains(";")){
+			String[] xuanArr = xuanxiang.split(";");
+			xuanLength = xuanArr.length;	
+		}
+
+		tm.setTmXuanxiangNum(xuanLength );
+		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		tm.setTmCreateName(user.getUserName());
 		return tmService.addTm(tm);
 	}
 	/**
@@ -49,6 +64,16 @@ public class TmAction extends PageResultAction {
 	 * @throws Exception
 	 */
 	public String update() throws Exception{
+		String xuanxiang = tm.getTmXuanxiang();
+		int xuanLength = 0;
+		if(xuanxiang.contains(";")){
+			String[] xuanArr = xuanxiang.split(";");
+			xuanLength = xuanArr.length;	
+		}
+
+		tm.setTmXuanxiangNum(xuanLength );
+		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		tm.setTmCreateName(user.getUserName());
 		return tmService.update(tm);
 	}
 	/**
@@ -67,11 +92,11 @@ public class TmAction extends PageResultAction {
 	public String list() throws Exception{
 		return tmService.queryByPage(pageResult);
 	}
-	
 	public Tm getTm() {
 		return tm;
 	}
 	public void setTm(Tm tm) {
 		this.tm = tm;
 	}
+	
 }

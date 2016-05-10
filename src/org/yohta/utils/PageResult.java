@@ -8,7 +8,7 @@ public class PageResult {
 	//数据总数
 	private int totalNum = 0;
 	//每页条数
-	private int pageSize =3;
+	private int pageSize =10;
 	//共多少页
 	private int pageCount=1;
 	//每页显示数据

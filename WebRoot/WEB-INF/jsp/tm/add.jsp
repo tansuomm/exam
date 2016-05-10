@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date.*,java.text.SimpleDateFormat" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
@@ -8,8 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>友情链接</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>添加题目</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<%=path%>/html/scripts/ui/skins/Aqua/css/ligerui-all.css"
 	rel="stylesheet" type="text/css" />
 <link href="<%=path%>/html/images/style.css" rel="stylesheet"
@@ -100,13 +101,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						<tr>
 							<th>题目名称：</th>
-							<td><input name="tm.tmName" type="text" id="txt####"
-								class="txtInput normal required" /> <label>*</label></td>
+							<td><textarea name="tm.tmName"  id="txtLogo"
+								class="required" ></textarea> <label>*</label></td>
+						</tr>
+						<tr>
+							<th>题目类型：</th>
+							<td><select name="tm.tmType" id="txtContent">
+									<option value="1">选择题</option>
+									<option value="2">填空题</option>
+									<option value="3">多选题</option>
+									<option value="4">判断题</option>
+									<option value="5">问答题</option>
+							</select> <label>*</label></td>
 						</tr>
 						<tr>
 							<th>题目分数：</th>
 							<td><input name="tm.tmScore" type="text" id="txtContent"
-								class="txtInput normal" /> <label></label></td>
+								class="txtInput normal required" /> <label></label></td>
 						</tr>
 						<tr>
 							<th>题目知识点：</th>
@@ -119,10 +130,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								class="txtInput normal" /></td>
 						</tr>
 						<tr>
+							<th>题目选项：</th>
+							<td><input name="tm.tmXuanxiang" type="text" id="txtLogo"				
+								class="txtInput normal" placeholder="选择题格式如:选A;选B;选C;选D"/></td>
+						</tr>
+						<tr>
+							<th>题目答案：</th>
+							<td><textarea name="tm.tmDa" class="required"></textarea><label>*</label></td>
+						</tr>
+						<tr style="display:none">
+							<th>创建时间：</th>
+							<%
+							SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+							String date= format.format(new Date());
+							%>
+							<td><input name="tm.tmCreateTime" type="text" value="<%=date %>" id="txtLogo"
+								class="txtInput normal" /></td>
+						</tr>
+						<tr>
 							<th></th>
 							<td><input type="submit" name="btnSubmit" value="提交保存"
 								id="btnSubmit" class="btnSubmit" /></td>
 						</tr>
+						
 					</tbody>
 				</table>
 			</div>

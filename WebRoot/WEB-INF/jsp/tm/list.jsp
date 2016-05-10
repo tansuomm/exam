@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>插件管理</title>
+<title>题目列表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <link type="text/css" rel="stylesheet"
 	href="<%=path%>/html/scripts/ui/skins/Aqua/css/ligerui-all.css" />
@@ -40,9 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="javascript:void(0);" onclick="checkAll(this);"
 					class="tools_btn"><span><b class="all">全选</b></span></a> <a
 					href="tm_addPre" class="tools_btn"><span><b
-						class="import">添加内容</b></span></a> <a href="####" class="tools_btn"><span><b
-						class="refresh">待定内容</b></span></a> <a href="####" class="tools_btn"><span><b
-						class="delete">批量删除</b></span></a>
+						class="import">添加题目</b></span></a> <a href="tm_list" class="tools_btn"><span><b
+						class="refresh">刷新列表</b></span></a> 
 			</div>
 		</div>
 
@@ -51,10 +50,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			class="msgtable">
 			<tr>
 				<th width="10%">选择</th>
-				<th width="40%" align="left">题目标题</th>
-				<th width="15%">题库</th>
-				<th width="15%">题目分数</th>
-				<th width="20%">操作</th>
+				<th width="35%" align="left">题目标题</th>
+				<th width="10%">题库</th>
+				<th width="15%">知识点</th>
+				<th width="10%">创建人</th>
+				<th width="10%">题目分数</th>
+				<th width="10%">操作</th>
 			</tr>
 			<s:if test="#request.pageResult.list != null">
 				<s:iterator value="#request.pageResult.list" var="tm">
@@ -66,10 +67,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							value="advert" /></td>
 						<td>${tm.tmName}</td>
 						<td align="center">${tm.tk.tkName}</td>
+						<td align="center">${tm.tmZsd}</td>
+						<td align="center">${tm.tmCreateName}</td>
 						<td align="center">${tm.tmScore}</td>
 						<td align="center"><a href="tm_updatePre?tm.tmId=${tm.tmId}">修改
-						</a>&nbsp;&nbsp;<a href="javascript:void(0)"
-		 					onclick="deleteTm(${tm.tmId})">删除</a></td>
+						</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="deleteTm(${tm.tmId})">删除</a></td>
 					</tr>
 				</s:iterator>
 			</s:if>

@@ -59,6 +59,7 @@
 	</bean>
 	<bean id="tkService" class="org.yohta.service.impl.ExamTkServiceImpl">
 		<property name="tkDao" ref="tkDao"></property>
+		<property name="tkjDao" ref="tkjDao"></property>
 	</bean>
 	<bean id="tkDao" class="org.yohta.dao.impl.ExamTkDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
