@@ -30,6 +30,20 @@ public class TkjAction extends ActionSupport implements ModelDriven<Tkj>{
 	public String delete() throws Exception{
 		return tkjService.remove(tkj.getTkjId());
 	}
+	/**
+	 * 修改题库集前
+	 * @return
+	 * @throws Exception
+	 */
+	public String updatePre()throws Exception{
+		return tkjService.updatePre(tkj.getTkjId());
+	}
+	/**
+	 * 修改题库集
+	 */
+	public String update()throws Exception{
+		return tkjService.update(tkj);
+	}
 	//注入
 	private IExamTkjService tkjService;
 	public void setTkjService(IExamTkjService tkjService) {
