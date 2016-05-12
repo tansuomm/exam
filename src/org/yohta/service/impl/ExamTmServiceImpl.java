@@ -1,6 +1,9 @@
 package org.yohta.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 import org.yohta.dao.IExamTkDao;
@@ -8,9 +11,13 @@ import org.yohta.dao.IExamTkjDao;
 import org.yohta.dao.IExamTmDao;
 import org.yohta.service.IExamTmService;
 import org.yohta.utils.PageResult;
+import org.yohta.utils.PrintString;
+import org.yohta.vo.TMTX;
 import org.yohta.vo.Tk;
 import org.yohta.vo.Tkj;
 import org.yohta.vo.Tm;
+
+import net.sf.json.JSONObject;
 
 public class ExamTmServiceImpl implements IExamTmService {
 	/**
@@ -95,12 +102,33 @@ public class ExamTmServiceImpl implements IExamTmService {
 		return "list";
 	}*/
 	/**
-	 * 分页查询
+	 * 分页查询,模糊查询
 	 */
 	@Override
-	public String queryByPage(PageResult pageResult) {
-		String hql = "From Tm";
-		tmDao.queryByPage(pageResult, hql);
+	public String queryByPage(PageResult pageResult,Tm tm) {
+		getTkj();
+		String hql = "From Tm tm where 1 = 1 ";
+		List list = new ArrayList();
+		if(tm!=null){
+			if(tm.getTmName()!=null &&!"".equals(tm.getTmName())){
+				hql += "and tm.tmName like ?";
+				list.add("%"+tm.getTmName()+"%");
+			}
+			if(tm.getTk()!=null){
+				if(tm.getTk().getTkj().getTkjId()!=null&&tm.getTk().getTkj().getTkjId()!=0){
+					hql+="and tm.tk.tkj.tkjId = ?";
+					list.add(tm.getTk().getTkj().getTkjId());
+					List<Tk> listTk= new ArrayList<Tk>();
+					listTk = tkDao.findTkByTkjId(tm.getTk().getTkj().getTkjId());
+					ServletActionContext.getRequest().setAttribute("listTk", listTk);
+				}
+				if(tm.getTk().getTkId()!=null &&tm.getTk().getTkId()!=0){
+					hql +="and tm.tk.tkId = ?";
+					list.add(tm.getTk().getTkId());
+				}
+			}
+		}
+		tmDao.queryByPage(pageResult, hql,list.toArray());
 		//ServletActionContext.getRequest().setAttribute("list", list);
 		return "list";
 	}
@@ -120,5 +148,66 @@ public class ExamTmServiceImpl implements IExamTmService {
 		this.tkDao = tkDao;
 	}
 
+	@Override
+	/**
+	 * 根据题库Id在题目表里找到知识点
+	 * @param tkId
+	 * @return
+	 */
+	public String findZsdByTkId(int tkjid, int tkId) {
+		List<String> list = new ArrayList<String>();
+		list = tmDao.findZsdByTkId(tkjid, tkId);
+		
+		StringBuffer sBuffer = new StringBuffer();
+		sBuffer.append("<option value='所有'>所有</option>");
+		for(String tmZsd : list){
+			sBuffer.append("<option value='" + tmZsd + "'>" + tmZsd + "</option>");
+		}		
+		PrintString.printStr((sBuffer.toString()));		
+		return null;
+	}
+
+	/**
+	 * 根据题库集Id题库Id知识点题目题型抽题
+	 * @return
+	 * @throws Exception
+	 */
+	public String findTmByTkjIdTkIdZsd(int tkjid, int tkid, String zsd, String nd, String tx) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("tkjid", tkjid);
+		map.put("tkid", tkid);
+		map.put("zsd", zsd);
+		map.put("nd", nd);
+		map.put("tx", tx);
+		List<TMTX> list = new ArrayList<TMTX>();
+		list = tmDao.findTmByTkjIdTkIdZsd(map);
+//		for(TMTX tmtx : list){
+//			System.out.println(tmtx.getTmTxId());
+//			System.out.println(tmtx.getTmTxNum());
+//			System.out.println("--------------");
+//		}
+		
+		//通过题库集Id 题库Id 得到 题库集名称 和 题库的名称
+		Tkj tkj = new Tkj();
+		tkj = tkjDao.findById(tkjid);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		//题库集名称
+		resultMap.put("tkjName", tkj.getTkjName());
+		//题目题型的集合
+		resultMap.put("list", list);
+		
+		//把集合变成json串
+		JSONObject json = JSONObject.fromObject(resultMap);
+		PrintString.printStr(json.toString());
+		
+		return null;
+	}
+	public void getTkj(){
+		List<Tkj> list = new ArrayList<Tkj>();
+		list = tkjDao.findAll();
+		ServletActionContext.getRequest().setAttribute("tkjList", list);
+		
+	}
 
 }

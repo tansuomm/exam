@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div title="考试管理" iconcss="menu-icon-setting">
 					<ul class="nlist">
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_model','考试管理','Intro/ClassList.html')">考试管理</a></li>
+							href="javascript:f_addTab('sys_model','考试管理','tkcl_addPre')">试卷出题</a></li>
 						<li><a class="l-link"
 							href="javascript:f_addTab('sys_model','试卷管理','Intro/ClassList.html')">内容类别</a></li>
 						<li><a class="l-link"

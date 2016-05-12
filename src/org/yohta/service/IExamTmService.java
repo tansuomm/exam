@@ -39,8 +39,22 @@ public interface IExamTmService {
 	//public String list();
 	/**
 	 * 分页
-	 * @param pageResult
+	 * @param pageResult tm:模糊查询
 	 * @return
 	 */
-	public String queryByPage(PageResult pageResult);
+	public String queryByPage(PageResult pageResult,Tm tm);
+	
+	/**
+	 * 根据题库Id在题目表里找到知识点
+	 * @param tkId
+	 * @return
+	 */
+	public String findZsdByTkId(int tkjid, int tkId);
+	
+	/**
+	 * //根据题库集Id题库Id知识点题目题型抽题
+	 * @return
+	 * @throws Exception
+	 */
+	public String findTmByTkjIdTkIdZsd(int tkjid,int tkid,String zsd, String nd,String tx);
 }

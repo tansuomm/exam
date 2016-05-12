@@ -31,7 +31,7 @@ public class Tm implements java.io.Serializable {
 
 	/** full constructor */
 	public Tm(Tk tk, String tmName, Integer tmType, Integer tmScore,
-			Integer tmNd, String tmZsh, String tmXuanxiang,
+			Integer tmNd, String tmZsd, String tmXuanxiang,
 			Integer tmXuanxiangNum, String tmDa, Date tmCreateTime,
 			String tmCreateName) {
 		this.tk = tk;

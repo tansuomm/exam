@@ -25,13 +25,24 @@
 	<!-- 试卷 -->
 	<bean id="tkclAction" class="org.yohta.action.TkclAction" scope="prototype">
 		<property name="tkclService" ref="tkclService"></property>
+		<property name="tkjService" ref="tkjService"></property>
 	</bean>
 	<bean id="tkclService" class="org.yohta.service.impl.TkclServiceImpl">
 		<property name="tkclDao" ref="tkclDao"></property>
 		<property name="clerkClDao" ref="clerkClDao"></property>
+		<property name="tkClNdZsdDao" ref="tkClNdZsdDao"></property>
+		<property name="gdsjDao" ref="gdsjDao"></property>
+		<property name="tmDao" ref="tmDao"></property>
 	</bean>
-
+	
 	<bean id="tkclDao" class="org.yohta.dao.impl.TkclDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 策略，固定试卷 -->
+	<bean id="tkClNdZsdDao" class="org.yohta.dao.impl.TkClNdZsdDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="gdsjDao" class="org.yohta.dao.impl.GdsjDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 考试 -->
