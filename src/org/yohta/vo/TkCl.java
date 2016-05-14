@@ -24,8 +24,25 @@ public class TkCl implements java.io.Serializable {
 	private Integer moveOutTimes;
 	private Integer tkClType;
 	private Integer isAllow;
-
+	private Integer totalScore;
+	private Integer passFS;
 	// Constructors
+
+	public Integer getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(Integer totalScore) {
+		this.totalScore = totalScore;
+	}
+
+	public Integer getPassFS() {
+		return passFS;
+	}
+
+	public void setPassFS(Integer passFS) {
+		this.passFS = passFS;
+	}
 
 	/** default constructor */
 	public TkCl() {

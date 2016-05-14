@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
     <!-- 管理员 -->
     <bean id="userAction" class="org.yohta.action.UserAction" scope="prototype">
+    	<property name="userRightDao" ref="userRightDao"></property>
     	<property name="userDao" ref="userDao"></property>
     </bean>
     <bean id="userDao" class="org.yohta.dao.impl.UserDaoImpl">
@@ -87,10 +88,35 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<bean id="hibernatetemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+	<!-- 权限 -->
+	<bean id="rightAction" class="org.yohta.action.RightAction" scope="prototype">
+		<property name="rightService" ref="rightService"></property>
+	</bean>
+	<bean id="rightService" class="org.yohta.service.impl.RightServiceImpl">
+		<property name="rightDao" ref="rightDao"></property>
+	</bean>
+
+	<bean id="rightDao" class="org.yohta.dao.impl.RightDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 用户权限 -->
+	<bean id="userRightAction" class="org.yohta.action.UserRightAction" scope="prototype">
+		<property name="userRightService" ref="userRightService"></property>
+	</bean>
+	<bean id="userRightService" class="org.yohta.service.impl.UserRightServiceImpl">
+		<property name="rightDao" ref="rightDao"></property>
+		<property name="userDao" ref="userDao"></property>
+		<property name="userRightDao" ref="userRightDao"></property>
+	</bean>
+
+	<bean id="userRightDao" class="org.yohta.dao.impl.UserRightDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
+	<bean id="hibernatetemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -98,6 +124,7 @@
 		<property name="url" value="jdbc:mysql://localhost:3309/exam" />
 		<property name="username" value="root" />
 		<property name="password" value="gyb520" />
+		
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -123,11 +150,12 @@
 			</list>
 		</property>
 		<property name="hibernateProperties">
-			<props>
-				<prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="show_sql">true</prop>
-				<prop key="format_sql">true</prop>
-			</props>
+			<value>
+				 hibernate.connection.autocommit=true
+				 hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				 hibernate.show_sql=true
+				 hibernate.format_sql=true
+			</value>
 		</property>
 
 	</bean>

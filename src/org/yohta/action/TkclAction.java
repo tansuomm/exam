@@ -79,7 +79,7 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 //				}
 //			}
 //		}
-		tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId,clZsd,nd);
+		tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId);
 		return null;
 	}
 	
@@ -132,11 +132,6 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	private int[] clTkjId;
 	//题库Id
 	private int[] clTkId;
-	//知识点
-	private String[] clZsd;
-	//难度
-	private int[] nd;
-
 	public int getClerkId() {
 		return clerkId;
 	}
@@ -221,20 +216,4 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	public void setClTkId(int[] clTkId) {
 		this.clTkId = clTkId;
 	}
-
-	public String[] getClZsd() {
-		return clZsd;
-	}
-
-	public void setClZsd(String[] clZsd) {
-		this.clZsd = clZsd;
-	}
-
-	public int[] getNd() {
-		return nd;
-	}
-
-	public void setNd(int[] nd) {
-		this.nd = nd;
-	}	
 }

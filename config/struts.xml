@@ -9,8 +9,12 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<constant name="struts.objectFactory.spring.autoWire" value="name"></constant>
+	<constant name="struts.ui.theme" value="simple" />
 	<package name="default" namespace="/" extends="struts-default">
-	<!-- 	<default-action-ref name="index" />
+	<global-results>
+			<result name="input">/WEB-INF/jsp/input.jsp</result>
+		</global-results>
+	<!-- <default-action-ref name="index" />
 
 		<global-results>
 			<result name="input">/WEB-INF/jsp/input.jsp</result>
@@ -19,8 +23,8 @@
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="input" />
-		</global-exception-mappings>
- -->
+		</global-exception-mappings> -->
+ 
 		<action name="*_*" class="{1}Action" method="{2}">
 			<result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
 			<result name="add" type="redirect">/{1}_list</result>
@@ -31,6 +35,9 @@
 		</action>
 		<action name="loginPre" method="loginPre" class="userAction">
 			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		<!-- 权限分栏 -->
+		<action name="bigRight" method="bigRight" class="userAction">
 		</action>
 		<action name="login" method="login" class="userAction">
 			<result name="login">/WEB-INF/jsp/index.jsp</result>

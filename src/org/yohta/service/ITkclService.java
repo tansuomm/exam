@@ -16,7 +16,7 @@ public interface ITkclService {
 	 * 有参数 试卷信息、出题策略信息
 	 */
 	public void addTkcl(TkCl tkcl, int[] tm_num_1, int[] tm_num_2, int[] tm_num_3, int[] tm_num_4, int[] tm_num_5,
-			int[] clTkjId, int[] clTkId, String[] clZsd, int[] nd);
+			int[] clTkjId, int[] clTkId);
 
 	/**
 	 * 根据试卷Id得到题目 

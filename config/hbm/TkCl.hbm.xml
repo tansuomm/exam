@@ -71,5 +71,15 @@
 				<comment>0允许所有人参加考试 1部分人参加考试</comment>
 			</column>
 		</property>
+		<property name="totalScore" type="java.lang.Integer">
+			<column name="totalScore">
+				<comment>总分</comment>
+			</column>
+		</property>
+		<property name="passFS" type="java.lang.Integer">
+			<column name="passFS">
+				<comment>及格分</comment>
+			</column>
+		</property>
 	</class>
 </hibernate-mapping>

@@ -102,7 +102,7 @@ public class TmAction extends SuperAction<Tm> {
 	 */
 
 	public String findZsdByTkId() throws Exception{
-		return tmService.findZsdByTkId(tkjid,tkid);
+		return tmService.findZsdByTkId(tkjId,tkId);
 	}
 	
 	/**
@@ -111,11 +111,11 @@ public class TmAction extends SuperAction<Tm> {
 	 * @throws Exception
 	 */
 	public String findTmByTkjIdTkIdZsd() throws Exception{
-		//System.out.println(tkjid + "||" +tkid + "||" +zsd + "||" + nd + "||" + tx);
-		return tmService.findTmByTkjIdTkIdZsd(tkjid,tkid,zsd,nd,tx);
+		//System.out.println(tkjId + "||" +tkId + "||" +zsd + "||" + nd + "||" + tx);
+		return tmService.findTmByTkjIdTkIdZsd(tkjId,tkId,zsd,nd,tx);
 	}
-	private int tkjid;
-	private int tkid;
+	private int tkjId;
+	private int tkId;
 	//知识点
 	private String zsd;
 	//难度
@@ -123,17 +123,17 @@ public class TmAction extends SuperAction<Tm> {
 	//题型
 	private String tx;
 	 
-	public int getTkjid() {
-		return tkjid;
+	public int gettkjId() {
+		return tkjId;
 	}
-	public void setTkjid(int tkjid) {
-		this.tkjid = tkjid;
+	public void settkjId(int tkjId) {
+		this.tkjId = tkjId;
 	}
-	public int getTkid() {
-		return tkid;
+	public int gettkId() {
+		return tkId;
 	}
-	public void setTkid(int tkid) {
-		this.tkid = tkid;
+	public void settkId(int tkId) {
+		this.tkId = tkId;
 	}
 	public String getZsd() {
 		return zsd;

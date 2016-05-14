@@ -98,7 +98,7 @@ public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
 	@Override
 	public List<String> findZsdByTkId(int tkjId, int tkId) {
 		Object[] values = new Object[]{tkjId,tkId};
-	    List<String> list = (List<String>) this.getHibernateTemplate().find("select DISTINCT(tmZsd)From Tm tm where tm.tk.tkj.tkjId = ?and tm.tk.tkId = ?", values);
+	    List<String> list = (List<String>) this.getHibernateTemplate().find("select DISTINCT  tmZsd From Tm tm where tm.tk.tkj.tkjId = ? and tm.tk.tkId = ?", values);
 		return list;
 	}
 	/**

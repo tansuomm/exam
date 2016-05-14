@@ -21,7 +21,6 @@ public class Right implements java.io.Serializable {
 	/** default constructor */
 	public Right() {
 	}
-
 	/** full constructor */
 	public Right(String rightName, Integer parentId, Set userRights) {
 		this.rightName = rightName;

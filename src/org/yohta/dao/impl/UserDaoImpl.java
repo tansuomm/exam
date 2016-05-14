@@ -9,14 +9,20 @@ import org.yohta.vo.User;
 public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 
 	@Override
-	public boolean findUserByNameAndPwd(String name, String pwd) {
+	public User findUserByNameAndPwd(String name, String pwd) {
 		@SuppressWarnings("unchecked")
 		List<User> list= (List<User>) this.getHibernateTemplate().find("From User where userName=? and userPwd = ?", new Object[]{name,pwd});
 		if(list.size()>0){
-			return true;
+			return list.get(0);
 		}else{
-			return false;
+			return null;
 		}
 		
+	}
+
+	@Override
+	public List<User> findAll() {
+		List<User> list= (List<User>) this.getHibernateTemplate().find("From User");
+		return list;
 	}
 }

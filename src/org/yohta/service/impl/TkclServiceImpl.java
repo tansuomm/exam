@@ -38,7 +38,7 @@ public class TkclServiceImpl implements ITkclService {
 
 	@Override
 	public void addTkcl(TkCl tkcl, int[] tm_num_1, int[] tm_num_2, int[] tm_num_3, int[] tm_num_4, int[] tm_num_5,
-			int[] clTkjId, int[] clTkId, String[] clZsd, int[] nd) {
+			int[] clTkjId, int[] clTkId) {
 		int tkclId = 0; 
 		//1、添加考试
 		tkclId = tkclDao.addTkCl(tkcl);

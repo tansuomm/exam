@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body class="mainbody">
 <form name="form1" method="post" action="" id="form1"> 
-    <div class="navigation">首页 &gt; 控制面板 &gt; 题库集管理</div>
+    <div class="navigation">首页 &gt; 题库管理 &gt; 题库集管理</div>
     <div class="tools_box">
 	    <div class="tools_bar">
 		    <a href="javascript:void(0);" onclick="checkAll(this);" class="tools_btn"><span><b class="all">全选</b></span></a>
