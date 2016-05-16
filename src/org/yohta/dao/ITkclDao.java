@@ -22,5 +22,7 @@ public interface ITkclDao {
 	 * @return
 	 */
 	public List<TkCl> findAllTkcl();
+	//删除考试
+	public boolean delete(int tkclId);
 	
 }

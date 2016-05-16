@@ -94,7 +94,7 @@ public class TmAction extends SuperAction<Tm> {
 	
 	
 	public String list() throws Exception{
-		System.out.println(model.getTmName()+"11111");
+		//System.out.println(model.getTmName()+"11111");
 		return tmService.queryByPage(pageResult,model);
 	}
 	

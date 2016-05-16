@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.yohta.dao.ITkclDao;
 import org.yohta.vo.ClerkCl;
 import org.yohta.vo.TkCl;
+import org.yohta.vo.Tm;
 
 public class TkclDaoImpl extends HibernateDaoSupport implements ITkclDao{
 	/**
@@ -54,6 +55,13 @@ public class TkclDaoImpl extends HibernateDaoSupport implements ITkclDao{
 	public List<TkCl> findAllTkcl() {
 		List<TkCl> list = (List<TkCl>) this.getHibernateTemplate().find("From TkCl");
 		return list;
+	}
+	@Override
+	public boolean delete(int tkclId) {
+		TkCl tkcl = new TkCl();
+		tkcl.setTkClId(tkclId);
+		this.getHibernateTemplate().delete(tkcl);
+		return true;
 	}
 
 }

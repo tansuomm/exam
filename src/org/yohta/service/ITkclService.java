@@ -29,4 +29,10 @@ public interface ITkclService {
 	 * @return
 	 */
 	public List<TkCl> findAllTkcl();
+	/**
+	 * 删除试卷
+	 * @param tmId
+	 * @return
+	 */
+	public String delete(int tkclId);
 }

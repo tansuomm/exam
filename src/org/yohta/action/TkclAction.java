@@ -3,6 +3,7 @@ package org.yohta.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.yohta.service.IExamTkjService;
 import org.yohta.service.ITkclService;
 import org.yohta.utils.PrintString;
@@ -83,18 +84,26 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 		return "add";
 	}
 	/**
+	 * 删除考试
+	 * @return
+	 * @throws Exception
+	 */
+
+	public String delete()throws Exception{
+		//System.out.println("考试id------"+tkcl.getTkClId());
+		return  tkclService.delete(tkcl.getTkClId());
+		
+	}
+	/**
 	 * 考试列表
 	 * @return
 	 * @throws Exception
 	 */
 	public String list()throws Exception{
 		 List<TkCl> list = tkclService.findAllTkcl();
-		 if(list!=null){
-			 String json = JSON.toJSONString(list);
-			 PrintString.printStr(json);
-		 }
+		 ServletActionContext.getRequest().setAttribute("tkclList", list);
 		 
-		 return null;
+		 return "list";
 	}
 	/**
 	 * 考试列表android客户端访问
