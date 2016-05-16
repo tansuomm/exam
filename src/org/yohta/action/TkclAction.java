@@ -35,7 +35,7 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 		//接收到试卷的信息
 		//接收到出题策略的信息
 		//把以上信息传递到 service层
-		//System.out.println(tkcl.toString());
+		System.out.println(tkcl.toString());
 //		//单选
 //		if(tm_num_1 != null){
 //			if(tm_num_1.length > 0){
@@ -43,7 +43,7 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 //					//System.out.println(tm_num_1[i]);
 //				}
 //			}
-//		}
+// 	 }
 //		//填空
 //		if(tm_num_2 != null){
 //			if(tm_num_2.length > 0){
@@ -79,8 +79,9 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 //				}
 //			}
 //		}
-		tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId);
-		return null;
+		//tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId);
+		//list();
+		return "add";
 	}
 	
 	/**

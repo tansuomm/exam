@@ -1,12 +1,7 @@
-﻿/* *******************************************************************************
- * 作    者：tianjj/田建军
- * 创建时间：2007-6-16 11:09:05
- * 描    述：
- * 修 改 人：
- * 修改时间：
- * 描    述：
- * ******************************************************************************* */
-function String.prototype.Trim(){return  this.replace(/(^\s*)|(\s*$)/g, "");}
+﻿
+String.prototype.Trim = function(){return  this.replace(/(^\s*)|(\s*$)/g, "");}
+
+
 
 //检查身份证输入格式是否正确，如不正确弹出警告对话框
 function isIdCard(s,msg)
@@ -85,7 +80,8 @@ function isAfterToday(s,msg)
 }
 	
 	
-//检查输入日期格式是否正确，不正确则弹出提示对话框
+//检查输入日期格式是否正确，不正确则弹出提示对话框
+
 function isDate(s,msg)
 {
 	if(s == undefined)
@@ -162,7 +158,8 @@ function isEmail(s,msg)
 		}
 }
 
-//检查输入是否为英文，不是则弹出警告对话框
+//检查输入是否为英文，不是则弹出警告对话框
+
 function isEnglish(s,msg)
 {
 	if(s == undefined)
@@ -186,7 +183,8 @@ function isEnglish(s,msg)
 		}
 }
 
-//检查输入是否为中文，不是则弹出警告对话框
+//检查输入是否为中文，不是则弹出警告对话框
+
 function isChinese(s,msg)
 {
 	if(s == undefined)
@@ -207,7 +205,8 @@ function isChinese(s,msg)
 		return true;
 }
 
-//检查输入是否为中文及全角符号，是则弹出警告对话框
+//检查输入是否为中文及全角符号，是则弹出警告对话框
+
 function isNoChinese(s,msg)
 {
 	if(s == undefined)
@@ -225,7 +224,8 @@ function isNoChinese(s,msg)
 		return true;
 }
 
-//检查输入是否为空，是则弹出警告对话框
+//检查输入是否为空，是则弹出警告对话框
+
 function isNoZero(s,msg)
 {
 	if(s == undefined)
@@ -247,7 +247,8 @@ function isNoZero(s,msg)
 		}
 }
 
-//检查输入是否为空，是则弹出警告对话框
+//检查输入是否为空，是则弹出警告对话框
+
 function isNoZeroWithoutTrim(s,msg)
 {
 	if(s == undefined)
@@ -269,7 +270,8 @@ function isNoZeroWithoutTrim(s,msg)
 		}
 }
 
-//检查输入是否为数字，不是则弹出警告对话框
+//检查输入是否为数字，不是则弹出警告对话框
+
 function isNumeric(s,msg)
 {
 	if(s == undefined)
@@ -311,7 +313,8 @@ function isEN(s,msg)
 		}
 }
 
-//检查输入是否为整数，不是则弹出警告对话框
+//检查输入是否为整数，不是则弹出警告对话框
+
 function isInteger(s,msg)
 {
 	if(s == undefined)
@@ -606,39 +609,7 @@ function IntegerCheck(intstart,intend,msg)
 }
 
 
-function chkForm(frmName)
-{
-	this.frmName=frmName;
-	this.chkFunBody = "";
-	this.ObjReturn = "";
-	
-	this.isType = function(eleName,chkFun,strMsg)
-	{
-		this.chkFunBody += chkFun+"(document.all."+eleName
-		if(strMsg)this.chkFunBody +=",\""+strMsg+"\""
-			this.chkFunBody +=") && "
-		var tmp = "return( "+ this.chkFunBody +" true)"
-		this.ObjReturn = this.chkFunBody +" true";
-	}
 
-	this.isPass = function(eleName,chkFun,chkValue,strMsg)
-	{
-		this.chkFunBody += chkFun+"(document.all."+eleName + "," + chkValue
-		if(strMsg)this.chkFunBody +=",\""+strMsg+"\""
-			this.chkFunBody +=") && "
-		var tmp = "return( "+ this.chkFunBody +" true)"
-		this.ObjReturn = this.chkFunBody +" true";
-	}
-	
-	this.Check = function(eleName1,eleName2,chkFun,strMsg)
-	{
-		this.chkFunBody += chkFun+"("+this.frmName+"."+eleName1 + "," +this.frmName+"."+eleName2 
-		if(strMsg)this.chkFunBody +=",\""+strMsg+"\""
-			this.chkFunBody +=") && "
-		var tmp = "return( "+ this.chkFunBody +" true)"
-		this.ObjReturn = this.chkFunBody +" true";
-	}
-	
-}
+
 
 

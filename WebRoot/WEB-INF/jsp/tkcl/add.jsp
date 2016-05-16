@@ -112,7 +112,7 @@ fieldset table {
 		</script>
 
 
-		<script
+	<%-- 	<script
 			src="/WebResource.axd?d=K1T1k6_SvQNsqIbaADWrIyiSxyPSS2aUxFlCsm0c_zCJS4DHX-Bn_3L--Y0Ib1aC8pEEbMZDUpY48wZKLhdhGRQAf7A1&amp;t=635588912026805809"
 			type="text/javascript"></script>
 
@@ -125,7 +125,7 @@ fieldset table {
 			type="text/javascript"></script>
 		<script
 			src="/ScriptResource.axd?d=QflX79tfYIfGD4_Eo7R2KfHa_UuKNST_KDiOMz7r6Pk_7qa-TNSTjug0x8KjmVmkX7EC8RL3AHiV3mBHcBUZdEiJ84Nt9QUF2ON6tGVd6aIxMtjW7MwPBHVeC8Th40W0M8jTUcObYxBbK7WDPc6ArOOchDDB_Xn0p5b4h-hXoaq-ay2e0&amp;t=635963139320786431"
-			type="text/javascript"></script>
+			type="text/javascript"></script> --%>
 		<script type="text/javascript">
 			//<![CDATA[
 			function WebForm_OnSubmit() {
@@ -145,10 +145,10 @@ fieldset table {
 		</div>
 		<script type="text/javascript">
 			//<![CDATA[
-			Sys.WebForms.PageRequestManager._initialize('ScriptManager1',
-					document.getElementById('form1'));
-			Sys.WebForms.PageRequestManager.getInstance()._updateControls([],
-					[], [], 90);
+			//Sys.WebForms.PageRequestManager._initialize('ScriptManager1',
+				//	document.getElementById('form1'));
+			//Sys.WebForms.PageRequestManager.getInstance()._updateControls([],
+			//		[], [], 90);
 			//]]>
 		</script>
 
@@ -662,9 +662,9 @@ fieldset table {
 			function CheckForm() {
 				InitExamTX();
 				var TabsID = "";
-				if (document.getElementById('tk_cl_name').value == "") {
+				if (document.getElementById('txtTkClName').value == "") {
 					changeTabThree('1');
-					document.getElementById('tk_cl_name').focus();
+					document.getElementById('txtTkClName').focus();
 					window.alert("试卷名称不能为空！");
 					DoStart();
 					changeTabThree('1');
@@ -850,6 +850,20 @@ fieldset table {
 													style="width: 100px; display: none;">
 
 												</select></td>
+											</tr>
+											<tr style="height: 26px;">
+												<td style="text-align: left;" colspan="6"><input
+													id="rbGD" type="radio" name="SJLX" value="rbGD"
+													checked="checked" onclick="gdSJ();" /><label for="rbGD">固定试卷
+												</label> <span id="Label1">（所有的学员共用一套考题进行考试）</span></td>
+											</tr>
+											<tr style="height: 26px;">
+												<td style="text-align: left;" colspan="6"><input
+													id="rbtnSJ" type="radio" name="SJLX" value="rbtnSJ"
+													onclick="sjSJ();" /><label for="rbtnSJ">随机试卷</label> <input
+													name="SuitNumber" type="text" value="1" id="SuitNumber"
+													disabled="disabled" class="input" onPaste="return false;"
+													style="width:41px;" />套（学员从多套题中随机取一套进行考试）</td>
 											</tr>
 											<tr>
 												<td height="26" colspan="2" style="text-align: right;">
@@ -1044,10 +1058,22 @@ fieldset table {
 												</td>
 											</tr>
 										</table>
-										<table
-											style="margin-left: 10px; margin-top: 8px; margin-bottom: 2px;"
-											width="100%">
-										</table>
+										  <table style="margin-left: 10px; margin-top: 8px; margin-bottom: 2px;" width="100%">
+                                            <tr>
+                                                <td>
+                                                    试卷说明</td>
+                                                <td>
+                                                    <input name="tk_Memo" type="text" value="2016/4/15系统管理员定义网上考试" id="tk_Memo" class="input" style="width:400px;" />
+                                                </td>
+                                                <td>
+                                                    顺序号：
+                                                </td>
+                                                <td>
+                                                    <input name="OrderNumber" type="text" value="20" id="OrderNumber" class="input" onPaste="return false;" style="width:40px;" />
+                                                    <span id="RangeValidator4" style="color:Red;display:none;">请输入正确的数字</span>
+                                                </td>
+                                            </tr>
+                                        </table>
 										<div style="height: 108px;">
 											<div class="help" style="margin-top: 10px;">友情提醒:</div>
 											<div class="helpListLast">
@@ -1159,19 +1185,19 @@ fieldset table {
 																					忽略试题原分数，按题型指定分数</label></td>
 																		</tr>
 																		<tr>
-																			<td height="200" colspan="2"><script
+																			<td height="350" colspan="2"><script
 																					language="javascript" type="text/javascript">
-																			<!--
 																				function RedomTxSet() {
 																					var chkname = document
 																							.getElementsByName("Tm_tx_ID");
 																					for (i = 0; i < chkname.length; i++) {
-																						chkname(i).disabled = false;
+																						chkname[i].disabled = false;
 																					}
 
 																				}
-																			//-->
 																			</script>
+				
+																			
 
 																				<div
 																					style=" overflow: auto; scrollbar-face-color: #D4D0C8; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #ffffff; scrollbar-3dlight-color: #666666; scrollbar-arrow-color: #216dad;">
@@ -1510,7 +1536,7 @@ fieldset table {
 		</script>
 
 		<script language='javascript'>
-			GetTKList($get('TKJList').value);
+			GetTKList($.get('TKJList').value);
 		</script>
 		<script type="text/javascript">
 			//<![CDATA[
@@ -1527,7 +1553,7 @@ fieldset table {
 					return true;
 				}
 			}
-			Sys.Application.initialize();
+			//Sys.Application.initialize();
 
 			document.getElementById('RangeValidator1').dispose = function() {
 				Array.remove(Page_Validators, document
