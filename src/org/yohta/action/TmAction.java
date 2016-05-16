@@ -41,6 +41,7 @@ public class TmAction extends SuperAction<Tm> {
 		model.setTmXuanxiangNum(xuanLength );
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		model.setTmCreateName(user.getUserName());
+		System.out.println("题目添加==》"+model.toString());
 		return tmService.addTm(model);
 	}
 	/**

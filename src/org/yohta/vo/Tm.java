@@ -15,6 +15,14 @@ public class Tm implements java.io.Serializable {
 	private String tmName;
 	private Integer tmType;
 	private Integer tmScore;
+	@Override
+	public String toString() {
+		return "Tm [tmId=" + tmId + ", tk=" + tk + ", tmName=" + tmName + ", tmType=" + tmType + ", tmScore=" + tmScore
+				+ ", tmNd=" + tmNd + ", tmZsd=" + tmZsd + ", tmXuanxiang=" + tmXuanxiang + ", tmXuanxiangNum="
+				+ tmXuanxiangNum + ", tmDa=" + tmDa + ", tmCreateTime=" + tmCreateTime + ", tmCreateName="
+				+ tmCreateName + "]";
+	}
+
 	private Integer tmNd;
 	private String tmZsd;
 	private String tmXuanxiang;

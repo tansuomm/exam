@@ -4,14 +4,15 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-String currentTime = format.format(new Date());
-request.setAttribute("currentTime", currentTime);
+// SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//String currentTime = format.format(new Date());
+//request.setAttribute("currentTime", currentTime); 
 %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+
 <head id="Head1">
 <link href="<%=path%>/html/App_Themes/Default_Admin/public.css"
 	type="text/css" rel="stylesheet" />
@@ -87,7 +88,7 @@ fieldset table {
 </style>
 </head>
 <body onunload="CloseWin()">
-	<form name="form1" method="post" action="tkcl_add"
+	<form name="form1" method="post" action="tkcl_add.action"
 		onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
 		<div>
 			<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
@@ -95,7 +96,7 @@ fieldset table {
 				value="" />
 		</div>
 
-		<script type="text/javascript">
+	 <script type="text/javascript">
 			//<![CDATA[
 			var theForm = document.forms['form1'];
 			if (!theForm) {
@@ -109,7 +110,7 @@ fieldset table {
 				}
 			}
 			//]]>
-		</script>
+		</script> 
 
 
 	<%-- 	<script
@@ -128,13 +129,13 @@ fieldset table {
 			type="text/javascript"></script> --%>
 		<script type="text/javascript">
 			//<![CDATA[
-			function WebForm_OnSubmit() {
+			 function WebForm_OnSubmit() {
 				if (typeof (ValidatorOnSubmit) == "function"
 						&& ValidatorOnSubmit() == false)
 					return false;
 				return CheckForm();
 				return true;
-			}
+			} 
 			//]]>
 		</script>
 
@@ -144,12 +145,12 @@ fieldset table {
 				id="__VIEWSTATEGENERATOR" value="796F32AD" />
 		</div>
 		<script type="text/javascript">
-			//<![CDATA[
-			//Sys.WebForms.PageRequestManager._initialize('ScriptManager1',
-				//	document.getElementById('form1'));
-			//Sys.WebForms.PageRequestManager.getInstance()._updateControls([],
-			//		[], [], 90);
-			//]]>
+			/* <![CDATA[
+			Sys.WebForms.PageRequestManager._initialize('ScriptManager1',
+				document.getElementById('form1'));
+			Sys.WebForms.PageRequestManager.getInstance()._updateControls([],
+					[], [], 90);
+			]]> */
 		</script>
 
 
@@ -671,7 +672,7 @@ fieldset table {
 					return false;
 				}
 				var reg = /^[0-9]*[1-9][0-9]*$/;
-				if (document.getElementById('rbtnSJ').checked) {
+			/* 	if (document.getElementById('rbtnSJ').checked) {
 					//alert(document.getElementById('SuitNumber').value);
 					if (!reg.test(document.getElementById('SuitNumber').value)) {
 						alert("套数只能是数字");
@@ -686,7 +687,7 @@ fieldset table {
 							return false;
 						}
 					}
-				}
+				} */
 				if (document.getElementById('TotalAccount').value == "0") {
 					window.alert("您没有选择题目！");
 					changeTabThree('2');
@@ -732,7 +733,7 @@ fieldset table {
 					DoStart();
 					return false;
 				}
-				if (document.getElementById('tk_cl_time_1').checked) {
+				/* if (document.getElementById('tk_cl_time_1').checked) {
 					if (BTime.toLocaleDateString() != ETime
 							.toLocaleDateString()) {
 						changeTabThree('1');
@@ -742,7 +743,7 @@ fieldset table {
 						DoStart();
 						return false;
 					}
-				}
+				} */
 				return true;
 			}
 
@@ -851,7 +852,7 @@ fieldset table {
 
 												</select></td>
 											</tr>
-											<tr style="height: 26px;">
+											<%-- <tr style="height: 26px;">
 												<td style="text-align: left;" colspan="6"><input
 													id="rbGD" type="radio" name="SJLX" value="rbGD"
 													checked="checked" onclick="gdSJ();" /><label for="rbGD">固定试卷
@@ -864,7 +865,7 @@ fieldset table {
 													name="SuitNumber" type="text" value="1" id="SuitNumber"
 													disabled="disabled" class="input" onPaste="return false;"
 													style="width:41px;" />套（学员从多套题中随机取一套进行考试）</td>
-											</tr>
+											</tr> --%>
 											<tr>
 												<td height="26" colspan="2" style="text-align: right;">
 													显示方式：</td>
@@ -880,7 +881,8 @@ fieldset table {
 													type="text" value="1" id="MaxKsNum" class="input"
 													onPaste="return false;" style="width: 35px;" /> <span
 													id="RangeValidator1" style="color: Red; display: none;">请输入正确的数字</span>
-												</td>
+													<input type="hidden" value="1" name="minKsNum"></input>
+ 												</td>
 												<td width="50" height="26" colspan="2">&nbsp;</td>
 											</tr>
 										</table>
@@ -895,7 +897,7 @@ fieldset table {
 															<tr>
 																<td>有效开始时间</td>
 																<td><input name="validBtime" type="text"
-																	value="${currentTime}" readonly="readonly"
+																	value="2016/4/15 14:51:59" readonly="readonly"
 																	id="valid_btime" class="input"
 																	onfocus="new WdatePicker(this,'%Y-%M-%D %h:%m:%s',true)" /></td>
 															</tr>
@@ -916,13 +918,13 @@ fieldset table {
 														</legend>
 														<table class="noGridTable" style="margin-top: 5px;">
 															<tr>
-																<td><span id="tk_cl_time" class="Radio"><input
+																<td><span id="tk_cl_time" class="Radio"><!-- <input
 																		id="tk_cl_time_0" type="radio" name="tkClTime"
 																		value="0" onclick="AdjustOption('tk_cl_time_num',0);" /><label
 																		for="tk_cl_time_0">考试不计时</label><br />
 																	<input id="tk_cl_time_1" type="radio" name="tkClTime"
 																		value="-1" onclick="AdjustOption('tk_cl_time_num',0);" /><label
-																		for="tk_cl_time_1">统一交卷</label><br />
+																		for="tk_cl_time_1">统一交卷</label><br /> -->
 																	<input id="tk_cl_time_2" type="radio" name="tk_cl_time"
 																		value="1" checked="checked"
 																		onclick="AdjustOption('tk_cl_time_num',1);" /><label
@@ -947,10 +949,10 @@ fieldset table {
 														<table width="300px" style="display: inline;">
 															<tr>
 																<td><span class="CheckBox"><input
-																		id="IsOrder" type="checkbox" name="isOrder" value="1" /><label
+																		id="IsOrder" type="radio" checked name="isOrder" value="1" /><label
 																		for="IsOrder">考题显示顺序随机</label></span></td>
 																<td><span class="CheckBox"><input
-																		id="IsOrder" type="checkbox" name="isOrder" value="0" /><label
+																		id="IsOrder" type="radio" name="isOrder" value="0" /><label
 																		for="IsOrder">考题显示顺序固定</label></span></td>
 															</tr>
 
@@ -983,16 +985,17 @@ fieldset table {
 											</table>
 										</fieldset>
 										<fieldset
-											style="height: 40px; padding: 0 10px; margin-top: 5px;">
+											style="height: 80px; padding: 0 10px; margin-top: 5px;">
 											<legend>
 												<font color="#325A8B">试卷安全</font>
 											</legend>
 											<div>
-												&nbsp;&nbsp;<span class="CheckBox"><input
-													id="IsShowFS" type="checkbox" name="IsShowFS" /><label
-													for="IsShowFS">考试分数保密</label></span>&nbsp;&nbsp;&nbsp;&nbsp;<span
+													&nbsp;&nbsp;<span class="CheckBox"><input
+													id="IsShowFS" type="radio" name="allowSeePaper" checked value="0"/><label
+													for="IsShowFS">不允许考生提交后查看答卷和答案</label></span>&nbsp;&nbsp;<br></br>
+													&nbsp;&nbsp;<span
 													class="CheckBox"><input id="AllowSeePaper"
-													type="checkbox" name="allowSeePaper" /><label
+													type="radio" name="allowSeePaper" value="1"/><label
 													for="AllowSeePaper">允许考生提交后查看答卷和答案</label></span>
 											</div>
 										</fieldset>
@@ -1364,7 +1367,7 @@ fieldset table {
 																					<tr>
 																						<td height="292">
 																							<div
-																								style="height: 292px; width: 650px; position: absolute; overflow: auto; scrollbar-face-color: #D4D0C8; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #ffffff; scrollbar-3dlight-color: #666666; scrollbar-arrow-color: #216dad;">
+																								style="height: 292px; width: 650px;  overflow: auto; scrollbar-face-color: #D4D0C8; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #ffffff; scrollbar-3dlight-color: #666666; scrollbar-arrow-color: #216dad;">
 																								<table id="PolicyTable" border="0"
 																									cellpadding="1" cellspacing="0"
 																									class="tab_table" style="width: 650px">
@@ -1438,7 +1441,7 @@ fieldset table {
 				</table>
 
 				<script type="text/javascript">
-					function chkname() {
+					/* function chkname() {
 						document.getElementById("chknameiframe").src = "chknameiframe.ashx?ExamName="
 								+ escape(document.getElementById('tk_cl_name').value)
 								+ "&ExamID=" + '';
@@ -1450,7 +1453,7 @@ fieldset table {
 					function sjSJ() {
 						document.getElementById("SuitNumber").value = "10";
 						document.getElementById("SuitNumber").disabled = false;
-					}
+					} */
 				</script>
 
 				<script type="text/javascript" id="chknameiframe"></script>
@@ -1465,9 +1468,9 @@ fieldset table {
 					<input type="button" value="下一页" style="display: none;"
 						id="btn_next1" class="four_button_y"
 						onclick="changeTabThree('3');InitExamTX();" />
-					<!-- <input type="button" id="btn_Submit" class="four_button_y" value="确 定" onclick="javascript:this.disabled='disabled';chkname();" /> -->
+				 <!--<input type="button" id="btn_Submit" class="four_button_y" value="确 定" onclick="javascript:this.disabled='disabled';chkname();" /> -->
 					<input type="submit" name="Submit" value="确 定" id="Submit"
-						class="four_button_y" style="display: block;" /> <input
+						class="four_button_y"/> <input
 						type="button" value="取 消" id="btn_Cancel" class="four_button_y"
 						onclick="if(confirm('确认不保存修改内容就退出吗？')){window.close();}" />
 				</div>
@@ -1535,9 +1538,9 @@ fieldset table {
 			//]]>
 		</script>
 
-		<script language='javascript'>
-			GetTKList($.get('TKJList').value);
-		</script>
+		<%-- <script language='javascript'>
+			//GetTKList($get('TKJList').value);
+		</script> --%>
 		<script type="text/javascript">
 			//<![CDATA[
 

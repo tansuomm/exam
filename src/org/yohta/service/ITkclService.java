@@ -24,5 +24,9 @@ public interface ITkclService {
 	 * @throws Exception
 	 */
 	public String getTmByTkclId(int tkclId);
-
+	/**
+	 * 查询考试列表
+	 * @return
+	 */
+	public List<TkCl> findAllTkcl();
 }

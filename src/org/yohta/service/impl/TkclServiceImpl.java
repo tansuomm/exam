@@ -40,6 +40,8 @@ public class TkclServiceImpl implements ITkclService {
 	public void addTkcl(TkCl tkcl, int[] tm_num_1, int[] tm_num_2, int[] tm_num_3, int[] tm_num_4, int[] tm_num_5,
 			int[] clTkjId, int[] clTkId) {
 		int tkclId = 0; 
+		//id为空存不了，一个默认值，存完按数据库id自增
+		//tkcl.setTkClId(0);
 		//1、添加考试
 		tkclId = tkclDao.addTkCl(tkcl);
 		//System.out.println(tkcl.getTkClId());
@@ -195,5 +197,13 @@ public class TkclServiceImpl implements ITkclService {
 	}
 	public void setTkclDao(ITkclDao tkclDao) {
 		this.tkclDao = tkclDao;
+	}
+
+/**
+ * 考试列表
+ */
+	@Override
+	public List<TkCl> findAllTkcl() {
+		return tkclDao.findAllTkcl();
 	}
 }

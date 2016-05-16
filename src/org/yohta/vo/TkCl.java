@@ -10,6 +10,15 @@ public class TkCl implements java.io.Serializable {
 
 	// Fields
 
+	@Override
+	public String toString() {
+		return "TkCl [tkClId=" + tkClId + ", tkClName=" + tkClName + ", tkClTime=" + tkClTime + ", validBtime="
+				+ validBtime + ", validEtime=" + validEtime + ", tkClPf=" + tkClPf + ", allowSeePaper=" + allowSeePaper
+				+ ", isSavePaper=" + isSavePaper + ", minKsNum=" + minKsNum + ", maxKsNum=" + maxKsNum + ", isOrder="
+				+ isOrder + ", moveOutTimes=" + moveOutTimes + ", tkClType=" + tkClType + ", isAllow=" + isAllow
+				+ ", totalScore=" + totalScore + ", passFS=" + passFS + "]";
+	}
+
 	private Integer tkClId;
 	private String tkClName;
 	private Integer tkClTime;

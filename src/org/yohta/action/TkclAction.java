@@ -8,10 +8,9 @@ import org.yohta.service.ITkclService;
 import org.yohta.utils.PrintString;
 import org.yohta.vo.TkCl;
 
+import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-
-import net.sf.json.JSONArray;
 
 public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	private static final long serialVersionUID = 1L;
@@ -79,25 +78,39 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 //				}
 //			}
 //		}
-		//tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId);
-		//list();
+		tkclService.addTkcl(tkcl,tm_num_1,tm_num_2,tm_num_3,tm_num_4,tm_num_5,clTkjId,clTkId);
+		
 		return "add";
 	}
-	
 	/**
 	 * 考试列表
 	 * @return
 	 * @throws Exception
 	 */
-	public String list() throws Exception {
+	public String list()throws Exception{
+		 List<TkCl> list = tkclService.findAllTkcl();
+		 if(list!=null){
+			 String json = JSON.toJSONString(list);
+			 PrintString.printStr(json);
+		 }
+		 
+		 return null;
+	}
+	/**
+	 * 考试列表android客户端访问
+	 * @return
+	 * @throws Exception
+	 */
+	public String applist() throws Exception {
 	
 		List<TkCl> list = new ArrayList<TkCl>();
 		//获取考卷详细信息通过考生id
-		
+		//System.out.println(clerkId);
 		list = (List<TkCl>) tkclService.findTkClByClerkId(clerkId);
 		if (list != null) {
-			JSONArray json = JSONArray.fromObject(list);
-			PrintString.printStr(json.toString());
+			//JSONArray json = JSONArray.fromObject(list);
+			String json = JSON.toJSONString(list);
+			PrintString.printStr(json);
 		}
 		
 		return null;

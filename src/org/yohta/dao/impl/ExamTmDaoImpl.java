@@ -80,16 +80,22 @@ public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
 	 */
 	@Override
 	public List<Tm> findTmsByTkclNdzsd(TkClNdzsd cl) {
-		String sql = "select * from Tm tm where 1 = 1";
+		String sql = "From Tm tm where 1 = 1";
 		if(cl.getTkTkjId()!=0){
 			sql = sql+"and tm.tk.tkj.tkjId ="+cl.getTkTkjId() ;
 		}if(cl.getTkLxId()!=0){
 			sql = sql + "and tm.tk.tkId="+cl.getTkLxId();
 		}
-		sql = sql + "and tm.tmType="+ cl.getTmTxId() +"order by RAND() LIMIT 0,"+cl.getTmNum();
+		sql = sql + "and tm.tmType="+ cl.getTmTxId() +"order by RAND()";
+		
+		
+	  /*  @SuppressWarnings("unchecked")
+		List<Tm> list = (List<Tm>) this.getHibernateTemplate().find(sql);*/
+	    Query query = this.getSessionFactory().getCurrentSession().createQuery(sql);
+		query.setMaxResults(cl.getTmNum());
+		query.setFirstResult(0);
 		System.out.println("随机抽题sql"+sql);
-	    @SuppressWarnings("unchecked")
-		List<Tm> list = (List<Tm>) this.getHibernateTemplate().find(sql);
+		List<Tm> list = query.list();
 		return list;
 	}
 	/**
