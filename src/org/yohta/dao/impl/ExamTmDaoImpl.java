@@ -95,24 +95,32 @@ public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
 	/**
 	 * 根据题库Id在题目表里找到知识点
 	 */
-	@Override
+/*	@Override
 	public List<String> findZsdByTkId(int tkjId, int tkId) {
 		Object[] values = new Object[]{tkjId,tkId};
 	    List<String> list = (List<String>) this.getHibernateTemplate().find("select DISTINCT  tmZsd From Tm tm where tm.tk.tkj.tkjId = ? and tm.tk.tkId = ?", values);
 		return list;
 	}
+*/
 	/**
 	 * 查询题目题型和数量
 	 */
 	@Override
-	public List<TMTX> findTmByTkjIdTkIdZsd(Map<String, Object> map) {
-		String hql = " select tm.tm_type as tm_tx_id, count(tm_type) as tm_tx_num from Tm tm left join Tk tk "
-				+ "on tm.tk_id = tk.tk_id left join Tkj tkj "
-				+ "on tk.tkj_id = tkj.tkj_id "
-				+ "where 1=1 and tkj.tkjId=? and tk.tkId =? and tm.tmZsd = ? and tm.tmNd = ? and tm.tmType = ? group by tm.tmType";
-	    Object[] values = new Object[]{map.get("tkjid"),map.get("tkid"),map.get("zsd"),map.get("nd"),map.get("tx")};
-	    List<TMTX> list = (List<TMTX>) this.getHibernateTemplate().find(hql, values);
-		return list;
+	public int findTmByTkjIdTkId(Map<String, Object> map) {
+		String hql = " select  count(tm.tmId)  from Tm tm where 1=1 and tm.tk.tkj.tkjId=? and tm.tk.tkId =?  and tm.tmType = ?";
+				
+		
+		
+	    //Object[] values = new Object[]{map.get("tkjid"),map.get("tkid"),map.get("tx")};
+	    Query query = this.getSessionFactory().getCurrentSession().createQuery(hql);
+	    query.setParameter(0, map.get("tkjid"));
+	    query.setParameter(1, map.get("tkid"));
+	    query.setParameter(2, map.get("tx"));
+	    Long num =  (Long) query.uniqueResult();
+	    int tm_tx_num = num.intValue();
+	   // List<TMTX> list = (List<TMTX>) this.getHibernateTemplate().find(hql, values);
+
+		return tm_tx_num;
 	}
 
 }

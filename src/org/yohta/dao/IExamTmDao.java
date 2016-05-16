@@ -33,12 +33,12 @@ public interface IExamTmDao {
 	 * @param tkId
 	 * @return
 	 */
-	public List<String> findZsdByTkId(int tkjId,int tkId);
+	/*public List<String> findZsdByTkId(int tkjId,int tkId);*/
 	
 	/**
 	 * 根据题库集Id题库Id知识点题目题型抽题
 	 * @return
 	 * @throws Exception
 	 */
-	public List<TMTX> findTmByTkjIdTkIdZsd(Map<String, Object> map);
+	public int findTmByTkjIdTkId(Map<String, Object> map);
 }

@@ -26,7 +26,8 @@ public class ExamTkjDaoImpl extends HibernateDaoSupport implements IExamTkjDao {
 	@Override
 	public Tkj findById(int tkjId) {
 		Tkj tkj = new Tkj();
-		tkj = this.getHibernateTemplate().load(Tkj.class, tkjId);
+		List<Tkj> list = (List<Tkj>) this.getHibernateTemplate().find("From Tkj where tkjId = ?", new Object[]{tkjId});
+		tkj = list.get(0);
 		return tkj;
 	}
 	/**

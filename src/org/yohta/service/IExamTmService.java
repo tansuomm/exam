@@ -49,12 +49,12 @@ public interface IExamTmService {
 	 * @param tkId
 	 * @return
 	 */
-	public String findZsdByTkId(int tkjid, int tkId);
+	/*public String findZsdByTkId(int tkjid, int tkId);*/
 	
 	/**
 	 * //根据题库集Id题库Id知识点题目题型抽题
 	 * @return
 	 * @throws Exception
 	 */
-	public String findTmByTkjIdTkIdZsd(int tkjid,int tkid,String zsd, String nd,String tx);
+	public String findTmByTkjIdTkId(int tkjid,int tkid,String tx);
 }

@@ -101,52 +101,44 @@ public class TmAction extends SuperAction<Tm> {
 	 * @throws Exception
 	 */
 
-	public String findZsdByTkId() throws Exception{
-		return tmService.findZsdByTkId(tkjId,tkId);
-	}
+/*	public String findZsdByTkId() throws Exception{
+		return tmService.findZsdByTkId(Integer.parseInt(tkjId ),Integer.parseInt(tkId));
+		
+	}*/
 	
 	/**
 	 * 根据题库集Id题库Id知识点题目题型抽题
 	 * @return
 	 * @throws Exception
 	 */
-	public String findTmByTkjIdTkIdZsd() throws Exception{
-		//System.out.println(tkjId + "||" +tkId + "||" +zsd + "||" + nd + "||" + tx);
-		return tmService.findTmByTkjIdTkIdZsd(tkjId,tkId,zsd,nd,tx);
+	public String findTmByTkjIdTkId() throws Exception{
+		//System.out.println(tkjId + "||" +tkId + "||" + tx);
+		
+		return tmService.findTmByTkjIdTkId(Integer.parseInt(tkjId ),Integer.parseInt(tkId),tx);
+		
 	}
-	private int tkjId;
-	private int tkId;
-	//知识点
-	private String zsd;
-	//难度
-	private String nd;
-	//题型
-	private String tx;
-	 
-	public int gettkjId() {
+	
+	
+	private String tkjId;
+	private String tkId;
+	public String getTkjId() {
 		return tkjId;
 	}
-	public void settkjId(int tkjId) {
+	public void setTkjId(String tkjId) {
 		this.tkjId = tkjId;
 	}
-	public int gettkId() {
+	public String getTkId() {
 		return tkId;
 	}
-	public void settkId(int tkId) {
+	public void setTkId(String tkId) {
 		this.tkId = tkId;
 	}
-	public String getZsd() {
-		return zsd;
-	}
-	public void setZsd(String zsd) {
-		this.zsd = zsd;
-	}
-	public String getNd() {
-		return nd;
-	}
-	public void setNd(String nd) {
-		this.nd = nd;
-	}
+
+
+	//知识点
+	private String tx;
+	 
+	
 	public String getTx() {
 		return tx;
 	}

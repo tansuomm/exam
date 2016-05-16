@@ -176,11 +176,13 @@ fieldset table {
 							//tx +=  正在循环的复选框值 + ","
 							//1,3,4
 							tx += obj[i].value + ",";
+							
 							//数组[数组的长度]
 							//数组最后一个值
 							//正在循环的复选框父节点的下一个
 							//nextSibling 属性可返回某个元素之后紧跟的元素（处于同一树层级中）。如果无此节点，则属性返回 null。
-							txnameArr[txnameArr.length] = obj[i].parentNode.nextSibling.innerText;
+							
+							txnameArr[txnameArr.length] = obj[i].parentNode.nextSibling.nextSibling.innerText;
 						}
 					}
 				}
@@ -221,8 +223,7 @@ fieldset table {
 					//参数  插入的行  字符串  位置 数字
 					InsertCell(myNewRow, "题库集", "center", 100);
 					InsertCell(myNewRow, "题库", "center", 100);
-					InsertCell(myNewRow, "知识点", "center", 100);
-					InsertCell(myNewRow, "难度", "center", 50);
+					
 					//对上面自己建立的数组 txnameArr  （单选题,填空题……） 进行循环
 					for (var i = 0; i < txnameArr.length; i++) {
 						InsertCell(myNewRow, txnameArr[i], "center", 100);
@@ -233,7 +234,7 @@ fieldset table {
 					myNewRow.className = "tab_label";
 					myNewRow.height = 24;
 					//4 合并单元格
-					InsertCell(myNewRow, "总计", "center", 100, 4);
+					InsertCell(myNewRow, "总计", "center", 100, 2);
 					//对 txidArr 进行循环 按照,劈分
 					var txidArr = TXValue.split(",");
 					//循环
@@ -302,7 +303,7 @@ fieldset table {
 							//题库进而发生了变化
 							//哪个题库被默认选中
 							//alert(document.getElementById(objid).value);
-							GetZSDList(tkjid, $("#" + objid).val());
+							//GetZSDList(tkjid, $("#" + objid).val());
 						} else {
 							$("#" + objid).attr("disabled", true);
 							$("#" + objid).html(
@@ -313,7 +314,7 @@ fieldset table {
 			}
 
 			//根据题库集Id和 题库的Id 得到知识点
-			function GetZSDList(tkjid, tkid) {
+		/* 	function GetZSDList(tkjid, tkid) {
 				var objid = "ZSDList";
 				//让知识点下拉框清空
 				document.getElementById(objid).innerHTML = "";
@@ -349,7 +350,7 @@ fieldset table {
 						}
 					}
 				});
-			}
+			} */
 
 			function PolicyEnabled(k) {
 				var myObj = document.getElementById("PolicyTable")
@@ -379,17 +380,18 @@ fieldset table {
 				//按钮禁用
 				//document.getElementById('PolicyAddButton').disabled = true;
 				//ajax
+				
 				$.ajax({
 					//post提交	
 					type : "POST",
 					//地址
 					//根据题库集Id题库Id知识点题目题型抽题
-					url : "tm_findTmByTkjIdTkIdZsd",
+					url : "tm_findTmByTkjIdTkId",
 					//地址栏传值
 					//题库集 题库 知识点 难度 题型
-					data : "tkjId=" + $("#TKJList").val() + "&tkId="
-							+ $("#TKList").val() + "&zsd="
-							+ $("#ZSDList").val() + "&nd=" + $("#NDList").val()
+					data : "tkjId=" +$("#TKJList").val() + "&tkId="
+							+ $("#TKList").val()
+							
 							+ "&tx=" + $("#SelectedTX").val(),
 					//成功
 					success : function(msg) {
@@ -400,8 +402,7 @@ fieldset table {
 						//把字符串转成json格式
 						var json = eval("(" + msg + ")");
 						if (chkTk($("#TKJList option:selected").text(), $(
-								"#TKList option:selected").text(), $(
-								"#ZSDList option:selected").text())) {
+								"#TKList option:selected").text())) {
 							if (json.list.length > 0) {
 								AddRow(json);
 							} else {
@@ -446,11 +447,11 @@ fieldset table {
 				InsertCell(myNewRow, $("#TKList option:selected").text(),
 						'center');
 				//知识点
-				InsertCell(myNewRow, $("#ZSDList option:selected").text(),
+				/* InsertCell(myNewRow, $("#ZSDList option:selected").text(),
 						'center');
 				//难度
 				InsertCell(myNewRow, $("#NDList option:selected").text(),
-						'center');
+						'center'); */
 
 				//json.list 是 json的一个对象  对象本身是一个json数组
 				var jsonArr = json.list;
@@ -533,19 +534,19 @@ fieldset table {
 								+ "<input type='hidden' name='clTkId' value='"
 								+ $("#TKList option:selected").val()
 								+ "'>"
-								+ "<input type='hidden' name='clZsd' value='"
+								/* + "<input type='hidden' name='clZsd' value='"
 								+ $("#ZSDList option:selected").val()
 								+ "'>"
 								+ "<input type='hidden' name='nd' value='"
 								+ $("#NDList option:selected").val()
-								+ "'>"
+								+ "'>" */
 								+ "<input type='button' value='删除' class='two_button_w' onclick='DeleteRow(this)'>",
 						"center");
 			}
 
 			//判断题库集（题库）
 			//题库集 题库 知识点
-			function chkTk(p_TkjName, p_TkName, p_ZSD) {
+			function chkTk(p_TkjName, p_TkName) {
 				//通过Id找到表格 赋值给 myTable变量
 				var myTable = document.getElementById("PolicyTable");
 				var result = true;
@@ -560,7 +561,7 @@ fieldset table {
 					//第一个单元格 = 题库集 并且 第二个单元格 = 题库  并且第三个单元格 = 知识点
 					if (myTable.rows[i].cells[0].innerHTML == p_TkjName
 							&& (myTable.rows[i].cells[1].innerHTML == p_TkName || myTable.rows[i].cells[1].innerHTML == '所有')
-							&& (myTable.rows[i].cells[2].innerHTML == p_ZSD || myTable.rows[i].cells[2].innerHTML == '所有')) {
+							) {
 						alert("已经有此题库,请选择其它题库!");
 						result = false;
 						break;
@@ -1294,21 +1295,21 @@ fieldset table {
 											<tr>
 												<td>题库集：&nbsp; <s:select list="#request.tkjList"
 														name="TKJList" id="TKJList"
-														onchange="GetTKList(this.value);GetZSDList($('#TKJList').val(),0);"
+														onchange="GetTKList(this.value);"
 														headerKey="-1" headerValue="=请选择=" listKey="tkjId"
 														listValue="tkjName" theme="simple"></s:select> 题库：&nbsp; <select
 													name="TKList" id="TKList" class="Select"
-													onchange="GetZSDList($('#TKJList').val(),this.value);"
+								
 													style="width: 120px;">
 														<option value="0">所有</option>
 												</select> 
 												    <input type="hidden" name="SelectedTX" id="SelectedTX" />
 													<input type="button" id="PolicyAddButton"
 													class="four_button" style="display: inline;" value="增加"
-													onclick="PolicyAdd()"><input type="button"
+													onclick="PolicyAdd()" /><input type="button"
 													id="PolicyModifyButton" class="four_button"
 													style="display: none;" value="修改策略"
-													onclick="PolicyModify()">
+													onclick="PolicyModify()" />
 												</td>
 											</tr>
 										</table>

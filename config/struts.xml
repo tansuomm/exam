@@ -46,16 +46,5 @@
 		</action>
 		
 	</package>
-  <!--   <package name="login" extends="struts-default" namespace="/">
-		<action name="loginPre" method="loginPre" class="userAction">
-			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
-		</action>
-		<action name="login" method="login" class="userAction">
-			<result name="login">/WEB-INF/jsp/index.jsp</result>
-			<result name="input">/WEB-INF/jsp/input.jsp</result>
-			
-		</action>
-	</package>  -->
-
 
 </struts>

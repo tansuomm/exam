@@ -17,6 +17,8 @@ import org.yohta.vo.Tk;
 import org.yohta.vo.Tkj;
 import org.yohta.vo.Tm;
 
+import com.alibaba.fastjson.JSON;
+
 import net.sf.json.JSONObject;
 
 public class ExamTmServiceImpl implements IExamTmService {
@@ -154,7 +156,7 @@ public class ExamTmServiceImpl implements IExamTmService {
 	 * @param tkId
 	 * @return
 	 */
-	public String findZsdByTkId(int tkjid, int tkId) {
+	/*public String findZsdByTkId(int tkjid, int tkId) {
 		List<String> list = new ArrayList<String>();
 		list = tmDao.findZsdByTkId(tkjid, tkId);
 		
@@ -166,40 +168,49 @@ public class ExamTmServiceImpl implements IExamTmService {
 		PrintString.printStr((sBuffer.toString()));		
 		return null;
 	}
-
+*/
 	/**
 	 * 根据题库集Id题库Id知识点题目题型抽题
 	 * @return
 	 * @throws Exception
 	 */
-	public String findTmByTkjIdTkIdZsd(int tkjid, int tkid, String zsd, String nd, String tx) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("tkjid", tkjid);
-		map.put("tkid", tkid);
-		map.put("zsd", zsd);
-		map.put("nd", nd);
-		map.put("tx", tx);
+	public String findTmByTkjIdTkId(int tkjid, int tkid, String tx1) {
+		String[] tx2 = tx1.split(",");
+		int tx = 0;
 		List<TMTX> list = new ArrayList<TMTX>();
-		list = tmDao.findTmByTkjIdTkIdZsd(map);
-//		for(TMTX tmtx : list){
-//			System.out.println(tmtx.getTmTxId());
-//			System.out.println(tmtx.getTmTxNum());
-//			System.out.println("--------------");
-//		}
+		for(int i = 0;i<tx2.length;i++){
+			Map<String, Object> map = new HashMap<String, Object>();
+			tx = Integer.parseInt(tx2[i]);
+			//System.out.println("bbbbbbbbbbbbbbbb"+tx+"||"+tkjid+"||"+tkid);
+			map.put("tkjid", tkjid);
+			map.put("tkid", tkid);
+			map.put("tx", tx);
+			
+			int tm_tx_num  = tmDao.findTmByTkjIdTkId(map);
+			TMTX tmtx = new TMTX();
+			tmtx.setTmTxId(tx);
+			tmtx.setTmTxNum(tm_tx_num);
+			list.add(tmtx);			
+		}
+		
+		
 		
 		//通过题库集Id 题库Id 得到 题库集名称 和 题库的名称
 		Tkj tkj = new Tkj();
+		//System.out.println("aaaaaaaaaaaaaaaaaaa"+tkjid);
 		tkj = tkjDao.findById(tkjid);
 		
+		//{"tkjName":"计算机系","list":[{"tmTxId":1,"tmTxNum":4},{"tmTxId":2,"tmTxNum":1},{"tmTxId":3,"tmTxNum":1}]}
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		//题库集名称
 		resultMap.put("tkjName", tkj.getTkjName());
 		//题目题型的集合
-		resultMap.put("list", list);
-		
+		resultMap.put("list", list);		
 		//把集合变成json串
-		JSONObject json = JSONObject.fromObject(resultMap);
-		PrintString.printStr(json.toString());
+		//JSONObject json = JSONObject.fromObject(resultMap);
+		String json = JSON.toJSONString(resultMap);
+		//System.out.println(json);
+		PrintString.printStr(json);
 		
 		return null;
 	}
