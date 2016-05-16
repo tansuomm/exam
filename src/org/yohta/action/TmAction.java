@@ -8,7 +8,7 @@ import org.yohta.service.IExamTmService;
 import org.yohta.vo.Tm;
 import org.yohta.vo.User;
 
-@SuppressWarnings("serial")
+
 public class TmAction extends SuperAction<Tm> {
 	private IExamTmService tmService;
 	public void setTmService(IExamTmService tmService) {
@@ -31,9 +31,11 @@ public class TmAction extends SuperAction<Tm> {
 	public String add() throws Exception{
 		String xuanxiang = model.getTmXuanxiang();
 		int xuanLength = 0;
-		if(xuanxiang.contains(";")){
-			String[] xuanArr = xuanxiang.split(";");
-			xuanLength = xuanArr.length;	
+		if(xuanxiang!=null){
+			if(xuanxiang.contains(";")){
+				String[] xuanArr = xuanxiang.split(";");
+				xuanLength = xuanArr.length;	
+			}
 		}
 
 		model.setTmXuanxiangNum(xuanLength );
@@ -115,7 +117,7 @@ public class TmAction extends SuperAction<Tm> {
 		//System.out.println(tkjId + "||" +tkId + "||" + tx);
 		
 		return tmService.findTmByTkjIdTkId(Integer.parseInt(tkjId ),Integer.parseInt(tkId),tx);
-		
+	
 	}
 	
 	
@@ -133,12 +135,7 @@ public class TmAction extends SuperAction<Tm> {
 	public void setTkId(String tkId) {
 		this.tkId = tkId;
 	}
-
-
-	//知识点
 	private String tx;
-	 
-	
 	public String getTx() {
 		return tx;
 	}

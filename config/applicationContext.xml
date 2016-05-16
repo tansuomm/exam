@@ -147,7 +147,6 @@
 				<value>hbm/Right.hbm.xml</value>
 				<value>hbm/User.hbm.xml</value>
 				<value>hbm/UserRight.hbm.xml</value>
-				<value>hbm/TMTX.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

@@ -933,9 +933,11 @@ fieldset table {
 														<table width="300px" style="display: inline;">
 															<tr>
 																<td><span class="CheckBox"><input
-																		id="IsOrder" type="checkbox" name="isOrder" /><label
+																		id="IsOrder" type="checkbox" name="isOrder" value="1" /><label
 																		for="IsOrder">考题显示顺序随机</label></span></td>
-																<td></td>
+																<td><span class="CheckBox"><input
+																		id="IsOrder" type="checkbox" name="isOrder" value="0" /><label
+																		for="IsOrder">考题显示顺序固定</label></span></td>
 															</tr>
 
 														</table>

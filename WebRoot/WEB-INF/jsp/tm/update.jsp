@@ -95,18 +95,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<th>题库：</th>
 								<td><s:select cssClass="select2" list="#request.tkList"
-										name="tm.tk.tkId" id="selTk" listKey="tkId" listValue="tkName"
+										name="tk.tkId" id="selTk" listKey="tkId" listValue="tkName"
 										value="#request.tm.tk.tkId"></s:select> <label>*</label></td>
 							</tr>
 							<tr>
 								<th>题目名称：</th>
-								<td><input name="tm.tmName" value="${tm.tmName}"
+								<td><input name="tmName" value="${tm.tmName}"
 									type="text" id="txtTmName" class="txtInput normal required" />
 									<label>*</label></td>
 							</tr>
 							<tr>
 							<th>题目类型：</th>
-							<td><select name="tm.tmType"  id="txtContent">
+							<td><select name="tmType"  id="txtContent">
 									<option value="1">选择题</option>
 									<option value="2">填空题</option>
 									<option value="3">多选题</option>
@@ -116,35 +116,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 							<tr>
 								<th>题目分数：</th>
-								<td><input name="tm.tmScore" value="${tm.tmScore}"
+								<td><input name="tmScore" value="${tm.tmScore}"
 									type="text" id="txtTmScore"
 									class="txtInput normal required digits" /> <label></label></td>
 							</tr>
 							<tr>
 								<th>题目知识点：</th>
-								<td><input name="tm.tmZsd" type="text" value="${tm.tmZsd}" id="txtLinkUrl"
+								<td><input name="tmZsd" type="text" value="${tm.tmZsd}" id="txtLinkUrl"
 									class="txtInput normal required" /> <label>*</label></td>
 							</tr>
 							<tr>
 								<th>题目难度：</th>
-								<td><input name="tm.tmNd" type="text" value="${tm.tmNd}" id="txtLogo"
+								<td><input name="tmNd" type="text" value="${tm.tmNd}" id="txtLogo"
 									class="txtInput normal required" /></td>
 							</tr>
 							<tr>
 								<th>题目选项：</th>
-								<td><input name="tm.tmXuanxiang" type="text" id="txtLogo"				
+								<td><input name="tmXuanxiang" type="text" id="txtLogo"				
 									class="txtInput normal" placeholder="选择题格式如:选A;选B;选C;选D"/></td>
-								<td><input type="hidden" name="tm.tmXuanxiangNum" value="${tm.tmXuanxiangNum }" /></td>
+								<td><input type="hidden" name="tmXuanxiangNum" value="${tm.tmXuanxiangNum }" /></td>
 							</tr>
 								
 								
 							<tr>
 								<th>题目答案：</th>
-								<td><textarea name="tm.tmDa" class="required" >${tm.tmDa}</textarea><label>*</label></td>
+								<td><textarea name="tmDa" class="required" >${tm.tmDa}</textarea><label>*</label></td>
 							</tr>
 							<tr style="display:none">
 								<th>创建人：</th>
-								<td><input type="text" name="tm.tmCreateName"    value="${user.userName}"/></td>
+								<td><input type="text" name="tmCreateName"    value="${user.userName}"/></td>
 							</tr>
 							<tr style="display:none">
 							<th>创建时间：</th>
@@ -152,14 +152,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 								String date= format.format(new Date());
 								%>
-							<td><input name="tm.tmCreateTime" type="text" value="<%=date %>" id="txtLogo"
+							<td><input name="tmCreateTime" type="text" value="<%=date %>" id="txtLogo"
 								class="txtInput normal" /></td>
 						</tr>
 							<tr>
 								<th></th>
 								<td><input type="submit" name="btnSubmit" value="提交保存"
 									id="btnSubmit" class="btnSubmit" /> <input type="hidden"
-									name="tm.tmId" id="hidTmId" value="${tm.tmId}" /></td>
+									name="tmId" id="hidTmId" value="${tm.tmId}" /></td>
 							</tr>
 						</tbody>
 					</table>

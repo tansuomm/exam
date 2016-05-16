@@ -95,19 +95,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						<tr>
 							<th>题库：</th>
-							<td><select name="tm.tk.tkId" id="selTk" disabled>
+							<td><select name="tk.tkId" id="selTk" disabled>
 									<option value="0">=请选择=</option>
 							</select> <label>*</label></td>
 						</tr>
 						<tr>
 							<th>题目名称：</th>
-							<td><textarea name="tm.tmName"  id="txtLogo"
+							<td><textarea style="width:255px;height:50px" name="tmName"  id="txtLogo"
 								class="required" ></textarea> <label>*</label></td>
 						</tr>
 						<tr>
 							<th>题目类型：</th>
-							<td><select name="tm.tmType" id="txtContent">
-									<option value="1">选择题</option>
+							<td><select name="tmType" id="txtContent">
+									<option value="1">单选题</option>
 									<option value="2">填空题</option>
 									<option value="3">多选题</option>
 									<option value="4">判断题</option>
@@ -116,27 +116,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						<tr>
 							<th>题目分数：</th>
-							<td><input name="tm.tmScore" type="text" id="txtContent"
+							<td><input name="tmScore" type="text" id="txtContent"
 								class="txtInput normal required" /> <label></label></td>
 						</tr>
 						<tr>
 							<th>题目知识点：</th>
-							<td><input name="tm.tmZsd" type="text" id="txtLinkUrl"
+							<td><input name="tmZsd" type="text" id="txtLinkUrl"
 								class="txtInput normal required" /> <label>*</label></td>
 						</tr>
 						<tr>
 							<th>题目难度：</th>
-							<td><input name="tm.tmNd" type="text" id="txtLogo"
+							<td><input name="tmNd" type="text" id="txtLogo"
 								class="txtInput normal" /></td>
 						</tr>
 						<tr>
 							<th>题目选项：</th>
-							<td><input name="tm.tmXuanxiang" type="text" id="txtLogo"				
-								class="txtInput normal" placeholder="选择题格式如:选A;选B;选C;选D"/></td>
+							<td><textarea style="width:255px;height:50px" name="tmXuanxiang" type="text" id="txtLogo"				
+								class="txtInput normal" >选择题格式如:A:1;B:2;C:3;D:4</textarea></td>
 						</tr>
 						<tr>
 							<th>题目答案：</th>
-							<td><textarea name="tm.tmDa" class="required"></textarea><label>*</label></td>
+							<td><textarea style="width:255px;height:50px" name="tmDa" class="required"></textarea><label>*</label></td>
 						</tr>
 						<tr style="display:none">
 							<th>创建时间：</th>
@@ -144,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 							String date= format.format(new Date());
 							%>
-							<td><input name="tm.tmCreateTime" type="text" value="<%=date %>" id="txtLogo"
+							<td><input name="tmCreateTime" type="text" value="<%=date %>" id="txtLogo"
 								class="txtInput normal" /></td>
 						</tr>
 						<tr>

@@ -80,11 +80,11 @@ public class ExamTmDaoImpl extends HibernateDaoSupport implements IExamTmDao {
 	 */
 	@Override
 	public List<Tm> findTmsByTkclNdzsd(TkClNdzsd cl) {
-		String sql = "select * from Tm tm left join Tk tk on tm.tk.tkId = tk.tkId left join Tkj tkj on tk.tkj.tkjId = tkj.tkjId where 1 = 1";
+		String sql = "select * from Tm tm where 1 = 1";
 		if(cl.getTkTkjId()!=0){
-			sql = sql+"and tkj.tkjId ="+cl.getTkTkjId() ;
+			sql = sql+"and tm.tk.tkj.tkjId ="+cl.getTkTkjId() ;
 		}if(cl.getTkLxId()!=0){
-			sql = sql + "tk.tkId="+cl.getTkLxId();
+			sql = sql + "and tm.tk.tkId="+cl.getTkLxId();
 		}
 		sql = sql + "and tm.tmType="+ cl.getTmTxId() +"order by RAND() LIMIT 0,"+cl.getTmNum();
 		System.out.println("随机抽题sql"+sql);

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function deleteTm(tmId){
 		$.ligerDialog.confirm("删除不可恢复，是否继续", function (result) { 
 			if(result){
-				location.href="tm_delete?tm.tmId=" + tmId;
+				location.href="tm_delete?tmId=" + tmId;
 			}
 			else{
 				return false;
@@ -114,13 +114,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								name="rptList$ctl01$chkId" /></span><input type="hidden"
 							name="rptList$ctl01$hidDirName" id="rptList_ctl01_hidDirName"
 							value="advert" /></td>
-						<td>${tm.tmName}</td>
-						<td align="center">${tm.tk.tkName}</td>
-						<td align="center">${tm.tmZsd}</td>
-						<td align="center">${tm.tmCreateName}</td>
-						<td align="center">${tm.tmScore}</td>
-						<td align="center"><a href="tm_updatePre?tm.tmId=${tm.tmId}">修改
-						</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="deleteTm(${tm.tmId})">删除</a></td>
+						<td>${tmName}</td>
+						<td align="center">${tk.tkName}</td>
+						<td align="center">${tmZsd}</td>
+						<td align="center">${tmCreateName}</td>
+						<td align="center">${tmScore}</td>
+						<td align="center"><a href="tm_updatePre?tmId=${tmId}">修改
+						</a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="deleteTm(${tmId})">删除</a></td>
 					</tr>
 				</s:iterator>
 			</s:if>
