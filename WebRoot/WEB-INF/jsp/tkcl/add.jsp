@@ -130,6 +130,7 @@ fieldset table {
 		<script type="text/javascript">
 			//<![CDATA[
 			 function WebForm_OnSubmit() {
+				//分数
 				if (typeof (ValidatorOnSubmit) == "function"
 						&& ValidatorOnSubmit() == false)
 					return false;
@@ -167,16 +168,27 @@ fieldset table {
 				var txnameArr = new Array();
 				//变量 isAdd
 				var isAdd;
+				//题型设置分数总和
+				var scoreNum = 0;
+				var scoreTotalNum = parseInt($("#is_100").val());
 				//对题目题型进行循环
+				
 				for (var i = 0; i < obj.length; i++) {
 					isAdd = true;
 					//如果正在循环的复选框被选中
 					if (obj[i].checked) {
+						
+						
 						//
 						if (isAdd) {
 							//tx +=  正在循环的复选框值 + ","
 							//1,3,4
 							tx += obj[i].value + ",";
+							//备选中的分数总和为设置的分数总和 ？，否则返回2
+							var a = "score_"+(i+1);
+							
+							scoreNum += parseInt($("#"+a).val());
+							
 							
 							//数组[数组的长度]
 							//数组最后一个值
@@ -187,9 +199,14 @@ fieldset table {
 						}
 					}
 				}
-				//如果tx不为空
+								//如果tx不为空
 				//至少选择了一个复选框
 				if (tx != "") {
+					if(parseInt(scoreTotalNum)!=scoreNum){
+						window.alert("设置的总分数与每种题型分数总和不符，请重新设置！");
+						changeTabThree('2');
+					}
+
 					//定义变量
 					//substr 字符串从第几位取到第几位
 					//从0到总长度减一
@@ -256,9 +273,9 @@ fieldset table {
 				}
 			}
 
-			function DoStart() {
+			/* function DoStart() {
 				document.getElementById("btn_Submit").disabled = false;
-			}
+			} */
 
 			function ActiveTabChanged(sender, e) {
 				if (sender.get_activeTab().get_tabIndex() == 2) {
@@ -667,7 +684,7 @@ fieldset table {
 					changeTabThree('1');
 					document.getElementById('txtTkClName').focus();
 					window.alert("试卷名称不能为空！");
-					DoStart();
+					//DoStart();
 					changeTabThree('1');
 					return false;
 				}
@@ -691,22 +708,54 @@ fieldset table {
 				if (document.getElementById('TotalAccount').value == "0") {
 					window.alert("您没有选择题目！");
 					changeTabThree('2');
-					DoStart();
+					//DoStart();
 					return false;
 				}
 				if (parseInt(document.getElementById('PassFS').value) > parseInt(document
 						.getElementById('TotalScore').value)) {
 					document.getElementById('PassFS').select();
 					window.alert("及格分数太高了！");
-					DoStart();
+					//DoStart();
 					return false;
 				}
 				if (parseInt(document.getElementById('PassFS').value) < 0) {
 					document.getElementById('PassFS').select();
 					window.alert("及格分数不能小于0！");
-					DoStart();
+					//DoStart();
 					return false;
 				}
+				//不满足出题确定的出题个数，返回false;
+				var obj1 = document.getElementsByName("Tm_tx_ID");
+			
+				var txnumArr = new Array();
+				//变量 isAdd
+				
+				//对题目题型进行循环
+				
+				for (var i = 0; i < obj1.length; i++) {
+					isAdd = true;
+					//如果正在循环的复选框被选中
+					if (obj1[i].checked) {
+						var a = "score_"+(i+1);
+						//被选中的分数
+						
+						//有问答题
+						if(i==4){
+							txnumArr[i+1] = parseInt($("#"+a).val())/5;
+						}else{
+							txnumArr[i+1] = parseInt($("#"+a).val())/2;
+						}
+						//判断个数与计算的个数相同吗？确定相同
+						if($("#stat_"+(i+1)).val()!=txnumArr[i+1]){
+							window.alert("请确保题型个数为题型分数除以每道题的分数！");
+							return false;
+				
+						}
+					}
+				}
+				
+				
+				
 				var BTime = ParseDate(document.getElementById('valid_btime').value);
 				var ETime = ParseDate(document.getElementById('valid_etime').value);
 				if (BTime == "NaN") {
@@ -714,7 +763,7 @@ fieldset table {
 					document.getElementById('valid_btime').select();
 					window.alert("请输入一个有效的开始时间！");
 					changeTabThree('1');
-					DoStart();
+					//DoStart();
 					return false;
 				}
 				if (ETime == "NaN") {
@@ -722,7 +771,7 @@ fieldset table {
 					document.getElementById('valid_etime').select();
 					window.alert("请输入一个有效的结束时间！");
 					changeTabThree('1');
-					DoStart();
+					//DoStart();
 					return false;
 				}
 				if (BTime > ETime) {
@@ -730,7 +779,7 @@ fieldset table {
 					document.getElementById('valid_etime').select();
 					window.alert("有效终止时间不能小于有效开始时间！");
 					changeTabThree('1');
-					DoStart();
+					//DoStart();
 					return false;
 				}
 				/* if (document.getElementById('tk_cl_time_1').checked) {
@@ -1172,15 +1221,18 @@ fieldset table {
 																	<table width="100%" border="0" cellspacing="0"
 																		cellpadding="0">
 																		<tr>
-																			<td width="20" height="40"><input value="1"
+																			<td  width="20" height="40"><input value="1"
 																				name="ScoreType" type="radio" id="ScoreType01"
 																				class="Radio" checked="checked" /></td>
-																			<td height="40"><label for="ScoreType01">
-																					使用题库中试题的分数，并将总分折算为 总分</label> <input name="is_100"
+																			<td height="20"><label for="ScoreType01">
+																					使用题库中试题的分数，并设置 总分</label> <input name="is_100"
 																				type="text" value="100" id="is_100" class="input"
 																				style="width: 40px" /></td>
 																		</tr>
 																		<tr>
+																			<br></br><span>*除问答题分数为5的倍数外，其余题型分数应该为2的倍数，且满足题型分数总和为设置的分数*</span>
+																		</tr>
+																		<tr style="display:none">
 																			<td width="20" height="26"><input value="0"
 																				name="ScoreType" type="radio" id="ScoreType02"
 																				class="Radio" /></td>
@@ -1227,7 +1279,7 @@ fieldset table {
 																								<td style="width: 100px;">单选题</td>
 																								<td align="center" style="width: 100px;"><input
 																									type="text" style="width: 40px" name='score_1'
-																									class="input" id='score_1' value='1' /></td>
+																									class="input" id='score_1' value='2' /></td>
 																								<td style="width: 300px;"><textarea
 																										type="text" style="width: 97%" name='notes_1'
 																										class="input" id='notes_1'>单选题</textarea></td>
@@ -1243,7 +1295,7 @@ fieldset table {
 																								<td style="width: 100px;">填空题</td>
 																								<td align="center" style="width: 100px;"><input
 																									type="text" style="width: 40px" name='score_2'
-																									class="input" id='score_2' value='1' /></td>
+																									class="input" id='score_2' value='2' /></td>
 																								<td style="width: 300px;"><textarea
 																										type="text" style="width: 97%" name='notes_2'
 																										class="input" id='notes_2'>填空题</textarea></td>
@@ -1275,7 +1327,7 @@ fieldset table {
 																								<td style="width: 100px;">判断题</td>
 																								<td align="center" style="width: 100px;"><input
 																									type="text" style="width: 40px" name='score_4'
-																									class="input" id='score_4' value='1' /></td>
+																									class="input" id='score_4' value='2' /></td>
 																								<td style="width: 300px;"><textarea
 																										type="text" style="width: 97%" name='notes_4'
 																										class="input" id='notes_4'>填空题</textarea></td>
@@ -1291,7 +1343,7 @@ fieldset table {
 																								<td style="width: 100px;">问答题</td>
 																								<td align="center" style="width: 100px;"><input
 																									type="text" style="width: 40px" name='score_5'
-																									class="input" id='score_5' value='3' /></td>
+																									class="input" id='score_5' value='5' /></td>
 																								<td style="width: 300px;"><textarea
 																										type="text" style="width: 97%" name='notes_5'
 																										class="input" id='notes_5'>问答题</textarea></td>
@@ -1300,6 +1352,56 @@ fieldset table {
 																									class="input" id='orderkey_5' value='4' /></td>
 																							</tr>
 																						</table>
+																						<script type="text/javascript">
+																							/* 判断输入分数应该为2和5倍数 */
+																							$("#score_1").change(function(){
+																								if($("#score_1").val()<1){
+																									alert("请输入正确的分数");
+																								}
+																								if($("#score_1").val()%2!=0){
+																									alert("请输入分数为2的倍数");
+																									$("#score_1").val(2);
+																								}
+																							});
+																							$("#score_2").change(function(){
+																								if($("#score_2").val()<1){
+																									alert("请输入正确的分数");
+																								}
+																								if($("#score_2").val()%2!=0){
+																									alert("请输入分数为2的倍数");
+																									$("#score_2").val(2);
+																								}
+																							});
+																							$("#score_3").change(function(){
+																								if($("#score_3").val()<1){
+																									alert("请输入正确的分数");
+																								}
+																								if($("#score_3").val()%2!=0){
+																									alert("请输入分数为2的倍数");
+																									$("#score_3").val(2);
+																								}
+																							});
+																							$("#score_4").change(function(){
+																								if($("#score_4").val()<1){
+																									alert("请输入正确的分数");
+																								}
+																								if($("#score_4").val()%2!=0){
+																									alert("请输入分数为2的倍数");
+																									$("#score_4").val(2);
+																								}
+																							});
+																							$("#score_5").change(function(){
+																								if($("#score_5").val()<1){
+																									alert("请输入正确的分数");
+																								}
+																								if($("#score_5").val()%5!=0){
+																									alert("请输入分数为5的倍数");
+																									$("#score_5").val(5);
+																								}
+																							});
+																							
+																							
+																						</script>
 																					</div>
 																				</div></td>
 																		</tr>
@@ -1468,7 +1570,7 @@ fieldset table {
 					<input type="button" value="下一页" style="display: none;"
 						id="btn_next1" class="four_button_y"
 						onclick="changeTabThree('3');InitExamTX();" />
-				 <!--<input type="button" id="btn_Submit" class="four_button_y" value="确 定" onclick="javascript:this.disabled='disabled';chkname();" /> -->
+				 <!-- <input type="button" id="btn_Submit" class="four_button_y" value="确 定" onclick="javascript:this.disabled='disabled';chkname();" /> --> 
 					<input type="submit" name="Submit" value="确 定" id="Submit"
 						class="four_button_y"/> <input
 						type="button" value="取 消" id="btn_Cancel" class="four_button_y"

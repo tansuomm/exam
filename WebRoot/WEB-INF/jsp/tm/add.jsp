@@ -116,8 +116,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						<tr>
 							<th>题目分数：</th>
-							<td><input name="tmScore" type="text" id="txtContent"
-								class="txtInput normal required" /> <label></label></td>
+							<td><input disabled name="tmScore" type="text" id="txtContent"
+								class="txtInput normal" value="问答默认5分其余2分"/> <label></label></td>
 						</tr>
 						<tr>
 							<th>题目知识点：</th>

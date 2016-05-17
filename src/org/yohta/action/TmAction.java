@@ -29,6 +29,12 @@ public class TmAction extends SuperAction<Tm> {
 	 * @throws Exception
 	 */
 	public String add() throws Exception{
+		//默认2分
+		int score = 2;
+		if(model.getTmType()==5){
+			score = 5;
+		}
+		model.setTmScore(score);
 		String xuanxiang = model.getTmXuanxiang();
 		int xuanLength = 0;
 		if(xuanxiang!=null){
