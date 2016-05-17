@@ -141,8 +141,6 @@
 				<value>hbm/Organ.hbm.xml</value>
 				<value>hbm/TkCl.hbm.xml</value>
 				<value>hbm/TkClNdzsd.hbm.xml</value>
-				<value>hbm/TkClSort.hbm.xml</value>
-				<value>hbm/TkClTx.hbm.xml</value>
 				<value>hbm/Gdsj.hbm.xml</value>
 				<value>hbm/Right.hbm.xml</value>
 				<value>hbm/User.hbm.xml</value>
@@ -153,7 +151,7 @@
 			<value>
 				 hibernate.connection.autocommit=true
 				 hibernate.dialect=org.hibernate.dialect.MySQLDialect
-				 hibernate.show_sql=false
+				 hibernate.show_sql=true
 				 hibernate.format_sql=true
 			</value>
 		</property>
