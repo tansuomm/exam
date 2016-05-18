@@ -249,4 +249,13 @@ public class TkclServiceImpl implements ITkclService {
 	public void setClerkDao(IClerkDao clerkDao) {
 		this.clerkDao = clerkDao;
 	}
+
+	@Override
+	public String update(int tkclId, int isAllow) {
+		String str ="input";
+		if(tkclDao.update(tkclId, isAllow)){
+			str="update"; 
+		 } 
+		return str;
+	}
 }

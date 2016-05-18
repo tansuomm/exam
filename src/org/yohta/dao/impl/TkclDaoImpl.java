@@ -63,5 +63,15 @@ public class TkclDaoImpl extends HibernateDaoSupport implements ITkclDao{
 		this.getHibernateTemplate().delete(tkcl);
 		return true;
 	}
+	/**
+	 * 修改isAllow
+	 */
+	@Override
+	public boolean update(int tkclId,int isAllow) {
+		String hql = "update TkCl set isAllow = "+ isAllow +" where tkClId = "+tkclId; 
+		Query query = this.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+		return true;
+	}
 
 }

@@ -20,15 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	src="<%=path%>/html/scripts/ui/js/ligerBuild.min.js"></script>
 <script type="text/javascript" src="<%=path%>/html/js/function.js"></script>
 <script type="text/javascript">
-	function addOrgan(organId){
-		$.ligerDialog.confirm("确定要添加吗", function (result) { 
-			if(result){
-				location.href="clerkCl_add?tkClId="+${tkClId}+"&isAllow="+${isAllow}+"&organId=" + organId;
-			}
-			else{
-				return false;
-			}
-		});
+	function addOrgan(organId){	
+		location.href="clerkCl_add?tkClId="+${tkClId}+"&isAllow="+${isAllow}+"&organId=" + organId;
 	}
 	
 </script>

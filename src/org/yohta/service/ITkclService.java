@@ -35,4 +35,5 @@ public interface ITkclService {
 	 * @return
 	 */
 	public String delete(int tkclId);
+	public String update(int tkclId,int isAllow);
 }

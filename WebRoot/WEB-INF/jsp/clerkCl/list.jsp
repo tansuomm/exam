@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="<%=path%>/html/js/function.js"></script>
 <script type="text/javascript">
 	function deleteOrgan(organId){
-		$.ligerDialog.confirm("删除不可恢复，是否继续", function (result) { 
+		$.ligerDialog.confirm("确定要取消班级的考试资格吗", function (result) { 
 			if(result){
 				location.href="clerkCl_delete?tkClId="+${tkClId}+"&isAllow="+${isAllow}+"&organId=" + organId;
 			}

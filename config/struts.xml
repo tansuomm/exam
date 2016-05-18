@@ -14,14 +14,14 @@
 	
 	 <default-action-ref name="index" />
 
-		<global-results>
+		<!-- <global-results>
 			<result name="input">/WEB-INF/jsp/input.jsp</result>
 		</global-results>
 
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception"
 				result="input" />
-		</global-exception-mappings> 
+		</global-exception-mappings>  -->
  
 		<action name="*_*" class="{1}Action" method="{2}">
 			<result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>

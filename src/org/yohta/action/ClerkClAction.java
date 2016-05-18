@@ -1,11 +1,11 @@
 package org.yohta.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 import org.yohta.dao.IOrganDao;
 import org.yohta.service.IClerkClService;
+import org.yohta.service.ITkclService;
 import org.yohta.vo.ClerkCl;
 import org.yohta.vo.Organ;
 
@@ -61,6 +61,9 @@ public class ClerkClAction extends ActionSupport {
 					clerkClService.add(cl);
 				}
 			}
+			//修改tkcl的 isAllow
+			isAllow = 1;
+			tkclService.update(tkClId, isAllow);
 		}else if(isAllow == 1){
 			ClerkCl cl = new ClerkCl();
 			cl.setOrganId(organId);
@@ -89,7 +92,11 @@ public class ClerkClAction extends ActionSupport {
 	}
 	private IOrganDao organDao;
 	private IClerkClService clerkClService;
+	private ITkclService tkclService;
 	
+	public void setTkclService(ITkclService tkclService) {
+		this.tkclService = tkclService;
+	}
 	public void setOrganDao(IOrganDao organDao) {
 		this.organDao = organDao;
 	}

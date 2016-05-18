@@ -24,5 +24,7 @@ public interface ITkclDao {
 	public List<TkCl> findAllTkcl();
 	//删除考试
 	public boolean delete(int tkclId);
+	//修改isAllow
+	public boolean update(int tkclId,int isAllow);
 	
 }

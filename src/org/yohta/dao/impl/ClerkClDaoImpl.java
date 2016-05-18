@@ -2,10 +2,10 @@ package org.yohta.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.yohta.dao.IClerkClDao;
 import org.yohta.vo.ClerkCl;
-import org.yohta.vo.Organ;
 
 public class ClerkClDaoImpl extends HibernateDaoSupport implements IClerkClDao {
 	/**
@@ -34,7 +34,9 @@ public class ClerkClDaoImpl extends HibernateDaoSupport implements IClerkClDao {
 
 	@Override
 	public boolean delete(ClerkCl clerkCl) {
-		this.getHibernateTemplate().delete("ClerkCl cl where cl.tkClId ="+ clerkCl.getTkClId() +" and cl.organId ="+clerkCl.getOrganId());
+		String hql = "delete from ClerkCl where tkClId = "+clerkCl.getTkClId()+" and organId = "+clerkCl.getOrganId();
+		Query query = this.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);
+		query.executeUpdate();
 		return true;
 	}
 
