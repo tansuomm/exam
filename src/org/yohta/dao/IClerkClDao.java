@@ -11,4 +11,5 @@ public interface IClerkClDao {
 	//通过试卷id查找
 	public List<ClerkCl> findClerkClByTkclId(int tkclId);
 	public boolean save(ClerkCl clerkCl);
+	public boolean delete(ClerkCl clerkCl);
 }

@@ -32,6 +32,12 @@ public class ClerkClDaoImpl extends HibernateDaoSupport implements IClerkClDao {
 		return true;
 	}
 
+	@Override
+	public boolean delete(ClerkCl clerkCl) {
+		this.getHibernateTemplate().delete("ClerkCl cl where cl.tkClId ="+ clerkCl.getTkClId() +" and cl.organId ="+clerkCl.getOrganId());
+		return true;
+	}
+
 	
 }
 	
