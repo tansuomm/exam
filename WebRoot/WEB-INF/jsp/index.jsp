@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="header_right">
 						<span><b>${user.userName}</b>您好，欢迎光临</span> <br /> <a
 							href="javascript:f_addTab('home','管理中心','/html/Admin/center.html')">管理中心</a>
-						| <a href="####">预览网站</a> | <a id="lbtnExit" href="loginPre">安全退出</a>
+						| <a id="lbtnExit" href="loginPre">安全退出</a>
 					</div>
 					<a class="logo">KHcms Logo</a>
 				</div>
@@ -69,18 +69,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<ul class="nlist">
 						<li><a class="l-link"
 							href="javascript:f_addTab('sys_model','考试管理','tkcl_addPre')">试卷出题</a></li>
-							<li><a class="l-link"
-							href="javascript:f_addTab('sys_tkcl','试卷列表','tkcl_list')">试卷列表</a></li>	
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_config','统计分析','Intro/IntroList.html')">统计分析</a></li>
+							href="javascript:f_addTab('sys_tkcl','试卷列表','tkcl_list')">试卷列表</a></li>
+						<li><a class="l-link"
+							href="javascript:f_addTab('sys_mark','手工判卷','tkcl_markPre')">手工判卷</a></li>	
+						<li><a class="l-link"
+							href="javascript:f_addTab('sys_config','统计分析','tkcl_analysePre')">统计分析</a></li>
 					</ul>
 				</div>
 				<div  id="div4" title="考生管理" iconcss="menu-icon-member">
 					<ul class="nlist">
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_model','考生录入','clerk_addPre')">考生录入</a></li>
+							href="javascript:f_addTab('sys_model','学生管理','clerk_list')">学生管理</a></li>
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_config','考生信息维护','clerk_list')">考生信息</a></li>
+							href="javascript:f_addTab('sys_config','班级管理','organ_list')">班级管理</a></li>
 					</ul>
 				</div>
 			</div>

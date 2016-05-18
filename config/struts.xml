@@ -31,18 +31,23 @@
 			<result name="delete" type="redirect">/{1}_list</result>
 			<result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
 		</action>
-		<action name="loginPre" method="loginPre" class="userAction">
-			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
-		</action>
+	
 		<!-- 权限分栏 -->
 		<action name="bigRight" method="bigRight" class="userAction">
+		</action>
+			<action name="loginPre" method="loginPre" class="userAction">
+			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		<action name="login" method="login" class="userAction">
 			<result name="login">/WEB-INF/jsp/index.jsp</result>
 			<result name="pwdOrUserError">/WEB-INF/jsp/uerror.jsp</result>
-			
 		</action>
-		
+		<!-- android登录 -->
+		<action name="appLoginPre" method="loginPre" class="clerkAction">
+			<result name="loginPre">/WEB-INF/jsp/clerk/login.jsp</result>
+		</action>
+		<action name="appLogin" method="login" class="clerkAction">
+		</action>
 	</package>
 
 </struts>

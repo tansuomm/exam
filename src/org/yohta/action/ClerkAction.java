@@ -4,16 +4,14 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.json.JSONObject;
-
 import org.apache.struts2.ServletActionContext;
 import org.yohta.dao.IClerkDao;
 import org.yohta.vo.Clerk;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.alibaba.fastjson.JSON;
 
-public class ClerkAction extends ActionSupport{
-	private Clerk clerk;
+public class ClerkAction extends SuperAction<Clerk>{
+	
 	private IClerkDao clerkDao;
 	
 	public String loginPre() throws Exception{
@@ -26,31 +24,26 @@ public class ClerkAction extends ActionSupport{
 	 */
 	public String login() throws Exception{
 		Map<String,Object> map = new HashMap<String,Object>();
-		clerk = clerkDao.login(clerk);
-		if(clerk!=null){
+		model = clerkDao.login(model);
+		if(model!=null){
 			map.put("resultCode", "0000");
 			map.put("resultMsg", "登录成功");
-			map.put("clerkId", clerk.getClerkId());
+			map.put("clerkId", model.getClerkId());
 		}else{
 			map.put("resultCode", "0001");
 			map.put("resultMsg", "登录失败");	
 		}
-		JSONObject json = JSONObject.fromObject(map);
+		String json = JSON.toJSONString(map);
 		ServletActionContext.getResponse().setContentType("text/html");
 		ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
 		PrintWriter out = ServletActionContext.getResponse().getWriter();
-		out.print(json.toString());
+		out.print(json);
 		out.flush();
 		out.close();
 		return null;
 	}
 	
-	public Clerk getClerk() {
-		return clerk;
-	}
-	public void setClerk(Clerk clerk) {
-		this.clerk = clerk;
-	}
+	
 	public void setClerkDao(IClerkDao clerkDao) {
 		this.clerkDao = clerkDao;
 	}
