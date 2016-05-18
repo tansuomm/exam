@@ -133,6 +133,11 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	public String getTmByTkclId() throws Exception{		
 		return tkclService.getTmByTkclId(tkcl.getTkClId());
 	}
+	/**
+	 * 规定哪个班级能参加本次考试
+	 * @return
+	 * @throws Exception
+	 */
 	
 	private int clerkId;
 	private TkCl tkcl = new TkCl();

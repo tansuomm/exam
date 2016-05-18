@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ClerkAction extends ActionSupport{
 	private Clerk clerk;
 	private IClerkDao clerkDao;
+	
 	public String loginPre() throws Exception{
 		return "loginPre";
 	}
@@ -43,6 +44,7 @@ public class ClerkAction extends ActionSupport{
 		out.close();
 		return null;
 	}
+	
 	public Clerk getClerk() {
 		return clerk;
 	}

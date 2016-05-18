@@ -8,8 +8,6 @@ import java.sql.Timestamp;
 
 public class ClerkKscj implements java.io.Serializable {
 
-	// Fields
-
 	private Integer clerkKscjId;
 	private Integer clerkId;
 	private Integer tkClId;
@@ -22,6 +20,7 @@ public class ClerkKscj implements java.io.Serializable {
 	private Integer clerkWdpf;
 	private Integer ksTime;
 	private String clerkPj;
+	private String answerGather;
 
 	// Constructors
 
@@ -33,7 +32,7 @@ public class ClerkKscj implements java.io.Serializable {
 	public ClerkKscj(Integer clerkId, Integer tkClId, Integer clerkKsStatus,
 			Timestamp clerkKsBtime, Timestamp clerkKsEtime, Float cj,
 			Float clerkXzdf, Float clerkWddf, Integer clerkWdpf,
-			Integer ksTime, String clerkPj) {
+			Integer ksTime, String clerkPj, String answerGather) {
 		this.clerkId = clerkId;
 		this.tkClId = tkClId;
 		this.clerkKsStatus = clerkKsStatus;
@@ -45,6 +44,7 @@ public class ClerkKscj implements java.io.Serializable {
 		this.clerkWdpf = clerkWdpf;
 		this.ksTime = ksTime;
 		this.clerkPj = clerkPj;
+		this.answerGather = answerGather;
 	}
 
 	// Property accessors
@@ -143,6 +143,14 @@ public class ClerkKscj implements java.io.Serializable {
 
 	public void setClerkPj(String clerkPj) {
 		this.clerkPj = clerkPj;
+	}
+
+	public String getAnswerGather() {
+		return this.answerGather;
+	}
+
+	public void setAnswerGather(String answerGather) {
+		this.answerGather = answerGather;
 	}
 
 }

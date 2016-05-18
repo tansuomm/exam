@@ -4,4 +4,5 @@ import org.yohta.vo.Clerk;
 
 public interface IClerkDao {
 	public Clerk login(Clerk clerk);
+	public Clerk findById(int clerkId);
 }

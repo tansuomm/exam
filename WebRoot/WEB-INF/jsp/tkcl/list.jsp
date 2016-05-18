@@ -48,13 +48,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			class="msgtable">
 			<tr>
 				
-				<th width="20%" align="left">考试科目</th>
+				<th width="10%" align="left">考试科目</th>
 				<th width="10%">考试时间</th>
 				<th width="20%">开始时间</th>
 				<th width="20%">结束时间</th>
-				<th width="12%">总分</th>
-				<th width="12%">及格分</th>
-				<th width="6%">操作</th>
+				<th width="10%">总分</th>
+				<th width="10%">及格分</th>
+				<th width="20%">操作</th>
 			</tr>
 			<s:if test="#request.tkclList != null">
 				<s:iterator value="#request.tkclList" var="tkcl">
@@ -66,7 +66,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td align="center">${validEtime}</td>
 						<td align="center">${totalScore}</td>
 						<td align="center">${passFS}</td>
-						<td align="center"><a href="javascript:void(0)" onclick="deleteTkcl(${tkClId})">删除</a></td>
+						<td align="center"><a href="javascript:void(0)" onclick="deleteTkcl(${tkClId})">删除</a>
+						&nbsp;&nbsp;<a href="clerkCl_list?tkClId=${tkClId}&isAllow=${isAllow}">考试授权</a></td>
 					</tr>
 				</s:iterator>
 			</s:if>

@@ -8,9 +8,11 @@ public class ClerkCl implements java.io.Serializable {
 
 	// Fields
 
+	
+
 	private Integer clClerkId;
 	private Integer tkClId;
-	private Integer clerkId;
+	private Integer organId;
 
 	// Constructors
 
@@ -19,9 +21,9 @@ public class ClerkCl implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ClerkCl(Integer tkClId, Integer clerkId) {
+	public ClerkCl(Integer tkClId, Integer organId) {
 		this.tkClId = tkClId;
-		this.clerkId = clerkId;
+		this.organId = organId;
 	}
 
 	// Property accessors
@@ -42,12 +44,13 @@ public class ClerkCl implements java.io.Serializable {
 		this.tkClId = tkClId;
 	}
 
-	public Integer getClerkId() {
-		return this.clerkId;
+	public Integer getOrganId() {
+		return this.organId;
 	}
 
-	public void setClerkId(Integer clerkId) {
-		this.clerkId = clerkId;
+	public void setOrganId(Integer organId) {
+		this.organId = organId;
 	}
+
 
 }

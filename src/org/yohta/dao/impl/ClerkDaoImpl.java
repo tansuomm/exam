@@ -21,4 +21,10 @@ public class ClerkDaoImpl extends HibernateDaoSupport implements IClerkDao {
 		return null;
 	}
 
+	@Override
+	public Clerk findById(int clerkId) {
+		Clerk clerk = this.getHibernateTemplate().load(Clerk.class, clerkId);
+		return clerk;
+	}
+
 }

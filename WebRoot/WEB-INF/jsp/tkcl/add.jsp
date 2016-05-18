@@ -1008,7 +1008,7 @@ fieldset table {
 														</table>
 														<table width="300px" style="display: inline;">
 															<tr>
-																<td><span id="MoveOutTimes" class="Radio"><input
+																<td><%-- <span id="MoveOutTimes" class="Radio"><input
 																		id="MoveOutTimes_0" type="radio" name="moveOutTimes"
 																		value="0" checked="checked"
 																		onclick="AdjustOption('MoveOutTimes_num',0);" /><label
@@ -1016,9 +1016,10 @@ fieldset table {
 																	<input id="MoveOutTimes_1" type="radio"
 																		name="moveOutTimes" value="1"
 																		onclick="AdjustOption('MoveOutTimes_num',1);" /><label
-																		for="MoveOutTimes_1">移出考试页面达到</label></span> <input
-																	name="moveOutTimes" type="text" value="5"
-																	id="MoveOutTimes_num" disabled="disabled" class="input"
+																		for="MoveOutTimes_1">移出考试页面达到</label></span> --%>
+																 移出考试页面达到(0表示不限制)<input
+																	name="moveOutTimes" type="text" value="0"
+																	id="MoveOutTimes_num"  class="input"
 																	onPaste="return false;" style="width: 40px;" />
 																	次判为舞弊并自动交卷<span id="RangeValidator2"
 																	style="color: Red; display: none;">请输入正确的数字</span></td>

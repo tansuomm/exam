@@ -63,5 +63,10 @@
 				<comment>判卷人</comment>
 			</column>
 		</property>
+		 <property name="answerGather" type="java.lang.String">
+            <column name="AnswerGather" length="5000">
+                <comment>xml</comment>
+            </column>
+        </property>
 	</class>
 </hibernate-mapping>

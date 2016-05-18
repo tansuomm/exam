@@ -13,10 +13,10 @@
 				<comment>考卷id</comment>
 			</column>
 		</property>
-		<property name="clerkId" type="java.lang.Integer">
-			<column name="clerk_id">
-				<comment>考生id</comment>
-			</column>
-		</property>
+		<property name="organId" type="java.lang.Integer">
+            <column name="OrganID">
+                <comment>考生班级id</comment>
+            </column>
+        </property>
 	</class>
 </hibernate-mapping>

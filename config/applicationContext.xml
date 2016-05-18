@@ -16,6 +16,11 @@
     <bean id="userDao" class="org.yohta.dao.impl.UserDaoImpl">
     	<property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    <!-- 班级机构 -->
+    
+    <bean id="organDao" class="org.yohta.dao.impl.OrganDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 	<!-- 考生 -->
 	<bean id="clerkAction" class="org.yohta.action.ClerkAction" scope="prototype">
 		<property name="clerkDao" ref="clerkDao"></property>
@@ -34,6 +39,7 @@
 		<property name="tkClNdZsdDao" ref="tkClNdZsdDao"></property>
 		<property name="gdsjDao" ref="gdsjDao"></property>
 		<property name="tmDao" ref="tmDao"></property>
+		<property name="clerkDao" ref="clerkDao"></property>
 	</bean>
 	
 	<bean id="tkclDao" class="org.yohta.dao.impl.TkclDaoImpl">
@@ -47,6 +53,14 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 考试 -->
+	<bean id="clerkClAction" class="org.yohta.action.ClerkClAction" scope="prototype">
+		<property name="organDao" ref="organDao" ></property>
+		<property name="clerkClService" ref="clerkClService"></property>
+	</bean>
+	<bean id="clerkClService" class="org.yohta.service.impl.ClerkClServiceImpl">
+		<property name="clerkClDao" ref="clerkClDao"></property>
+		<property name="organDao" ref="organDao"></property>
+	</bean>
 	<bean id="clerkClDao" class="org.yohta.dao.impl.ClerkClDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

@@ -12,7 +12,7 @@ public interface ITkclDao {
 	 */
 	public int addTkCl(TkCl tkcl);
 	/**
-	 * 根据考id查看考试信息
+	 * 根据考id得到试卷id得到考试信息
 	 * @param clerkId
 	 * @return
 	 */

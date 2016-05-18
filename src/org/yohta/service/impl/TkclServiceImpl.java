@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.yohta.dao.IClerkClDao;
+import org.yohta.dao.IClerkDao;
 import org.yohta.dao.IExamTmDao;
 import org.yohta.dao.IGdsjDao;
 import org.yohta.dao.ITkClNdZsdDao;
 import org.yohta.dao.ITkclDao;
 import org.yohta.service.ITkclService;
 import org.yohta.utils.PrintString;
+import org.yohta.vo.Clerk;
 import org.yohta.vo.ClerkCl;
 import org.yohta.vo.Gdsj;
 import org.yohta.vo.TkCl;
@@ -24,8 +26,18 @@ public class TkclServiceImpl implements ITkclService {
 	 */
 	@Override
 	public List<TkCl> findTkClByClerkId(int clerkId) {
-		List<ClerkCl> clist = clerkClDao.findClerkClByClerkId(clerkId);
 		List<TkCl> tkclList = new ArrayList<TkCl>();
+		//如果0允许所有人考试，直接返回试卷列表，否则到表clerkcl查找
+		List<TkCl> listAll = tkclDao.findAllTkcl();
+		for(TkCl tkcl :listAll){
+			//这个试卷允许所有人参加
+			if(tkcl.getIsAllow()==0){
+				tkclList.add(tkcl);
+			}
+		}
+		Clerk c =clerkDao.findById(clerkId);
+		//考生能考试列表有班级决定
+		List<ClerkCl> clist = clerkClDao.findClerkClByOrganId(c.getOrgan().getOrganId());		
 		for (ClerkCl clerkCl : clist) {
 			// 遍历所能考试的试卷Id
 			int tkclID = clerkCl.getTkClId();
@@ -190,7 +202,7 @@ public class TkclServiceImpl implements ITkclService {
 	private ITkClNdZsdDao tkClNdZsdDao;
 	private IGdsjDao gdsjDao;
 	private IExamTmDao tmDao;
-
+	private IClerkDao clerkDao;
 	public void setGdsjDao(IGdsjDao gdsjDao) {
 		this.gdsjDao = gdsjDao;
 	}
@@ -228,5 +240,13 @@ public class TkclServiceImpl implements ITkclService {
 			resultStr = "delete";
 		}
 		return resultStr;
+	}
+
+	public IClerkDao getClerkDao() {
+		return clerkDao;
+	}
+
+	public void setClerkDao(IClerkDao clerkDao) {
+		this.clerkDao = clerkDao;
 	}
 }
