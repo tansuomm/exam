@@ -27,4 +27,30 @@ public class ClerkDaoImpl extends HibernateDaoSupport implements IClerkDao {
 		return clerk;
 	}
 
+	@Override
+	public List<Clerk> findAll() {
+		List<Clerk> list = (List<Clerk>) this.getHibernateTemplate().find("From Clerk");
+		return list;
+	}
+
+	@Override
+	public boolean delete(int clerkId) {
+		Clerk clerk = new Clerk();
+		clerk.setClerkId(clerkId);
+		this.getHibernateTemplate().delete(clerk);
+		return true;
+	}
+
+	@Override
+	public boolean add(Clerk clerk) {
+		this.getHibernateTemplate().save(clerk);
+		return true;
+	}
+
+	@Override
+	public boolean update(Clerk clerk) {
+		this.getHibernateTemplate().update(clerk);
+		return true;
+	}
+	
 }

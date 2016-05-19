@@ -2,17 +2,21 @@ package org.yohta.action;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 import org.yohta.dao.IClerkDao;
+import org.yohta.dao.IOrganDao;
+import org.yohta.service.IClerkService;
 import org.yohta.vo.Clerk;
+import org.yohta.vo.Organ;
 
 import com.alibaba.fastjson.JSON;
 
 public class ClerkAction extends SuperAction<Clerk>{
 	
-	private IClerkDao clerkDao;
+	
 	
 	public String loginPre() throws Exception{
 		return "loginPre";
@@ -42,9 +46,49 @@ public class ClerkAction extends SuperAction<Clerk>{
 		out.close();
 		return null;
 	}
+	/**
+	 * 学生列表
+	 * @return
+	 * @throws Exception
+	 */
+	public String list()throws Exception{
+		List<Clerk> list = clerkService.list();
+		ServletActionContext.getRequest().setAttribute("clerkList", list);
+		return "list";
+	}
+	public String delete()throws Exception{
+		return clerkService.delete(model.getClerkId());
+	}
+	public String updatePre()throws Exception{
+		Clerk clerk = clerkDao.findById(model.getClerkId());	
+		ServletActionContext.getRequest().setAttribute("clerk", clerk);
+		List<Organ> organ = organDao.findAll();
+		ServletActionContext.getRequest().setAttribute("organList", organ);
+		return "updatePre";
+	}
+	public String update()throws Exception{
+		return clerkService.modify(model);
+	}
+	public String addPre()throws Exception{
+		List<Organ> list  = organDao.findAll();
+		ServletActionContext.getRequest().setAttribute("organList", list);
+		return "addPre";
+		
+	}
+	public String add()throws Exception{
+		return clerkService.add(model);
+	}
+	private IClerkDao clerkDao;
+	private IClerkService clerkService;
+	private IOrganDao organDao;
 	
-	
+	public void setOrganDao(IOrganDao organDao) {
+		this.organDao = organDao;
+	}
 	public void setClerkDao(IClerkDao clerkDao) {
 		this.clerkDao = clerkDao;
+	}
+	public void setClerkService(IClerkService clerkService) {
+		this.clerkService = clerkService;
 	}
 }

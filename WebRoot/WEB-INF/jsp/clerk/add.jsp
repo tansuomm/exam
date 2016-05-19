@@ -54,11 +54,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body class="mainbody">
 <form name="form1" method="post" action="clerk_add" id="form1">
-  <div class="navigation"><a href="javascript:history.go(-1);" class="back">后退</a>首页 &gt; 控制面板 &gt;知识点管理</div>
+  <div class="navigation"><a href="javascript:history.go(-1);" class="back">后退</a>首页 &gt; 控制面板 &gt;学生管理</div>
   <div id="contentTab">
-    <ul class="tab_nav">
-      <li class="selected"><a onclick="tabs('#contentTab',0);" href="javascript:;">编辑知识点</a></li>
-    </ul>
     <div class="tab_con" style="display:block;">
       <table class="form_table">
         <col width="180px"></col>
@@ -67,9 +64,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	
             <th>班级：</th>
             <td>
-            <input name="classId" type="hidden" value="${clerk.classes.classId}" />
-            	<s:select cssClass="select2" list="#request.classes" name="classes.classId" id="selcls"
-            			headerKey="0" headerValue="=请选择=" listKey="classId" listValue="classname"
+            <%-- <input name="organ.organId" type="hidden" value="${organ.organID}" /> --%>
+            	<s:select cssClass="select2" list="#request.organList" name="organ.organId" id="selcls"
+            			headerKey="0" headerValue="=请选择=" listKey="organId" listValue="organName"
             		    ></s:select>
             		    
               	<label>*</label>
@@ -82,16 +79,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </tr>
           <tr>
             <th>学号：</th>
-            <td><input name="clerkxuehao"  type="text" id="clerkxuehao" class="txtInput normal required" />
+            <td><input name="clerkName"  type="text" id="clerkName" class="txtInput normal required" />
               </td>
           </tr>
           <tr>
             <th>密码：</th>
-            <td><input name="clerkpwd"  type="text" id="clerkpwd" class="txtInput normal required" />
+            <td><input name="clerkPwd"  type="text" id="clerkPwd" class="txtInput normal required" />
               </td>
           </tr>
           <tr>
-            <th><input name="clerkId" type="hidden" value="${clerkId}" /></th>
+            <%-- <th><input name="clerkId" type="hidden" value="${clerkId}" /></th> --%>
             <td><input type="submit" name="btnSubmit" value="提交保存" id="btnSubmit" class="btnSubmit" /></td>
           </tr>
         </tbody>

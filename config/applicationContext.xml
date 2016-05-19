@@ -17,12 +17,22 @@
     	<property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <!-- 班级机构 -->
-    
+    <bean id="organAction" class="org.yohta.action.OrganAction" scope="prototype">
+    	<property name="organService" ref="organService"></property>
+    </bean>
+    <bean id="organService" class="org.yohta.service.impl.OrganServiceImpl">
+    	<property name="organDao" ref="organDao"></property>
+    </bean>
     <bean id="organDao" class="org.yohta.dao.impl.OrganDaoImpl">
     	<property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 	<!-- 考生 -->
 	<bean id="clerkAction" class="org.yohta.action.ClerkAction" scope="prototype">
+		<property name="clerkDao" ref="clerkDao"></property>
+		<property name="clerkService" ref="clerkService"></property>
+		<property name="organDao" ref="organDao"></property>
+	</bean>
+	<bean id="clerkService"	 class="org.yohta.service.impl.ClerkServiceImpl">
 		<property name="clerkDao" ref="clerkDao"></property>
 	</bean>
 	<bean id="clerkDao" class="org.yohta.dao.impl.ClerkDaoImpl">

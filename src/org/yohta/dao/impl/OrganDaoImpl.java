@@ -38,5 +38,22 @@ public List<Organ> findByNoId(List<Integer> listi) {
 	List<Organ> list = (List<Organ>) this.getHibernateTemplate().find(hql);
 	return list;
 }
+@Override
+public boolean add(Organ organ) {
+	this.getHibernateTemplate().save(organ);
+	return true;
+}
+@Override
+public boolean delete(int organId) {
+	Organ organ = new Organ();
+	organ.setOrganId(organId);
+	this.getHibernateTemplate().delete(organ);
+	return true;
+}
+@Override
+public boolean update(Organ organ) {
+	this.getHibernateTemplate().update(organ);
+	return true;
+}
 
 }
