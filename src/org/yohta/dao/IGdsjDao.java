@@ -17,5 +17,5 @@ public interface IGdsjDao {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Gdsj> getTmByTkclId(int tkclId);
+	public List<Gdsj> getTmByTkclId(int tkclId,int tmTxId);
 }

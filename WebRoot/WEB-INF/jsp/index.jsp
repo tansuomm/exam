@@ -124,8 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						}else if(obj.rightId==13){
 							$("#div4").css("visibility","visible");
 						}
-					} 
-	
+					} 	
 			}			
 			
 		});

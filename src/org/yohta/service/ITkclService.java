@@ -23,7 +23,7 @@ public interface ITkclService {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getTmByTkclId(int tkclId);
+	public String getTmByTkclId(int tkclId,int tmTxId);
 	/**
 	 * 查询考试列表
 	 * @return
@@ -36,4 +36,6 @@ public interface ITkclService {
 	 */
 	public String delete(int tkclId);
 	public String update(int tkclId,int isAllow);
+	//保存试卷
+	public String saveSj(String sjInfo);
 }

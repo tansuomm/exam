@@ -7,11 +7,14 @@ import org.apache.struts2.ServletActionContext;
 import org.yohta.service.IExamTkjService;
 import org.yohta.service.ITkclService;
 import org.yohta.utils.PrintString;
+import org.yohta.vo.ClerkKscj;
 import org.yohta.vo.TkCl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
 
 public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	private static final long serialVersionUID = 1L;
@@ -126,19 +129,35 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	}
 	
 	/**
-	 * 根据试卷Id得到题目
+	 * android根据试卷Id和题型id得到题目
 	 * @return
 	 * @throws Exception
 	 */
 	public String getTmByTkclId() throws Exception{		
-		return tkclService.getTmByTkclId(tkcl.getTkClId());
+		return tkclService.getTmByTkclId(tkcl.getTkClId(),tmTxId);
 	}
 	/**
-	 * 规定哪个班级能参加本次考试
+	 * android提交考试答卷保存
 	 * @return
 	 * @throws Exception
 	 */
-	
+	public String saveSj()throws Exception{
+		//
+		String str ="";
+		if(sjInfo!=null&&sjInfo!=""){
+			str = tkclService.saveSj(sjInfo);
+
+		}
+		if("saveSj".equals(str)){
+			str="交卷成功";
+		}else{
+			str="交卷失败";
+		}
+		PrintString.printStr(str);
+		return null;
+	}
+	private String sjInfo;//android提交答卷情况
+	private int tmTxId;//android刷题参数
 	private int clerkId;
 	private TkCl tkcl = new TkCl();
 	private ITkclService tkclService;
@@ -175,7 +194,13 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 		this.tkcl = tkcl;
 	}
 	
-	
+	public int getTmTxId() {
+		return tmTxId;
+	}
+
+	public void setTmTxId(int tmTxId) {
+		this.tmTxId = tmTxId;
+	}
 	@Override
 	public TkCl getModel() {
 		return this.tkcl;

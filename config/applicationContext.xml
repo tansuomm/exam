@@ -38,6 +38,14 @@
 	<bean id="clerkDao" class="org.yohta.dao.impl.ClerkDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<!-- 考试成绩 -->
+	<bean id="clerkKscjDao" class="org.yohta.dao.impl.ClerkKscjDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 针对问答答题情况 -->
+	<bean id="clerkGdksTmDao" class="org.yohta.dao.impl.ClerkGdksTmDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<!-- 试卷 -->
 	<bean id="tkclAction" class="org.yohta.action.TkclAction" scope="prototype">
 		<property name="tkclService" ref="tkclService"></property>
@@ -50,6 +58,8 @@
 		<property name="gdsjDao" ref="gdsjDao"></property>
 		<property name="tmDao" ref="tmDao"></property>
 		<property name="clerkDao" ref="clerkDao"></property>
+		<property name="clerkKscjDao" ref="clerkKscjDao"></property>
+		<property name="clerkGdksTmDao" ref="clerkGdksTmDao"></property>
 	</bean>
 	
 	<bean id="tkclDao" class="org.yohta.dao.impl.TkclDaoImpl">
