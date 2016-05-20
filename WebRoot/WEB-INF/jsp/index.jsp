@@ -72,9 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li><a class="l-link"
 							href="javascript:f_addTab('sys_tkcl','试卷列表','tkcl_list')">试卷列表</a></li>
 						<li><a class="l-link"
-							href="javascript:f_addTab('sys_mark','手工判卷','tkcl_markPre')">手工判卷</a></li>	
-						<li><a class="l-link"
-							href="javascript:f_addTab('sys_config','统计分析','tkcl_analysePre')">统计分析</a></li>
+							href="javascript:f_addTab('sys_mark','判卷分析','kscj_list')">判卷分析</a></li>	
 					</ul>
 				</div>
 				<div  id="div4" title="考生管理" iconcss="menu-icon-member">

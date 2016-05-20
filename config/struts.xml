@@ -22,7 +22,12 @@
 			<exception-mapping exception="java.lang.Exception"
 				result="input" />
 		</global-exception-mappings>  -->
- 
+		<!-- 模拟交卷 -->
+ 	<!-- <action name="saveSjPre" method="saveSjPre" class="tkclAction">
+			<result name="saveSjPre">/WEB-INF/jsp/tkcl/testSaveSj.jsp</result>
+		</action> -->
+		
+		
 		<action name="*_*" class="{1}Action" method="{2}">
 			<result name="addPre">/WEB-INF/jsp/{1}/add.jsp</result>
 			<result name="add" type="redirect">/{1}_list</result>
@@ -30,24 +35,29 @@
 			<result name="update" type="redirect">/{1}_list</result>
 			<result name="delete" type="redirect">/{1}_list</result>
 			<result name="list">/WEB-INF/jsp/{1}/list.jsp</result>
+			<!-- 考试成绩相关 -->
+			<result name="tkclList">/WEB-INF/jsp/kscj/tkclList.jsp</result>
+			<result name="markPre">/WEB-INF/jsp/kscj/mark.jsp</result>
+			<result name="analysePre">/WEB-INF/jsp/kscj/analyse.jsp</result>
 		</action>
-	
+		
 		<!-- 权限分栏 -->
 		<action name="bigRight" method="bigRight" class="userAction">
 		</action>
-			<action name="loginPre" method="loginPre" class="userAction">
+		<action name="loginPre" method="loginPre" class="userAction">
 			<result name="loginPre">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		<action name="login" method="login" class="userAction">
 			<result name="login">/WEB-INF/jsp/index.jsp</result>
 			<result name="pwdOrUserError">/WEB-INF/jsp/uerror.jsp</result>
 		</action>
-		<!-- android登录 -->
-		<action name="appLoginPre" method="loginPre" class="clerkAction">
+		<!-- android模拟登录 -->
+		<!-- <action name="appLoginPre" method="loginPre" class="clerkAction">
 			<result name="loginPre">/WEB-INF/jsp/clerk/login.jsp</result>
-		</action>
+		</action> -->
 		<action name="appLogin" method="login" class="clerkAction">
 		</action>
+		
 	</package>
 
 </struts>

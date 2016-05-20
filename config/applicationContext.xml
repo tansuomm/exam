@@ -39,6 +39,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 考试成绩 -->
+	<bean id="kscjAction" class="org.yohta.action.ClerkKscjAction" scope="prototype">
+		
+	</bean>
 	<bean id="clerkKscjDao" class="org.yohta.dao.impl.ClerkKscjDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

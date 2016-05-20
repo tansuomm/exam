@@ -7,17 +7,14 @@ import org.apache.struts2.ServletActionContext;
 import org.yohta.service.IExamTkjService;
 import org.yohta.service.ITkclService;
 import org.yohta.utils.PrintString;
-import org.yohta.vo.ClerkKscj;
 import org.yohta.vo.TkCl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
 public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 添加试卷前
@@ -141,10 +138,16 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	 * @return
 	 * @throws Exception
 	 */
+	public String saveSjPre()throws Exception{
+		System.out.println(1111);
+		return "saveSjPre";
+	}
 	public String saveSj()throws Exception{
 		//
 		String str ="";
+		System.out.println(222222+sjInfo);
 		if(sjInfo!=null&&sjInfo!=""){
+			
 			str = tkclService.saveSj(sjInfo);
 
 		}
@@ -155,6 +158,13 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 		}
 		PrintString.printStr(str);
 		return null;
+	}
+	public String getSjInfo() {
+		return sjInfo;
+	}
+
+	public void setSjInfo(String sjInfo) {
+		this.sjInfo = sjInfo;
 	}
 	private String sjInfo;//android提交答卷情况
 	private int tmTxId;//android刷题参数

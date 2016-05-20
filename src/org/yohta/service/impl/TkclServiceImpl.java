@@ -291,7 +291,7 @@ public class TkclServiceImpl implements ITkclService {
 		/*{"clerkId":1,"tkClId":2,"clerkKsStatus":1,
 			"clerkKsBtime":1463564430000,"clerkKsEtime":1463564430000,
 			"cj":60,"clerkXzdf":60,"clerkWddf":0,"ksTime":60,
-			"clerk_pj":"null","answerGather":"<ROOTSTUB global="true" prefix_259="6" mark_259="0" prefix_260="6"
+			"clerk_pj":null,"answerGather":"<ROOTSTUB global="true" prefix_259="6" mark_259="0" prefix_260="6"
 				mark_260="0" prefix_251="b" mark_251="0" prefix_252="a" mark_252="0"
 				prefix_257="ac" mark_257="0" prefix_258="b" mark_258="0" prefix_253="0"
 				mark_253="0" prefix_254="0" mark_254="0" prefix_255="66" mark_255="0"
@@ -306,7 +306,7 @@ public class TkclServiceImpl implements ITkclService {
 		clerkKscj.setClerkId(obj.getInteger("clerkId"));
 		clerkKscj.setTkClId(obj.getInteger("tkClId"));
 		clerkKscj.setClerkKsStatus(obj.getInteger("clerkKsStatus"));
-		clerkKscj.setClerkKsBtime(obj.getTimestamp("clerkKsBTime"));
+		clerkKscj.setClerkKsBtime(obj.getTimestamp("clerkKsBtime"));
 		clerkKscj.setClerkKsEtime(obj.getTimestamp("clerkKsEtime"));
 		clerkKscj.setCj(obj.getFloat("cj"));
 		clerkKscj.setClerkXzdf(obj.getFloat("clerkXzdf"));
