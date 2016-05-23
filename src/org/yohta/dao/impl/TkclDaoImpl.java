@@ -1,5 +1,6 @@
 package org.yohta.dao.impl;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +73,14 @@ public class TkclDaoImpl extends HibernateDaoSupport implements ITkclDao{
 		Query query = this.getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(hql);
 		query.executeUpdate();
 		return true;
+	}
+	/**
+	 * 已经考过的科目
+	 */
+	@Override
+	public List<TkCl> findHasTkClByEtime() {
+		List<TkCl> list = (List<TkCl>) this.getHibernateTemplate().find("From TkCl where validEtime < now()");
+		return list;
 	}
 
 }

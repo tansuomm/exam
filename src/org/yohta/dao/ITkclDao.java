@@ -26,5 +26,6 @@ public interface ITkclDao {
 	public boolean delete(int tkclId);
 	//修改isAllow
 	public boolean update(int tkclId,int isAllow);
-	
+	//已经考过得科目 时间
+	public List<TkCl> findHasTkClByEtime();
 }

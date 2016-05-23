@@ -40,7 +40,10 @@
 	</bean>
 	<!-- 考试成绩 -->
 	<bean id="kscjAction" class="org.yohta.action.ClerkKscjAction" scope="prototype">
-		
+		<property name="kscjService" ref="kscjService"></property>
+	</bean>
+	<bean id="kscjService" class="org.yohta.service.impl.ClerkKscjServiceImpl">
+		<property name="tkclDao" ref="tkclDao"></property>
 	</bean>
 	<bean id="clerkKscjDao" class="org.yohta.dao.impl.ClerkKscjDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
