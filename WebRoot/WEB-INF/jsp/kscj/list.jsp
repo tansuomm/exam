@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <td align="center">${tkClName}</td>
 	        <td align="center">${totalScore}</td>
 	        <td align="center">${passFS}</td>
-	        <td align="center"><a href="kscj_tkclList">判分</a>&nbsp;&nbsp;<a href="kscj_analysePre">分析</a></td>
+	        <td align="center"><a href="kscj_tkclList?tkClId=${tkClId}">判卷</a>&nbsp;&nbsp;<a href="kscj_analysePre">分析</a></td>
 	      </tr>
       </s:iterator>
       </s:if>

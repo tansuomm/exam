@@ -18,4 +18,8 @@ public interface IGdsjDao {
 	 * @throws Exception
 	 */
 	public List<Gdsj> getTmByTkclId(int tkclId,int tmTxId);
+	/**
+	 * 根据试卷id得到列表
+	 */
+	public List<Gdsj> findByTkclId(int tkClId);
 }

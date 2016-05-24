@@ -8,11 +8,11 @@
 			<column name="clerk_kscj_id" />
 			<generator class="native"></generator>
 		</id>
-		<property name="clerkId" type="java.lang.Integer">
-			<column name="clerk_id">
-				<comment>考生id</comment>
-			</column>
-		</property>
+		<many-to-one name="clerk" class="org.yohta.vo.Clerk" fetch="select">
+            <column name="clerk_id">
+                <comment>考生id</comment>
+            </column>
+        </many-to-one>
 		<property name="tkClId" type="java.lang.Integer">
 			<column name="tk_cl_id">
 				<comment>试卷id</comment>

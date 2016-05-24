@@ -303,7 +303,9 @@ public class TkclServiceImpl implements ITkclService {
 		//xml字符串：解析出问答和得分(0),存入两张表。dom4j解析。
 		JSONObject obj = JSON.parseObject(sjInfo);
 		ClerkKscj clerkKscj = new ClerkKscj();
-		clerkKscj.setClerkId(obj.getInteger("clerkId"));
+		Clerk clerk = new Clerk();
+		clerk.setClerkId(obj.getInteger("clerkId"));
+		clerkKscj.setClerk(clerk);
 		clerkKscj.setTkClId(obj.getInteger("tkClId"));
 		clerkKscj.setClerkKsStatus(obj.getInteger("clerkKsStatus"));
 		clerkKscj.setClerkKsBtime(obj.getTimestamp("clerkKsBtime"));

@@ -27,5 +27,13 @@
 				<comment>姓名</comment>
 			</column>
 		</property>
+		 <set name="clerkKscjs" inverse="true">
+            <key>
+                <column name="clerk_id">
+                    <comment>试卷</comment>
+                </column>
+            </key>
+            <one-to-many class="org.yohta.vo.ClerkKscj" />
+        </set>
 	</class>
 </hibernate-mapping>

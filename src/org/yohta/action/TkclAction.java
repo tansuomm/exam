@@ -145,7 +145,7 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	public String saveSj()throws Exception{
 		//
 		String str ="";
-		System.out.println(222222+sjInfo);
+		//System.out.println(222222+sjInfo);
 		if(sjInfo!=null&&sjInfo!=""){
 			
 			str = tkclService.saveSj(sjInfo);

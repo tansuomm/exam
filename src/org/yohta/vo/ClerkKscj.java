@@ -8,8 +8,10 @@ import java.sql.Timestamp;
 
 public class ClerkKscj implements java.io.Serializable {
 
+	// Fields
+
 	private Integer clerkKscjId;
-	private Integer clerkId;
+	private Clerk clerk;
 	private Integer tkClId;
 	private Integer clerkKsStatus;
 	private Timestamp clerkKsBtime;
@@ -29,11 +31,11 @@ public class ClerkKscj implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ClerkKscj(Integer clerkId, Integer tkClId, Integer clerkKsStatus,
+	public ClerkKscj(Clerk clerk, Integer tkClId, Integer clerkKsStatus,
 			Timestamp clerkKsBtime, Timestamp clerkKsEtime, Float cj,
 			Float clerkXzdf, Float clerkWddf, Integer clerkWdpf,
 			Integer ksTime, String clerkPj, String answerGather) {
-		this.clerkId = clerkId;
+		this.clerk = clerk;
 		this.tkClId = tkClId;
 		this.clerkKsStatus = clerkKsStatus;
 		this.clerkKsBtime = clerkKsBtime;
@@ -57,12 +59,12 @@ public class ClerkKscj implements java.io.Serializable {
 		this.clerkKscjId = clerkKscjId;
 	}
 
-	public Integer getClerkId() {
-		return this.clerkId;
+	public Clerk getClerk() {
+		return this.clerk;
 	}
 
-	public void setClerkId(Integer clerkId) {
-		this.clerkId = clerkId;
+	public void setClerk(Clerk clerk) {
+		this.clerk = clerk;
 	}
 
 	public Integer getTkClId() {
@@ -152,5 +154,6 @@ public class ClerkKscj implements java.io.Serializable {
 	public void setAnswerGather(String answerGather) {
 		this.answerGather = answerGather;
 	}
+
 
 }

@@ -43,7 +43,10 @@
 		<property name="kscjService" ref="kscjService"></property>
 	</bean>
 	<bean id="kscjService" class="org.yohta.service.impl.ClerkKscjServiceImpl">
+		<property name="clerkGdksTmDao" ref="clerkGdksTmDao"></property>
 		<property name="tkclDao" ref="tkclDao"></property>
+		<property name="clerkKscjDao" ref="clerkKscjDao"></property>
+		<property name="gdsjDao" ref="gdsjDao"></property>
 	</bean>
 	<bean id="clerkKscjDao" class="org.yohta.dao.impl.ClerkKscjDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>

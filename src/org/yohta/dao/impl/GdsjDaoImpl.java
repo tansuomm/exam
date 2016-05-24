@@ -16,11 +16,19 @@ public class GdsjDaoImpl extends HibernateDaoSupport implements IGdsjDao {
 		return id;
 	}
 	/**
-	 * 根据试卷id得到题目
+	 * 根据试卷id得到题目(android)
 	 */
 	@Override
 	public List<Gdsj> getTmByTkclId(int tkclId,int tmTxId) {
 		List<Gdsj> list = (List<Gdsj>) this.getHibernateTemplate().find("From Gdsj where tkClId = ? and tmTxId = ? order by gdsjId asc",new Object[]{tkclId,tmTxId});
+		return list;
+	}
+	/**
+	 * 根据试卷id得到题目
+	 */
+	@Override
+	public List<Gdsj> findByTkclId(int tkClId) {
+		List<Gdsj> list = (List<Gdsj>) this.getHibernateTemplate().find("From Gdsj where tkClId = "+tkClId);
 		return list;
 	}
 }

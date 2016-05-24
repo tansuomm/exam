@@ -23,9 +23,9 @@
 				result="input" />
 		</global-exception-mappings>  -->
 		<!-- 模拟交卷 -->
- 	<!-- <action name="saveSjPre" method="saveSjPre" class="tkclAction">
+ 	 	<action name="saveSjPre" method="saveSjPre" class="tkclAction">
 			<result name="saveSjPre">/WEB-INF/jsp/tkcl/testSaveSj.jsp</result>
-		</action> -->
+		</action> 
 		
 		
 		<action name="*_*" class="{1}Action" method="{2}">
