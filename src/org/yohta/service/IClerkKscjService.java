@@ -9,4 +9,6 @@ public interface IClerkKscjService {
 	public String findByTkclId(int tkclId);
 	//判分前取得答卷信息
 	public String markPre(int clerkKscjId,int tkClId);
+	//判卷
+	public String mark(int clerkKscjId,int[] gdsjIdarr,float[] tmWddfarr);
 }

@@ -12,6 +12,7 @@ import org.yohta.vo.ClerkGdksTm;
 import org.yohta.vo.ClerkKscj;
 import org.yohta.vo.Gdsj;
 import org.yohta.vo.TkCl;
+import org.yohta.vo.User;
 
 public class ClerkKscjServiceImpl implements IClerkKscjService {
 	/**
@@ -44,6 +45,23 @@ public class ClerkKscjServiceImpl implements IClerkKscjService {
 		ServletActionContext.getRequest().setAttribute("gdsjList", list1);
 		return "markPre";
 	}
+	/**
+	 * 判卷
+	 */
+	@Override
+	public String mark(int clerkKscjId, int[] gdsjIdarr, float[] tmWddfarr) {
+		float tmWdScore = 0;
+		for(int i =0;i<gdsjIdarr.length;i++){
+			clerkGdksTmDao.update(clerkKscjId, gdsjIdarr[i], tmWddfarr[i]);
+			tmWdScore += tmWddfarr[i];
+		}
+		//更新成绩表：判卷状态、总分、问答得分、判卷人
+		int status =2;
+		User u = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
+		String clerkPj = u.getUserName();
+		clerkKscjDao.update(status, tmWdScore, clerkPj, clerkKscjId);
+		return null;
+	}	
 	private IGdsjDao gdsjDao;
 	public void setGdsjDao(IGdsjDao gdsjDao) {
 		this.gdsjDao = gdsjDao;
@@ -59,5 +77,6 @@ public class ClerkKscjServiceImpl implements IClerkKscjService {
 	private IClerkKscjDao clerkKscjDao;
 	public void setClerkKscjDao(IClerkKscjDao clerkKscjDao) {
 		this.clerkKscjDao = clerkKscjDao;
-	}	
+	}
+
 }

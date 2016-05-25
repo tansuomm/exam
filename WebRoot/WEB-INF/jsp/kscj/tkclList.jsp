@@ -23,17 +23,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body class="mainbody">
 	<form name="form1" method="post" action="" id="form1">
-		<div class="navigation">首页 &gt; 控制面板 &gt; 试卷管理</div>
+		<div class="navigation"><a href="javascript:history.go(-1);" class="back">后退</a>首页 &gt; 控制面板 &gt; 试卷管理</div>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0"
 			class="msgtable">
 			<tr>
 				
 				<th width="15%">考生学号</th>
 				<th width="15%">考生姓名</th>
+				<th width="10%">总成绩</th>
 				<th width="10%">基础题得分</th>
 				<th width="10%">问答题得分</th>
 				<th width="15%">判卷状态</th>
-				<th width="20%">判卷人</th>
+				<th width="10%">判卷人</th>
 				<!-- 如果已判卷，判卷人可以选择再行判卷 -->
 				<th width="15%">操作</th>
 			</tr>
@@ -43,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- 未设置主外键 -->
 						<td align="center">${clerk.clerkName}</td>
 						<td align="center">${clerk.name}</td>
+						<td align="center">${cj}</td>
 						<td align="center">${clerkXzdf}</td>
 						<td align="center">${clerkWddf}</td>
 						

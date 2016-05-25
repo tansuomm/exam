@@ -7,4 +7,5 @@ import org.yohta.vo.ClerkKscj;
 public interface IClerkKscjDao {
 	public int insert(ClerkKscj clerkKscj);
 	public List<ClerkKscj> findByTkclId(int tkclId);
+	public boolean update(int status,float wddf,String clerkPj,int clerkKscjId);
 }

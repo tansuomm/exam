@@ -53,7 +53,7 @@
 		</table>
 		<%String  clerkKscjIdvalue=  request.getParameter("clerkGdksTm.clerkKscjId");
 		  String  tkClIdvalue = request.getParameter("tkClId");%>
-		  <input type="hidden" name="tkclId" value="<%=tkClIdvalue %>"></input>
+		  <input type="hidden" name="marktkclId" value="<%=tkClIdvalue %>"></input>
 		<input type="hidden" name="clerkKscjId" value="<%=clerkKscjIdvalue%>"></input>
 		
 		<input type="submit" value="保存" name="submit"></input>

@@ -18,8 +18,10 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 		return kscjService.markPre(clerkGdksTm.getClerkKscjId(),model.getTkClId());
 	}
 	public String mark()throws Exception{
-		System.out.println(model.getClerkKscjId()+"dd"+gdsjIdarr+"cc"+tmWddfarr);
-		return tkclList();
+		System.out.println(marktkclId+"dd"+gdsjIdarr+"cc"+tmWddfarr);
+		//判每个人的答卷
+		kscjService.mark(model.getClerkKscjId(), gdsjIdarr, tmWddfarr);
+		return kscjService.findByTkclId(marktkclId);
 	}
 	public String analysePre()throws Exception{
 		return "analysePre";
@@ -27,10 +29,19 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 	public String analyse()throws Exception{
 		return null;
 	}
+	//判分完毕后刷新列表
+	private int marktkclId;
 	//具体答题情况的题目id
 	private int[] gdsjIdarr;
 	//具体答题情况得分
 	private float[] tmWddfarr;
+	public int getMarktkclId() {
+		return marktkclId;
+	}
+	public void setMarktkclId(int marktkclId) {
+		this.marktkclId = marktkclId;
+	}
+
 	
 	public int[] getGdsjIdarr() {
 		return gdsjIdarr;
