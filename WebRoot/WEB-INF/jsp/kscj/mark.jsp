@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>答卷判分</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet"
 	href="<%=path%>/html/scripts/ui/skins/Aqua/css/ligerui-all.css" />
 <link type="text/css" rel="stylesheet"
@@ -20,82 +20,43 @@
 <script type="text/javascript"
 	src="<%=path%>/html/scripts/ui/js/ligerBuild.min.js"></script>
 <script type="text/javascript" src="<%=path%>/html/js/function.js"></script>
-<style>
-#leftdiv {
-	width: 49%;
-	float: left;
-	clear: left;
-}
-
-#rightdiv {
-	width: 49%;
-	float: right;
-	clear: right;
-}
-
-#headerdiv {
-	width: 100%;
-	height: auto;
-}
-</style>
 </head>
 <body class="mainbody">
-	<div>
+	<form name="form1" method="post" action="kscj_mark" id="form1">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<s:iterator value="#request.gdsjList" id="gdsj">
+				<s:iterator value="#request.clerkGdksTmList" var="clerkGdksTm">
+					
+					<s:if test="#clerkGdksTm.gdsjId==tmId">
 
+						<tr>
+							<td><s:property value="tmId" />.<s:property value="tmNr" /></td>
+						</tr>
+						<input type="hidden"  name="gdsjIdarr" value="${gdsjId}"></input>
+						<tr>
+							<td>&nbsp;&nbsp;答 案:<s:property value="tmDa" /></td>
+						</tr>
+						<tr>
+							<td>&nbsp;&nbsp;考生答案:<s:property value="clerkTmDa" /></td>
+						</tr>
+						<tr>
+							<td>&nbsp;&nbsp;分 数:<s:property value="tmFs" /></td>
+						</tr>
 
-		<form name="form1" method="post" action="kscj_mark" id="form1">
-			<div class="navigation">首页 &gt; 控制面板 &gt; 试卷管理 &gt; 手工判分</div>
-			<!-- 正确答案 -->
-			<div id="leftdiv">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0"
-					class="msgtable">
-					<tr>
-						<th width="25%">题号</th>
-						<th width="25%">标题</th>
-						<th width="25%">分数</th>
-						<th width="25">正确答案</th>
-
-					</tr>
-					<s:if test="#request.gdsjList != null">
-						<s:iterator value="#request.gdsjList" var="gdsj">
-							<tr>
-								<td align="center">${tmId}</td>
-								<td align="center">${tmNr}</td>
-								<td align="center">${tmFs}</td>
-								<td align="center">${tmDa}</td>
-							</tr>
-						</s:iterator>
+						<tr>
+							<td>&nbsp;&nbsp;应得分数:<input type="text" name="tmWddfarr" value="${tmWddf}"></input></td>
+						</tr>
+						
 					</s:if>
-				</table>
-
-
-			</div>
-			<!-- 考生答案 -->
-			<div id="rightdiv">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0"
-					class="msgtable">
-					<tr>
-						<th width="25%">题号</th>
-						<th width="25%">考生答案</th>
-						<th width="25%">考生得分</th>
-						<th width="25%">应得分数</th>
-					</tr>
-					<s:if test="#request.clerkGdksTmList != null">
-						<s:iterator value="#request.clerkGdksTmList" var="clerkGdksTm">
-							<tr>
-								<td align="center">${gdsjId}</td>
-								<td align="center">${clerkTmDa}</td>
-								<td align="center">${tmWddf}</td>
-								<td align="center"><input type="text" name="tmWddf" value=${tmWddf}></input></td>
-							</tr>
-						</s:iterator>
-					</s:if>
-				</table>
-			</div>
-	</div>
-	<div style="width:100%; height: auto">
-		<input type="submit" value="保存" name="submit" />
-	</div>
+				</s:iterator>
+			</s:iterator>
+		</table>
+		<%String  clerkKscjIdvalue=  request.getParameter("clerkGdksTm.clerkKscjId");
+		  String  tkClIdvalue = request.getParameter("tkClId");%>
+		  <input type="hidden" name="tkclId" value="<%=tkClIdvalue %>"></input>
+		<input type="hidden" name="clerkKscjId" value="<%=clerkKscjIdvalue%>"></input>
+		
+		<input type="submit" value="保存" name="submit"></input>
 	</form>
 </body>
 </html>

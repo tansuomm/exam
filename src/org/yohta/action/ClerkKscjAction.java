@@ -18,7 +18,8 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 		return kscjService.markPre(clerkGdksTm.getClerkKscjId(),model.getTkClId());
 	}
 	public String mark()throws Exception{
-		return "tkclList";
+		System.out.println(model.getClerkKscjId()+"dd"+gdsjIdarr+"cc"+tmWddfarr);
+		return tkclList();
 	}
 	public String analysePre()throws Exception{
 		return "analysePre";
@@ -26,7 +27,23 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 	public String analyse()throws Exception{
 		return null;
 	}
+	//具体答题情况的题目id
+	private int[] gdsjIdarr;
+	//具体答题情况得分
+	private float[] tmWddfarr;
 	
+	public int[] getGdsjIdarr() {
+		return gdsjIdarr;
+	}
+	public void setGdsjIdarr(int[] gdsjIdarr) {
+		this.gdsjIdarr = gdsjIdarr;
+	}
+	public float[] getTmWddfarr() {
+		return tmWddfarr;
+	}
+	public void setTmWddfarr(float[] tmWddfarr) {
+		this.tmWddfarr = tmWddfarr;
+	}
 	private ClerkGdksTm clerkGdksTm;
 	private IClerkKscjService kscjService;
 	public void setKscjService(IClerkKscjService kscjService) {
