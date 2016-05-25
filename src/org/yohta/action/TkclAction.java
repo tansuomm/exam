@@ -1,7 +1,9 @@
 package org.yohta.action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 import org.yohta.service.IExamTkjService;
@@ -12,6 +14,7 @@ import org.yohta.vo.TkCl;
 import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
 
 
 public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
@@ -145,18 +148,22 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	public String saveSj()throws Exception{
 		//
 		String str ="";
+		Map<String,String> map = new HashMap<String,String>();
 		//System.out.println(222222+sjInfo);
 		if(sjInfo!=null&&sjInfo!=""){
-			
 			str = tkclService.saveSj(sjInfo);
-
 		}
 		if("saveSj".equals(str)){
-			str="交卷成功";
+			//str="交卷成功";
+			map.put("resultCode","0000");
+			map.put("resultMsg", "保存成功");
 		}else{
-			str="交卷失败";
+			//str="交卷失败";
+			map.put("resultCode","0001");
+			map.put("resultMsg", "保存失败");
 		}
-		PrintString.printStr(str);
+		String json = JSON.toJSONString(map);
+		PrintString.printStr(json);
 		return null;
 	}
 	public String getSjInfo() {
