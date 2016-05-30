@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			class="msgtable">
 			<tr>
 				<th width="10%">选择</th>
-				<th width="30%" align="left">题目标题</th>
+				<th width="30%">题目标题</th>
 				<th width="5">题 型</th>
 				<th width="10%">题库</th>
 				<th width="15%">知识点</th>
