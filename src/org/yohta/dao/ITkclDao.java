@@ -28,4 +28,6 @@ public interface ITkclDao {
 	public boolean update(int tkclId,int isAllow);
 	//已经考过得科目 时间
 	public List<TkCl> findHasTkClByEtime();
+	//更具id查找
+	public TkCl findbyId(int tkclId);
 }

@@ -1,6 +1,7 @@
 package org.yohta.action;
 
 import org.yohta.service.IClerkKscjService;
+import org.yohta.utils.PrintString;
 import org.yohta.vo.ClerkGdksTm;
 import org.yohta.vo.ClerkKscj;
 
@@ -18,17 +19,28 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 		return kscjService.markPre(clerkGdksTm.getClerkKscjId(),model.getTkClId());
 	}
 	public String mark()throws Exception{
-		System.out.println(marktkclId+"dd"+gdsjIdarr+"cc"+tmWddfarr);
+		//System.out.println(marktkclId+"dd"+gdsjIdarr+"cc"+tmWddfarr);
 		//判每个人的答卷
 		kscjService.mark(model.getClerkKscjId(), gdsjIdarr, tmWddfarr);
 		return kscjService.findByTkclId(marktkclId);
 	}
-	public String analysePre()throws Exception{
-		return "analysePre";
-	}
-	public String analyse()throws Exception{
+	//判断是否所有考生被判卷完成
+	public String ifhasnomark()throws Exception{
+		String str = kscjService.ifhasnomark(model.getTkClId());
+		PrintString.printStr(str);
 		return null;
 	}
+	//分析前查找及格分和本次考试相关人员
+	public String analysePre()throws Exception{
+		kscjService.findByTkclId(model.getTkClId());
+		return "analysePre";
+	}
+	//统计分析
+	public String analyse()throws Exception{
+		return kscjService.analyse(model.getTkClId(), passFs);
+	}
+	//分析的及格分数
+	private int passFs;
 	//判分完毕后刷新列表
 	private int marktkclId;
 	//具体答题情况的题目id
@@ -65,6 +77,12 @@ public class ClerkKscjAction extends SuperAction<ClerkKscj> {
 	}
 	public void setClerkGdksTm(ClerkGdksTm clerkGdksTm) {
 		this.clerkGdksTm = clerkGdksTm;
+	}
+	public int getPassFs() {
+		return passFs;
+	}
+	public void setPassFs(int passFs) {
+		this.passFs = passFs;
 	}
 	
 	

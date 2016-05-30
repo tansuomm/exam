@@ -1,6 +1,10 @@
 package org.yohta.service.impl;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 import org.yohta.dao.IClerkGdksTmDao;
@@ -8,11 +12,14 @@ import org.yohta.dao.IClerkKscjDao;
 import org.yohta.dao.IGdsjDao;
 import org.yohta.dao.ITkclDao;
 import org.yohta.service.IClerkKscjService;
+import org.yohta.utils.PrintString;
 import org.yohta.vo.ClerkGdksTm;
 import org.yohta.vo.ClerkKscj;
 import org.yohta.vo.Gdsj;
 import org.yohta.vo.TkCl;
 import org.yohta.vo.User;
+
+import com.alibaba.fastjson.JSON;
 
 public class ClerkKscjServiceImpl implements IClerkKscjService {
 	/**
@@ -29,7 +36,8 @@ public class ClerkKscjServiceImpl implements IClerkKscjService {
 	 */
 	@Override
 	public String findByTkclId(int tkclId) {
-		
+		TkCl tkcl = tkclDao.findbyId(tkclId);
+		ServletActionContext.getRequest().setAttribute("passFs", tkcl.getPassFS());
 		List<ClerkKscj> list = clerkKscjDao.findByTkclId(tkclId);
 		ServletActionContext.getRequest().setAttribute("clerkKscjList", list);
 		return "tkclList";
@@ -61,7 +69,49 @@ public class ClerkKscjServiceImpl implements IClerkKscjService {
 		String clerkPj = u.getUserName();
 		clerkKscjDao.update(status, tmWdScore, clerkPj, clerkKscjId);
 		return null;
-	}	
+	}
+	//考卷是否批改完成
+		@Override
+		public String ifhasnomark(int tkclId) {
+			String str = "yes";
+			List<ClerkKscj> list = clerkKscjDao.findByTkclId(tkclId);
+			for(ClerkKscj clerkKscj :list){
+				if(clerkKscj.getClerkKsStatus()==1){
+					str="no";
+				}
+			}
+			return str;
+		}
+	//统计分析
+		@Override
+		public String analyse(int tkclid, int passfs) {
+			//拼接json
+			Map<String,Float> map = new HashMap<String,Float>();
+			List<ClerkKscj> list = clerkKscjDao.findByTkclId(tkclid);
+			Collections.sort(list, new Comparator<ClerkKscj>(){
+				@Override
+				public int compare(ClerkKscj arg0, ClerkKscj arg1) {
+					return (int) (arg0.getCj()-arg1.getCj());
+				}});
+			map.put("minCj",list.get(0).getCj());
+			map.put("maxCj", list.get(list.size()-1).getCj());
+			float jigenum = 0;
+			float  totalCj= 0;
+			for(ClerkKscj clerkKscj:list){
+				totalCj +=clerkKscj.getCj();
+				if(clerkKscj.getCj()>passfs){
+					jigenum++;
+				}
+			}
+			//保留两位小数
+			float percent =(float)(Math.round((jigenum/list.size())*100))/100;
+			map.put("percent", percent);
+			map.put("average", totalCj/list.size());
+			String json = JSON.toJSONString(map);
+			PrintString.printStr(json);
+			return null;
+		}
+
 	private IGdsjDao gdsjDao;
 	public void setGdsjDao(IGdsjDao gdsjDao) {
 		this.gdsjDao = gdsjDao;
@@ -78,5 +128,5 @@ public class ClerkKscjServiceImpl implements IClerkKscjService {
 	public void setClerkKscjDao(IClerkKscjDao clerkKscjDao) {
 		this.clerkKscjDao = clerkKscjDao;
 	}
-
+	
 }

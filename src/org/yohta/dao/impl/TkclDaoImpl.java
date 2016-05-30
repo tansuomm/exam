@@ -82,5 +82,9 @@ public class TkclDaoImpl extends HibernateDaoSupport implements ITkclDao{
 		List<TkCl> list = (List<TkCl>) this.getHibernateTemplate().find("From TkCl where validEtime < now()");
 		return list;
 	}
+	@Override
+	public TkCl findbyId(int tkclId) {
+		return this.getHibernateTemplate().load(TkCl.class, tkclId);
+	}
 
 }

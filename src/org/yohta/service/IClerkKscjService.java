@@ -11,4 +11,8 @@ public interface IClerkKscjService {
 	public String markPre(int clerkKscjId,int tkClId);
 	//判卷
 	public String mark(int clerkKscjId,int[] gdsjIdarr,float[] tmWddfarr);
+	//判断考卷批改完成
+	public String ifhasnomark(int tkclId);
+	//统计分析
+	public String analyse(int tkclid,int passfs);
 }

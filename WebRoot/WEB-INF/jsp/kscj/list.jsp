@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <td align="center">${tkClName}</td>
 	        <td align="center">${totalScore}</td>
 	        <td align="center">${passFS}</td>
-	        <td align="center"><a href="kscj_tkclList?tkClId=${tkClId}">判卷</a>&nbsp;&nbsp;<a href="kscj_analysePre">分析</a></td>
+	        <td align="center"><a href="kscj_tkclList?tkClId=${tkClId}">判卷</a>&nbsp;&nbsp;<a href="javascipt:void(0)" onclick="analyse(${tkClId})";>分析</a>
 	      </tr>
       </s:iterator>
       </s:if>
@@ -44,4 +44,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="line10"></div>
 </form>
 </body>
+<script type="text/javascript">
+	function analyse(tkclId){
+		
+		$.ajax({
+			type:"post",
+			url:"kscj_ifhasnomark",
+			data:"tkClId="+tkclId,
+			success:function(msg){
+			
+				if($.trim(msg) !=""&&$.trim(msg)=="yes"){
+					location.href="kscj_analysePre?tkClId=" +tkclId;
+				}
+				else{
+					//ajax判断是否判卷完成
+					alert("请确定是否判卷完成");
+				}
+			}	
+		});
+	}
+</script>
 </html>
