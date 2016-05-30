@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 							<tr>
 								<th>题目分数：</th>
-								<td><input disabled name="tmScore" value="${tm.tmScore}"
+								<td><input  name="tmScore" value="${tm.tmScore}"
 									type="text" id="txtTmScore"
 									class="txtInput normal required digits" /> <label></label></td>
 							</tr>
@@ -132,8 +132,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</tr>
 							<tr>
 								<th>题目选项：</th>
-								<td><input name="tmXuanxiang" type="text" id="txtLogo"				
-									class="txtInput normal" placeholder="选择题格式如:选A;选B;选C;选D"/></td>
+								<td><input name="tmXuanxiang" type="text" id="txtLogo"	value="${tm.tmXuanxiang }"		
+									class="txtInput normal" /></td>
 								<td><input type="hidden" name="tmXuanxiangNum" value="${tm.tmXuanxiangNum }" /></td>
 							</tr>
 								

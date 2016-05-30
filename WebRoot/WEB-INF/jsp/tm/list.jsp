@@ -99,7 +99,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			class="msgtable">
 			<tr>
 				<th width="10%">选择</th>
-				<th width="35%" align="left">题目标题</th>
+				<th width="30%" align="left">题目标题</th>
+				<th width="5">题 型</th>
 				<th width="10%">题库</th>
 				<th width="15%">知识点</th>
 				<th width="10%">创建人</th>
@@ -115,6 +116,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							name="rptList$ctl01$hidDirName" id="rptList_ctl01_hidDirName"
 							value="advert" /></td>
 						<td>${tmName}</td>
+						<td align="center">
+							<s:if test="#tm.tmType==1">
+								单选题
+							</s:if>
+							<s:if test="#tm.tmType==3">
+								多选题
+							</s:if>
+							<s:if test="#tm.tmType==2">
+								填空题
+							</s:if>
+							<s:if test="#tm.tmType==4">
+								判断题
+							</s:if>
+							<s:if test="#tm.tmType==5">
+								问答题
+							</s:if>
+						</td>
 						<td align="center">${tk.tkName}</td>
 						<td align="center">${tmZsd}</td>
 						<td align="center">${tmCreateName}</td>

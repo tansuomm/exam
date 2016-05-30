@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!-- 当前页放在影藏域中,form表单action为空（提交到当前页）js通过name提交，防止模糊查询时地址栏提交过多的参数 -->
-<input type="hidden" name="pageResult.currentPage" id="hidCurrentPage" value="1" />
+<input type="hidden" name="pageResult.currentPage" id="hidCurrentPage" value="${pageResult.currentPage}" />
 <table>
 	<tr><td align="center">共${pageResult.pageCount}页${pageResult.totalNum}条   当前第${pageResult.currentPage}页
 		<s:if test="#request.pageResult.currentPage > 1" >
