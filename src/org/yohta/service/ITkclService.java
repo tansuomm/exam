@@ -2,6 +2,7 @@ package org.yohta.service;
 
 import java.util.List;
 
+import org.yohta.vo.ClerkKscj;
 import org.yohta.vo.TkCl;
 
 public interface ITkclService {
@@ -36,6 +37,7 @@ public interface ITkclService {
 	 */
 	public String delete(int tkclId);
 	public String update(int tkclId,int isAllow);
+	public String findClerkKscjsByTkclIdAndClerkId(int tkclId,int clerkid);
 	//保存试卷
 	public String saveSj(String sjInfo);
 }

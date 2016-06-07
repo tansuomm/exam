@@ -39,6 +39,7 @@ public class ClerkClAction extends ActionSupport {
 		String str = "input";
 		if(isAllow==0){	
 			str="add";
+			//初始化考试成绩表。	
 		}else{
 			//添加班级organID 和 clerkId 
 			ClerkCl clerkCl = new ClerkCl();

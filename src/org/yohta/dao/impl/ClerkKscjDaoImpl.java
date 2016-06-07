@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.yohta.dao.IClerkKscjDao;
+import org.yohta.vo.Clerk;
 import org.yohta.vo.ClerkKscj;
 
 public class ClerkKscjDaoImpl extends HibernateDaoSupport implements IClerkKscjDao {
@@ -31,6 +32,23 @@ public class ClerkKscjDaoImpl extends HibernateDaoSupport implements IClerkKscjD
 		Query query = this.getSessionFactory().getCurrentSession().createQuery(hql);
 		query.executeUpdate();
 		return true;
+	}
+	@Override
+	public int updateKscj(ClerkKscj clerkKscj) {
+		this.getHibernateTemplate().update(clerkKscj);
+		int id = clerkKscj.getClerkKscjId();
+		return id;
+	}
+	@Override
+	public List<ClerkKscj> findClerkKscjsByTkclIdAndClerkId(int tkclId, int clerkId) {
+		/*Clerk clerk = new Clerk();
+		clerk.setClerkId(clerkId);
+		List<ClerkKscj> list = (List<ClerkKscj>) this.getHibernateTemplate().find("From ClerkKscj where tkClId = "+ tkclId +" and clerk = "+clerk);*/
+		String sql = "select * from clerk_kscj where tk_cl_id = "+tkclId+" and clerk_id = "+clerkId;
+		Query query = this.getSessionFactory().getCurrentSession().createSQLQuery(sql);
+		List<ClerkKscj> list = query.list();
+		
+		return list;
 	}
 	
 }

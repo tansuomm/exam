@@ -59,7 +59,8 @@ public class TkclServiceImpl implements ITkclService {
 		}
 		return tkclList;
 	}
-
+	//
+	int wdpf = 0;
 	@Override
 	public void addTkcl(TkCl tkcl, int[] tm_num_1, int[] tm_num_2, int[] tm_num_3, int[] tm_num_4, int[] tm_num_5,
 			int[] clTkjId, int[] clTkId) {
@@ -147,6 +148,28 @@ public class TkclServiceImpl implements ITkclService {
 				gdsjDao.addGdsj(gdsj);
 			}
 		}
+		//初始化考试成绩表为所有考生。
+		wdpf = tkcl.getTkClPf();
+		initKscj(tkclId);
+				
+	}
+/**
+ * 初始化考试成绩表为所有考生。
+ * @param tkclId
+ */
+	private void initKscj(int tkclId) {
+		List<Clerk> list = clerkDao.findAll();
+		for(Clerk clerk:list){
+			ClerkKscj clerkKscj = new ClerkKscj();
+			clerkKscj.setCj(0f);
+			clerkKscj.setClerk(clerk);
+			clerkKscj.setClerkKsStatus(0);
+			clerkKscj.setClerkWddf(0f);
+			clerkKscj.setClerkXzdf(0f);
+			clerkKscj.setTkClId(tkclId);
+			clerkKscj.setClerkWdpf(wdpf);
+			clerkKscjDao.insert(clerkKscj);
+		}
 	}
 
 	/**
@@ -191,6 +214,7 @@ public class TkclServiceImpl implements ITkclService {
 				}
 			}
 		}
+		
 	}
 
 	/**
@@ -305,6 +329,7 @@ public class TkclServiceImpl implements ITkclService {
 		ClerkKscj clerkKscj = new ClerkKscj();
 		Clerk clerk = new Clerk();
 		clerk.setClerkId(obj.getInteger("clerkId"));
+		clerkKscj.setClerkKscjId(obj.getInteger("clerkKscjId"));
 		clerkKscj.setClerk(clerk);
 		clerkKscj.setTkClId(obj.getInteger("tkClId"));
 		clerkKscj.setClerkKsStatus(obj.getInteger("clerkKsStatus"));
@@ -316,7 +341,7 @@ public class TkclServiceImpl implements ITkclService {
 		clerkKscj.setKsTime(obj.getInteger("ksTime"));
 		clerkKscj.setAnswerGather(obj.getString("answerGather"));
 		//提交到考试成绩表
-		int clerkKscjId = clerkKscjDao.insert(clerkKscj);
+		int clerkKscjId = clerkKscjDao.updateKscj(clerkKscj);
 		
 		//解析,如果是看到的多行字符串需要转移“;
 		String xml = obj.getString("answerGather");
@@ -369,6 +394,17 @@ public class TkclServiceImpl implements ITkclService {
 			str ="saveSj";
 		}
 		return str;
+	}
+	//根据考生id和试卷id查成绩
+	@Override
+	public String findClerkKscjsByTkclIdAndClerkId(int tkclId, int clerkId) {
+		List<ClerkKscj> list = new ArrayList<ClerkKscj>();
+		list = clerkKscjDao.findClerkKscjsByTkclIdAndClerkId(tkclId,clerkId);
+		if(list.size() > 0){
+			String json = JSON.toJSONString(list);
+			PrintString.printStr(json);
+		}
+		return null;
 	}
 	
 	

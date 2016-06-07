@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<th>题目选项：</th>
 							<td><textarea style="width:255px;height:50px" name="tmXuanxiang" type="text" id="txtLogo"				
-								class="txtInput normal" >选择题格式如:A.1;B.2;C.3;D.4</textarea></td>
+								class="txtInput normal" >选择题格式如:1;2;3;4</textarea></td>
 						</tr>
 						<tr>
 							<th>题目答案：</th>

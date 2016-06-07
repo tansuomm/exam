@@ -13,4 +13,5 @@ public interface IClerkClService {
 	
 	public String add(ClerkCl clerkCl);
 	public String delete(ClerkCl clerkCl);
+	//初始化考试成绩表,为了方便将本次考试的所有考生成绩初始化。
 }

@@ -52,9 +52,9 @@
 			<result name="pwdOrUserError">/WEB-INF/jsp/uerror.jsp</result>
 		</action>
 		<!-- android模拟登录 -->
-		<!-- <action name="appLoginPre" method="loginPre" class="clerkAction">
+	 <!-- <action name="appLoginPre" method="loginPre" class="clerkAction">
 			<result name="loginPre">/WEB-INF/jsp/clerk/login.jsp</result>
-		</action> -->
+		</action>  -->
 		<action name="appLogin" method="login" class="clerkAction">
 		</action>
 		

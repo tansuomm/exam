@@ -136,6 +136,9 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 	public String getTmByTkclId() throws Exception{		
 		return tkclService.getTmByTkclId(tkcl.getTkClId(),tmTxId);
 	}
+	public String findClerkKscjsByTkclIdAndClerkId()throws Exception{
+		return tkclService.findClerkKscjsByTkclIdAndClerkId(tkcl.getTkClId(),clerkId);
+	}
 	/**
 	 * android提交考试答卷保存
 	 * @return
