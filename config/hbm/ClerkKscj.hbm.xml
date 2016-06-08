@@ -24,12 +24,12 @@
 			</column>
 		</property>
 		<property name="clerkKsBtime" type="java.sql.Timestamp">
-			<column name="clerk_ks_btime" length="19">
+			<column name="clerk_ks_btime" length="21">
 				<comment>开始时间</comment>
 			</column>
 		</property>
 		<property name="clerkKsEtime" type="java.sql.Timestamp">
-			<column name="clerk_ks_etime" length="19">
+			<column name="clerk_ks_etime" length="21">
 				<comment>结束时间</comment>
 			</column>
 		</property>

@@ -1,5 +1,6 @@
 package org.yohta.service.impl;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -40,17 +41,17 @@ public class TkclServiceImpl implements ITkclService {
 	@Override
 	public List<TkCl> findTkClByClerkId(int clerkId) {
 		List<TkCl> tkclList = new ArrayList<TkCl>();
-		//如果0允许所有人考试，直接返回试卷列表，否则到表clerkcl查找
+		// 如果0允许所有人考试，直接返回试卷列表，否则到表clerkcl查找
 		List<TkCl> listAll = tkclDao.findAllTkcl();
-		for(TkCl tkcl :listAll){
-			//这个试卷允许所有人参加
-			if(tkcl.getIsAllow()==0){
+		for (TkCl tkcl : listAll) {
+			// 这个试卷允许所有人参加
+			if (tkcl.getIsAllow() == 0) {
 				tkclList.add(tkcl);
 			}
 		}
-		Clerk c =clerkDao.findById(clerkId);
-		//考生能考试列表有班级决定
-		List<ClerkCl> clist = clerkClDao.findClerkClByOrganId(c.getOrgan().getOrganId());		
+		Clerk c = clerkDao.findById(clerkId);
+		// 考生能考试列表有班级决定
+		List<ClerkCl> clist = clerkClDao.findClerkClByOrganId(c.getOrgan().getOrganId());
 		for (ClerkCl clerkCl : clist) {
 			// 遍历所能考试的试卷Id
 			int tkclID = clerkCl.getTkClId();
@@ -59,8 +60,10 @@ public class TkclServiceImpl implements ITkclService {
 		}
 		return tkclList;
 	}
+
 	//
 	int wdpf = 0;
+
 	@Override
 	public void addTkcl(TkCl tkcl, int[] tm_num_1, int[] tm_num_2, int[] tm_num_3, int[] tm_num_4, int[] tm_num_5,
 			int[] clTkjId, int[] clTkId) {
@@ -148,18 +151,20 @@ public class TkclServiceImpl implements ITkclService {
 				gdsjDao.addGdsj(gdsj);
 			}
 		}
-		//初始化考试成绩表为所有考生。
+		// 初始化考试成绩表为所有考生。
 		wdpf = tkcl.getTkClPf();
 		initKscj(tkclId);
-				
+
 	}
-/**
- * 初始化考试成绩表为所有考生。
- * @param tkclId
- */
+
+	/**
+	 * 初始化考试成绩表为所有考生。
+	 * 
+	 * @param tkclId
+	 */
 	private void initKscj(int tkclId) {
 		List<Clerk> list = clerkDao.findAll();
-		for(Clerk clerk:list){
+		for (Clerk clerk : list) {
 			ClerkKscj clerkKscj = new ClerkKscj();
 			clerkKscj.setCj(0f);
 			clerkKscj.setClerk(clerk);
@@ -214,7 +219,7 @@ public class TkclServiceImpl implements ITkclService {
 				}
 			}
 		}
-		
+
 	}
 
 	/**
@@ -224,11 +229,11 @@ public class TkclServiceImpl implements ITkclService {
 	 * @throws Exception
 	 */
 	@Override
-	public String getTmByTkclId(int tkclId,int tmTxId) {
+	public String getTmByTkclId(int tkclId, int tmTxId) {
 		List<Gdsj> list = new ArrayList<Gdsj>();
-		list = gdsjDao.getTmByTkclId(tkclId,tmTxId);
+		list = gdsjDao.getTmByTkclId(tkclId, tmTxId);
 		String json = JSON.toJSONString(list);
-		//JSONArray json = JSONArray.fromObject(list);
+		// JSONArray json = JSONArray.fromObject(list);
 		PrintString.printStr(json);
 
 		return null;
@@ -242,6 +247,7 @@ public class TkclServiceImpl implements ITkclService {
 	private IClerkDao clerkDao;
 	private IClerkKscjDao clerkKscjDao;
 	private IClerkGdksTmDao clerkGdksTmDao;
+
 	public void setClerkGdksTmDao(IClerkGdksTmDao clerkGdksTmDao) {
 		this.clerkGdksTmDao = clerkGdksTmDao;
 	}
@@ -277,6 +283,7 @@ public class TkclServiceImpl implements ITkclService {
 	public List<TkCl> findAllTkcl() {
 		return tkclDao.findAllTkcl();
 	}
+
 	/**
 	 * 删除试卷
 	 */
@@ -299,32 +306,35 @@ public class TkclServiceImpl implements ITkclService {
 
 	@Override
 	public String update(int tkclId, int isAllow) {
-		String str ="input";
-		if(tkclDao.update(tkclId, isAllow)){
-			str="update"; 
-		 } 
+		String str = "input";
+		if (tkclDao.update(tkclId, isAllow)) {
+			str = "update";
+		}
 		return str;
 	}
+
 	/**
 	 * 答卷保存到两张表。判分时update
 	 */
 	@Override
 	public String saveSj(String sjInfo) {
 		String str = "input";
-		//*题目Id(xml中的数字254)需要被传过来存到clerk_gdsj_tm。。
-		/*{"clerkId":1,"tkClId":2,"clerkKsStatus":1,
-			"clerkKsBtime":1463564430000,"clerkKsEtime":1463564430000,
-			"cj":60,"clerkXzdf":60,"clerkWddf":0,"ksTime":60,
-			"clerk_pj":null,"answerGather":"<ROOTSTUB global="true" prefix_259="6" mark_259="0" prefix_260="6"
-				mark_260="0" prefix_251="b" mark_251="0" prefix_252="a" mark_252="0"
-				prefix_257="ac" mark_257="0" prefix_258="b" mark_258="0" prefix_253="0"
-				mark_253="0" prefix_254="0" mark_254="0" prefix_255="66" mark_255="0"
-				prefix_256="66" mark_256="0"/>"}
-*/		
-		//试卷状态：0空的成绩表(出卷时添加，未添加此处不做)1交卷2已判分
-		//问答判分：试卷表的是否手工判卷
-		//判卷人：null,判卷时候再添加
-		//xml字符串：解析出问答和得分(0),存入两张表。dom4j解析。
+		// *题目Id(xml中的数字254)需要被传过来存到clerk_gdsj_tm。。
+		/*
+		 * {"clerkId":1,"tkClId":2,"clerkKsStatus":1,
+		 * "clerkKsBtime":1463564430000,"clerkKsEtime":1463564430000,
+		 * "cj":60,"clerkXzdf":60,"clerkWddf":0,"ksTime":60,
+		 * "clerk_pj":null,"answerGather":"<ROOTSTUB global="true" prefix_259="6
+		 * " mark_259="0" prefix_260="6" mark_260="0" prefix_251="b"
+		 * mark_251="0" prefix_252="a" mark_252="0" prefix_257="ac" mark_257="0"
+		 * prefix_258="b" mark_258="0" prefix_253="0" mark_253="0"
+		 * prefix_254="0" mark_254="0" prefix_255="66" mark_255="0"
+		 * prefix_256="66" mark_256="0"/>"}
+		 */
+		// 试卷状态：0空的成绩表(出卷时添加，未添加此处不做)1交卷2已判分
+		// 问答判分：试卷表的是否手工判卷
+		// 判卷人：null,判卷时候再添加
+		// xml字符串：解析出问答和得分(0),存入两张表。dom4j解析。
 		JSONObject obj = JSON.parseObject(sjInfo);
 		ClerkKscj clerkKscj = new ClerkKscj();
 		Clerk clerk = new Clerk();
@@ -332,80 +342,101 @@ public class TkclServiceImpl implements ITkclService {
 		clerkKscj.setClerkKscjId(obj.getInteger("clerkKscjId"));
 		clerkKscj.setClerk(clerk);
 		clerkKscj.setTkClId(obj.getInteger("tkClId"));
-		clerkKscj.setClerkKsStatus(obj.getInteger("clerkKsStatus"));
-		clerkKscj.setClerkKsBtime(obj.getTimestamp("clerkKsBtime"));
-		clerkKscj.setClerkKsEtime(obj.getTimestamp("clerkKsEtime"));
+		clerkKscj.setClerkKsStatus(obj.getInteger("clerkKsStatus"));  
+		
+		System.out.println("开始时间"+obj.getTimestamp("clerkKsBtime"));
+		System.out.println("结束时间"+obj.getTimestamp("clerkKsEtime"));
+		//时间戳问题，不能保存
+		clerkKscj.setClerkKsBtime(null);
+		clerkKscj.setClerkKsEtime(null);
+		/*clerkKscj.setClerkKsBtime(timeObj);
+		clerkKscj.setClerkKsEtime(timeObj);*/
 		clerkKscj.setCj(obj.getFloat("cj"));
 		clerkKscj.setClerkXzdf(obj.getFloat("clerkXzdf"));
+		clerkKscj.setClerkWdpf(obj.getInteger("clerkWdpf"));
 		clerkKscj.setClerkWddf(obj.getFloat("clerkWddf"));
 		clerkKscj.setKsTime(obj.getInteger("ksTime"));
 		clerkKscj.setAnswerGather(obj.getString("answerGather"));
-		//提交到考试成绩表
+		// 提交到考试成绩表
 		int clerkKscjId = clerkKscjDao.updateKscj(clerkKscj);
-		
-		//解析,如果是看到的多行字符串需要转移“;
+
+		// 解析,如果是看到的多行字符串需要转移“;
 		String xml = obj.getString("answerGather");
-		if(xml!=null&&xml!=""){//试卷有问答
-		try {
-			Document document = DocumentHelper.parseText(xml);
-			Element root = document.getRootElement();
-			//遍历根节点的所有属性名值
-			int contorl = 0;
-			String prefix = "";
-			Float mark = 0f;
-			Map<Integer,Map<String,Float>> outmap = (Map<Integer, Map<String, Float>>) new HashMap<Integer,Map<String,Float>>();
-			for (Iterator i = root.attributeIterator(); i.hasNext();) {
-				Attribute attribute = (Attribute) i.next();
-				//System.out.println(attribute.getName()+"::"+attribute.getValue());
-				 if(contorl==0){
-					   contorl = 1;
-					   continue;
-				   }
-				   if(contorl%2==0){
-					   Map<String,Float> innermap = (Map<String, Float>) new HashMap<String,Float>();
-					   mark = Float.parseFloat(attribute.getValue());
-					   Integer key = Integer.parseInt(attribute.getName().split("_")[1]);
-					   innermap.put(prefix, mark);
-					   outmap.put(key, innermap);
-				   }else{
-					    prefix= attribute.getValue(); //b
-				   }
-				   contorl +=1;
-				//需要tmId(gdsj表里的tmId就能表示每一道题)和考试成绩Id(先增加考试成绩表返回id)	
-			}
-			//录入考生针对某个题的问答情况(成绩id对应每个考生)
-			for(Map.Entry<Integer,Map<String,Float>> entry:outmap.entrySet()){
-				ClerkGdksTm clerkGdksTm = new ClerkGdksTm();
-				clerkGdksTm.setClerkKscjId(clerkKscjId);
-				clerkGdksTm.setGdsjId(entry.getKey());
-				Map<String,Float> inmap = entry.getValue();
-				for(Map.Entry<String, Float> inentry :inmap.entrySet()){
-					clerkGdksTm.setClerkTmDa(inentry.getKey());
-					clerkGdksTm.setTmWddf(inentry.getValue());
+		if (xml != null && xml != "") {// 试卷有问答
+			try {
+				Document document = DocumentHelper.parseText(xml);
+				Element root = document.getRootElement();
+				// 遍历根节点的所有属性名值
+				int contorl = 0;
+				String prefix = "";
+				Float mark = 0f;
+				Map<Integer, Map<String, Float>> outmap = (Map<Integer, Map<String, Float>>) new HashMap<Integer, Map<String, Float>>();
+				for (Iterator i = root.attributeIterator(); i.hasNext();) {
+					Attribute attribute = (Attribute) i.next();
+					// System.out.println(attribute.getName()+"::"+attribute.getValue());
+					if (contorl == 0) {
+						contorl = 1;
+						continue;
+					}
+					if (contorl % 2 == 0) {
+						Map<String, Float> innermap = (Map<String, Float>) new HashMap<String, Float>();
+						mark = Float.parseFloat(attribute.getValue());
+						Integer key = Integer.parseInt(attribute.getName().split("_")[1]);
+						innermap.put(prefix, mark);
+						outmap.put(key, innermap);
+					} else {
+						prefix = attribute.getValue(); // b
+					}
+					contorl += 1;
+					// 需要tmId(gdsj表里的tmId就能表示每一道题)和考试成绩Id(先增加考试成绩表返回id)
 				}
-				if(clerkGdksTmDao.add(clerkGdksTm)){
-					str="saveSj";
+				// 录入考生针对某个题的问答情况(成绩id对应每个考生)
+				for (Map.Entry<Integer, Map<String, Float>> entry : outmap.entrySet()) {
+					ClerkGdksTm clerkGdksTm = new ClerkGdksTm();
+					clerkGdksTm.setClerkKscjId(clerkKscjId);
+					clerkGdksTm.setGdsjId(entry.getKey());
+					Map<String, Float> inmap = entry.getValue();
+					for (Map.Entry<String, Float> inentry : inmap.entrySet()) {
+						clerkGdksTm.setClerkTmDa(inentry.getKey());
+						clerkGdksTm.setTmWddf(inentry.getValue());
+					}
+					if (clerkGdksTmDao.add(clerkGdksTm)) {
+						str = "saveSj";
+					}
 				}
+			} catch (DocumentException e) {
+				e.printStackTrace();
 			}
-		} catch (DocumentException e) {
-			e.printStackTrace();
-			}
-		}else{
-			str ="saveSj";
+		} else {
+			str = "saveSj";
 		}
 		return str;
 	}
-	//根据考生id和试卷id查成绩
+
+	// 根据考生id和试卷id查成绩
 	@Override
 	public String findClerkKscjsByTkclIdAndClerkId(int tkclId, int clerkId) {
 		List<ClerkKscj> list = new ArrayList<ClerkKscj>();
-		list = clerkKscjDao.findClerkKscjsByTkclIdAndClerkId(tkclId,clerkId);
-		if(list.size() > 0){
-			String json = JSON.toJSONString(list);
+		list = clerkKscjDao.findClerkKscjsByTkclIdAndClerkId(tkclId, clerkId);
+		
+		if (list.size() > 0) {
+			//System.out.println(list+"1111");
+			List<Map<String, String>> listjson = new ArrayList<Map<String, String>>();
+			Iterator<ClerkKscj> it = list.iterator();
+			while(it.hasNext()){
+				ClerkKscj clerkKscj = it.next();
+				//System.out.println(clerkKscj+"22");
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("clerkKscjId", clerkKscj.getClerkKscjId() + "");
+				map.put("clerkId", clerkKscj.getClerk().getClerkId() + "");
+				map.put("tkClId", clerkKscj.getTkClId() + "");
+				map.put("clerkWdpf", clerkKscj.getClerkWdpf()+"");
+				listjson.add(map);
+			}
+			String json = JSON.toJSONString(listjson);
 			PrintString.printStr(json);
 		}
 		return null;
 	}
-	
-	
+
 }

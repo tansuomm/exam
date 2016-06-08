@@ -152,7 +152,7 @@ public class TkclAction extends ActionSupport implements ModelDriven<TkCl> {
 		//
 		String str ="";
 		Map<String,String> map = new HashMap<String,String>();
-		//System.out.println(222222+sjInfo);
+		System.out.println(222222+sjInfo);
 		if(sjInfo!=null&&sjInfo!=""){
 			str = tkclService.saveSj(sjInfo);
 		}
